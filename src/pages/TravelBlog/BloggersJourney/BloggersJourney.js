@@ -13,6 +13,7 @@ const BloggersJourney = () => {
  const BloggersJourneyMobile =()=>{
      const settings ={
         dots: true,
+        dotsClass: "slick-dots",
         infinite: true,
         speed: 500,
         slidesToShow: 1,
@@ -22,10 +23,10 @@ const BloggersJourney = () => {
      }
      return (
         <div className={styles.mobile}> 
-            <Slider {...settings}>
-            {BloggersData.map(({img, name, text, index})=>(
+            <Slider {...settings} className={styles.slider}>
+            {BloggersData.map(({img, name, text, url,index})=>(
                 <div className={styles.eachSlide} key={index}>
-                    <BloggerCard img={img} name={name} text={text}/>
+                    <BloggerCard img={img} name={name} text={text} url={url}/>
                 </div>
                 ))}
             </Slider>
@@ -36,8 +37,8 @@ const BloggersJourney = () => {
  const BloggersJourneyDesk =()=>{
     return (
             <div className={styles.container}>
-                {BloggersData.map(({img, name, text, index})=>(
-                    <BloggerCard img={img} name={name} text={text} key={index}/>
+                {BloggersData.map(({img, name, text, url, index})=>(
+                    <BloggerCard img={img} name={name} text={text} url={url} key={index}/>
                 ))}
             </div>
     )
