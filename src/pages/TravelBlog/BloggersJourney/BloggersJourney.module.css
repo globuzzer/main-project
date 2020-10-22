@@ -52,6 +52,7 @@
         align-items: center;
         justify-content: center;
         grid-gap:20px;
+        padding-top: 50px;
     }
     .container {
         display: grid;
