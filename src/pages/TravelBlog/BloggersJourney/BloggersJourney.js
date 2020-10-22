@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
 import {GetWindowDimension} from '../../../utils/GetWindowDimension';
-import {SectionHeader} from '../../../components/SectionHeader/SectionHeader';
+import BlogHeader from '../../../components/TravelBlog/sectionHeader/SectionHeader';
 const BloggersJourney = () => {
  const {width} = GetWindowDimension();
 
@@ -44,7 +44,7 @@ const BloggersJourney = () => {
 
  return (
     <div className={styles.wrapper}>
-        <SectionHeader header="Bloggers' journey within Globuzzer" className={styles.header}/>
+        <BlogHeader label="Bloggers' journey within Globuzzer" className={styles.header}/>
         <p className={styles.description}>Get inspired by people who turned their dreams into reality. Read their stories to find out more about their accomplishments.</p>
         {width >=768 ? <BloggersJourneyDesk/> : <BloggersJourneyMobile/>}
     </div>
