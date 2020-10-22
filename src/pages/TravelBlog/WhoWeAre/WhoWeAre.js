@@ -4,6 +4,7 @@ import Map from './Map';
 
 const WhoWeAre = () => {
     return (
+        <div className={styles.container}>
         <div className={styles.wrapper}>
             <div className={styles.content}>
                 <p className={styles.title}>Who we are</p>
@@ -16,6 +17,7 @@ const WhoWeAre = () => {
             <div className={styles.map}>
             <Map/>  
             </div>
+        </div>
         </div>
     );
 }
