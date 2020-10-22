@@ -51,7 +51,7 @@ const App = () => {
         <Route path="/helsinki">
           <Helsinki />
         </Route>
-        <Route exact path='/travel-blog'>
+        <Route path='/travel-blog'>
           <TravelBlog/>
         </Route>
       </Switch>
