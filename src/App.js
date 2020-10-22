@@ -19,7 +19,7 @@ const App = () => {
 
   return (
     <>
-      {pathname !== "/signup" && pathname !== "/own-city-section" && (
+      {pathname !== "/signup" && pathname !== "/own-city-section" && pathname !== "/travel-blog" && (
         <Navigation />
       )}
       <ScrollToTop />
