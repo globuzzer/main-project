@@ -12,7 +12,7 @@ import OwnCitySection from "./pages/OwnCitySection";
 import { SignUp } from "./pages/SignUp";
 import Helsinki from "./pages/Helsinki";
 import ScrollToTop from "./utils/ScrollToTop";
-
+import TravelBlog from './pages/TravelBlog/index';
 const App = () => {
   const location = useLocation();
   const { pathname } = location;
@@ -50,6 +50,9 @@ const App = () => {
         </Route>
         <Route path="/helsinki">
           <Helsinki />
+        </Route>
+        <Route path='/travel-blog'>
+          <TravelBlog/>
         </Route>
       </Switch>
     </>
