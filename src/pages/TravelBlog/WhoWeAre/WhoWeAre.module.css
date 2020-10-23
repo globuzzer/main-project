@@ -1,5 +1,5 @@
 .container {
-    height: 50vh;
+    height: 55vh;
 }
 .wrapper {
     top: 0;
@@ -22,10 +22,11 @@
 }
 
 .title {
-    font-weight: 600;
+    font-weight: bolder;
     font-size: 24px;
     line-height: 36px;
     color: #f24b6a;
+    text-transform: uppercase;
 }
 
 .text {
@@ -35,7 +36,7 @@
     text-align: center;
 }
 
-.text span {
+.text .paragraph {
     display: block;
     padding: 10px;
 }
@@ -70,11 +71,15 @@
         line-height: 40px;
         padding: 0 30px;
     }
+
+    .emphasize {
+        color: #1BF37E;
+    }
 }
 @media (min-width:1100px) {
     .wrapper {
         display: grid;
-        grid-template-columns: 400px 700px;
+        grid-template-columns: 460px 700px;
         align-items: center;
         justify-content: center;
     }
@@ -85,12 +90,12 @@
     .title {
         font-size: 36px;
         line-height: 48px;
-        padding: 0 30px;
     }
 
     .text {
         font-size: 14px;
         line-height: 24px;
         text-align: unset;
+        padding: 0;
     }
 }

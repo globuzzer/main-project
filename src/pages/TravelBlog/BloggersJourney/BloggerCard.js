@@ -9,14 +9,13 @@ const BloggerCard = ({img, name, text, url}) => {
             <div className={styles.content}>
                 <p className={styles.name}>{name}</p>
                 <p className={styles.text}>{text}</p>
-                <a href={url}>
-                <button className={styles.button}>
+            </div>
+            <a href={url} className={styles.button}>
+                
                     <p className={styles.btnText}>View section</p>
                     <img src={next} alt='next-icon' className={styles.icon}/>
-                </button>
-                </a>
                 
-            </div>
+                </a>
         </div>
     );
 }
