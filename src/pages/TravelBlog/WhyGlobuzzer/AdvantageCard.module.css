@@ -1,7 +1,7 @@
 .wrapper {
     display: grid;
     grid-template-rows: repeat(2,1fr);
-    padding: 10px 0;
+    padding: 20px;
 
 }
 
@@ -42,18 +42,25 @@
 @media (min-width:1100px) {
     .wrapper{
         display: grid;
-        grid-template-columns: 64px 360px;
+        grid-template-columns: 80px 460px;
+        grid-template-rows: none;
         grid-gap:30px;
     }
 
-    .title {
-        justify-self: center;
+    .img{
+        align-self: start;
+        width: 68px;
+    }
+
+    .container{
+        display: block;
     }
   
     .text {
         font-size: 14px;
-        line-height: 24px;
-        padding: 0 5px;
+        line-height: 26px;
         text-align: unset;
+        padding: 0;
+        margin-top: 5px;
     }
 }
