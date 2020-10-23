@@ -4,10 +4,45 @@ import Icon from "../../../components/TravelBlog/icon/Icon";
 import Center from "../../../components/TravelBlog/center/Center";
 import Flex from "../../../components/TravelBlog/flex/Flex";
 import Menu from "../Menu/Menu";
+
+import useModal from "./../GetStarted/useModal";
+import GetStartedModal from "./../GetStarted/GetStartedModal";
+
+
+
 import header from "./Header.module.css";
 import video from "../../../assets/TravelBlog/vid.mp4";
 
+
+
+//initial variable for multi-step modals // connected to GetStartedModal file
+export const steps = [
+  {
+    description: `About your \n desired topic`,
+    completed: false,
+    selected: true,
+    highlighted: true,
+  },
+  {
+    description: "About you",
+    completed: false,
+    selected: false,
+    highlighted: false,
+  },
+  {
+    description: `About your \n blog plan`,
+    completed: false,
+    selected: false,
+    highlighted: false,
+  },
+];
+
+
+
 function BlogBanner() {
+  //for toggling the modal
+  const { isShowing, toggle } = useModal();
+
   const [smallScreen, setSmallScreen] = useState(false);
 
   useEffect(() => {
@@ -45,7 +80,7 @@ function BlogBanner() {
             {!smallScreen && (
               <div className={header.items}>
                 <div>
-                  <button>Get statarted</button>
+                  <button onClick={toggle}>Get statarted</button>
                 </div>
 
                 <div className={header.itemsRight}>
@@ -63,11 +98,12 @@ function BlogBanner() {
 
           {smallScreen && (
             <div className={header.btnSmall}>
-              <button>Get statarted</button>
+              <button onClick={toggle}>Get statarted</button>
             </div>
           )}
         </Flex>
       </Center>
+      <GetStartedModal isShowing={isShowing} hide={toggle} steps={steps} />
     </div>
   );
 }

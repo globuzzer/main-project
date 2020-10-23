@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState, useContext } from "react";
 import { FaBars } from "react-icons/fa";
 import { FiMapPin } from "react-icons/fi";
 import { RiCloseLine } from "react-icons/ri";
@@ -7,9 +7,38 @@ import logo from "../../../assets/TravelBlog/globuzz_logo.svg";
 import logoSmall from "../../../assets/TravelBlog/globe_logo.svg";
 import Icon from "../../../components/TravelBlog/icon/Icon";
 
+import useModal from "./../GetStarted/useModal";
+import GetStartedModal from "./../GetStarted/GetStartedModal";
+//import { multiStepContext } from "./../ApplicationCard/StepContext";
+
 import menu from "./Menu.module.css";
 
+//initial variable for multi-step modals // connected to GetStartedModal file
+export const steps = [
+  {
+    description: `About your \n desired topic`,
+    completed: false,
+    selected: true,
+    highlighted: true,
+  },
+  {
+    description: "About you",
+    completed: false,
+    selected: false,
+    highlighted: false,
+  },
+  {
+    description: `About your \n blog plan`,
+    completed: false,
+    selected: false,
+    highlighted: false,
+  },
+];
+
 function Menu() {
+  //for toggling the modal
+  const { isShowing, toggle } = useModal();
+  
   const [smallScreen, setSmallScreen] = useState(false);
   const [scroll, setScroll] = useState(false);
   const [sideMenu, setSideMenu] = useState(false);
@@ -75,9 +104,13 @@ function Menu() {
             </Fragment>
           )}
 
-          <li className={menu.menuList}>Get started</li>
+          {/* <li className={menu.menuList}>Get started</li> */}
+          <li onClick={toggle} className={menu.menuList}>
+            Get started
+          </li>
         </ul>
       </nav>
+      <GetStartedModal isShowing={isShowing} hide={toggle} steps={steps} />
 
       <nav className={menu.sideMenu} style={{ left: sideMenu && "0px" }}>
         <ul className={`${menu.sideItems} ${menu.sideLeft}`}>
@@ -102,7 +135,9 @@ function Menu() {
         </ul>
 
         <ul className={`${menu.sideItems} ${menu.sideRight}`}>
-          <li className={menu.sideList}>Get started</li>
+          <li className={menu.sideList} onClick={toggle}>
+            Get started
+          </li>
         </ul>
       </nav>
     </Fragment>
