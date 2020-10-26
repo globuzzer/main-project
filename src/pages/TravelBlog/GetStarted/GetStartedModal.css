@@ -4,6 +4,7 @@
   position: fixed;
   display: flex;
   flex-direction: column;
+  width: 90%;
 }
 
 .errorMessage {
@@ -240,10 +241,10 @@ input[type="checkbox"]:checked:after {
 
 .header_box {
   background: linear-gradient(180deg, #de3857 0%, #f24b6a 100%);
-  width: 58.4vw;
+  /* width: 58.4vw;
   height: 223px;
   left: 245px;
-  top: 143px;
+  top: 143px; */
 }
 
 .grey_box,
@@ -251,8 +252,8 @@ input[type="checkbox"]:checked:after {
 .grey_box3,
 .grey_box2 {
   background: #f9f9f9;
-  height: 440px;
-  width: 58.4vw;
+  /* height: 440px;
+  width: 58.4vw; */
 }
 .contain2 {
   display: grid;
@@ -620,6 +621,9 @@ label {
     }
   }
 
+  @media screen and (max-width: 700px) {
+  }
+
   @media (max-width: 576px) {
     .modal_box {
       left: 3.5%;
@@ -659,7 +663,6 @@ label {
     }
 
     .steps_wrapper {
-      display: -webkit-flex -moz-flex;
       justify-content: center;
       align-content: center;
     }

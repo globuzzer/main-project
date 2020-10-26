@@ -23,7 +23,7 @@ export default ({ nextStep }) => {
     let valids = false;
     const forms = document.myform.field;
 
-    for (let i = 0; i < forms.length; i++) {
+    for (let i = 0; i < forms.length; i += 1) {
       if (forms[i].checked) {
         valids = true;
         break;

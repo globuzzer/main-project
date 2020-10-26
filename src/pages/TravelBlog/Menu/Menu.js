@@ -108,10 +108,18 @@ function Menu() {
         <ul className={`${menu.menuItems} ${menu.menuRight}`}>
           {!smallScreen && (
             <Fragment>
-              <li className={menu.menuList} onClick={() => goToRef(bloggerRef)}>
+              <li
+                className={menu.menuList}
+                onClick={() => goToRef(bloggerRef)}
+                style={{ color: scroll && "#fff " }}
+              >
                 Testimonials
               </li>
-              <li className={menu.menuList} onClick={() => goToRef(footerRef)}>
+              <li
+                className={menu.menuList}
+                onClick={() => goToRef(footerRef)}
+                style={{ color: scroll && "#fff " }}
+              >
                 Contact us
               </li>
             </Fragment>
