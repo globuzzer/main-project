@@ -17,9 +17,8 @@ export default ({ nextStep }) => {
   };
 
   //continue to the next page function
-  const proceed = (e) =>
-    e.preventDefault() | nextStep()
-    // | setCurrentStepNumber(2);
+  const proceed = (e) => e.preventDefault() | nextStep();
+  // | setCurrentStepNumber(2);
   const validateRadioButton = (e) => {
     let valids = false;
     const forms = document.myform.field;
@@ -47,8 +46,8 @@ export default ({ nextStep }) => {
                 * yes, you have to fill out these fields
               </p>
               <h4 className="tell">Tell us what you want to write about? *</h4>
-              <form name="myform" onSubmit={proceed}>
-                <div>
+              <form name="myform" onSubmit={proceed} className="formContainer1">
+                <div className="form1">
                   <input
                     style={{ color: "#f24b6a" }}
                     type="radio"
@@ -57,13 +56,11 @@ export default ({ nextStep }) => {
                     onChange={handleChange}
                     checked={value === "CityGuides"}
                   />
-                  <label className="choosey">
-                    I want to write about City Guides
-                  </label>
+                  <label className="choosey">City Guides</label>
                 </div>
                 <div className="form_underline" />
 
-                <div>
+                <div className="form1">
                   <input
                     type="radio"
                     value="Travel Experiences"
@@ -71,13 +68,11 @@ export default ({ nextStep }) => {
                     onChange={handleChange}
                     checked={value === "Travel Experiences"}
                   />
-                  <label className="choosey">
-                    I want to write about Travels Experiences
-                  </label>
+                  <label className="choosey">Experiences</label>
                 </div>
                 <div className="form_underline" />
 
-                <div>
+                <div className="form1">
                   <input
                     type="radio"
                     value="I want to transfer my travel blog to Globuzzer"
@@ -91,8 +86,10 @@ export default ({ nextStep }) => {
                     I want to transfer my travel blog to Globuzzer
                   </label>
                 </div>
+
                 <div className="form_underline" />
-                <div>
+
+                <div className="form1">
                   <input
                     type="radio"
                     value="Other (Please explain in the field below)"
@@ -106,9 +103,11 @@ export default ({ nextStep }) => {
                     Other (Please explain in the field below)
                   </label>
                 </div>
-                <div>
-                  <textarea cols="40" rows="3" className="text_area" />
+
+                <div className="form1">
+                  <textarea className="text_area" />
                 </div>
+
                 <button
                   onClick={(e) => {
                     validateRadioButton(e);

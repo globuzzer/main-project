@@ -3,16 +3,12 @@ import "./GetStartedModal.css";
 //import { Form, Button, Container } from "react-bootstrap";
 //import { multiStepContext } from "./StepContext";
 
-import Firebase from "firebase";
-import { FIREBASE_CONFIG as firebaseConfig } from "./../config/firebaseConfig";
-
+import { config as firebaseConfig, database } from "../config/firebaseConfig";
 
 // Initialize Firebase
-Firebase.initializeApp(firebaseConfig);
-Firebase.analytics();
 
 //retrieving data from firebase
-const database = Firebase.firestore();
+
 database
   .collection("bloggers")
   .get()
@@ -31,7 +27,7 @@ database
 //state
 class GetStartedForm extends Component {
   //dynamic  multi stepper numbers
- // static contextType = multiStepContext;
+  // static contextType = multiStepContext;
   state = {
     firstName: "",
     lastName: "",
@@ -88,108 +84,99 @@ class GetStartedForm extends Component {
     return (
       <div>
         <div className="grey_box2">
-         
-            <div className="form_container">
-              <p className="require">
-                * yes, you have to fill out these fields
-              </p>
-              <h4 className="tell">Add your personal information</h4>
-              <form name="myForm" onSubmit={this.formValidation} noValidate>
-                <div>
-                  <input
-                    noValidate
-                    className="text_input"
-                    placeholder="First name *"
-                    name="firstName"
-                    onChange={changeValue("firstName")}
-                    defaultValue={values.firstName}
-                  />
+          <div className="form_container">
+            <p className="require">* yes, you have to fill out these fields</p>
+            <h4 className="tell">Add your personal information</h4>
+            <form name="myForm" onSubmit={this.formValidation} noValidate>
+              <div>
+                <input
+                  noValidate
+                  className="text_input"
+                  placeholder="First name *"
+                  name="firstName"
+                  onChange={changeValue("firstName")}
+                  defaultValue={values.firstName}
+                />
 
-                  {formErrors?.firstName?.length > 0 && (
-                    <span className="errorMessage">{formErrors.firstName}</span>
-                  )}
-                </div>
+                {formErrors?.firstName?.length > 0 && (
+                  <span className="errorMessage">{formErrors.firstName}</span>
+                )}
+              </div>
 
-                <div>
-                  <input
-                    noValidate
-                    className="text_input"
-                    type="text"
-                    placeholder="Last name *"
-                    name="lastName"
-                    onChange={changeValue("lasttName")}
-                    defaultValue={values.lastName}
-                  />
-                  {formErrors?.lastName?.length > 0 && (
-                    <span className="errorMessage">{formErrors.lastName}</span>
-                  )}
-                </div>
+              <div>
+                <input
+                  noValidate
+                  className="text_input"
+                  type="text"
+                  placeholder="Last name *"
+                  name="lastName"
+                  onChange={changeValue("lasttName")}
+                  defaultValue={values.lastName}
+                />
+                {formErrors?.lastName?.length > 0 && (
+                  <span className="errorMessage">{formErrors.lastName}</span>
+                )}
+              </div>
 
-                <div>
-                  <input
-                    noValidate
-                    className="text_input"
-                    type="email"
-                    placeholder="Email *"
-                    onChange={changeValue("email")}
-                    defaultValue={values.email}
-                    name="email"
-                  />
-                  {formErrors?.email?.length > 0 && (
-                    <span className="errorMessage">{formErrors.email}</span>
-                  )}
-                </div>
+              <div>
+                <input
+                  noValidate
+                  className="text_input"
+                  type="email"
+                  placeholder="Email *"
+                  onChange={changeValue("email")}
+                  defaultValue={values.email}
+                  name="email"
+                />
+                {formErrors?.email?.length > 0 && (
+                  <span className="errorMessage">{formErrors.email}</span>
+                )}
+              </div>
 
-                <div>
-                  <input
-                    noValidate
-                    className="text_input"
-                    type="tel"
-                    id="phone"
-                    placeholder="Phone number"
-                    name="PhoneNumber"
-                    onChange={changeValue("PhoneNumber")}
-                    defaultValue={values.PhoneNumber}
-                  />
-                  {formErrors?.PhoneNumber?.length > 0 && (
-                    <span className="errorMessage">
-                      {formErrors.PhoneNumber}
-                    </span>
-                  )}
-                </div>
+              <div>
+                <input
+                  noValidate
+                  className="text_input"
+                  type="tel"
+                  id="phone"
+                  placeholder="Phone number"
+                  name="PhoneNumber"
+                  onChange={changeValue("PhoneNumber")}
+                  defaultValue={values.PhoneNumber}
+                />
+                {formErrors?.PhoneNumber?.length > 0 && (
+                  <span className="errorMessage">{formErrors.PhoneNumber}</span>
+                )}
+              </div>
 
-                <div className="requires agrees">
-                  <input type="checkbox" id="privacy" value="Privacy" />
-                  <span className="conditions">
-                    *I agree to the
-                    <em style={{ color: "#de3857" }}>
-                      Privacy Policy and Terms of Service.
-                    </em>
-                  </span>
-                </div>
+              <div className="requires agrees">
+                <input type="checkbox" id="privacy" value="Privacy" />
+                <span className="conditions">
+                  *I agree to the
+                  <em style={{ color: "#de3857" }}>
+                    Privacy Policy and Terms of Service.
+                  </em>
+                </span>
+              </div>
 
-                <div style={{ display: "flex" }}>
-                  <button
-                    onClick={(e) =>
-                      this.formValidation(e) | this.addNewBlogger()
-                    }
-                    className="continue2"
-                  >
-                    Continue
-                  </button>
+              <div>
+                <button
+                  onClick={(e) => this.formValidation(e) | this.addNewBlogger()}
+                  className="continue2"
+                >
+                  Continue
+                </button>
 
-                  <a
-                    href="#"
-                  onClick={(e) => this.previous(e)
-                    | setCurrentStepNumber(1)}
-                    className="backs"
-                  >
-                    back
-                  </a>
-                </div>
-              </form>
-            </div>
-       
+                <a
+                  href="#"
+                  onClick={(e) => this.previous(e) | setCurrentStepNumber(1)}
+                  className="backs"
+                >
+                  back
+                </a>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     );

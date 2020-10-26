@@ -3,7 +3,7 @@ import "./GetStartedModal.css";
 
 const GetStarted4 = ({ setShowHeader }) => {
   //close the modal
-  const handleClose = (e) => {
+  const handleClose = () => {
     window.location.reload();
   };
   useEffect(() => {

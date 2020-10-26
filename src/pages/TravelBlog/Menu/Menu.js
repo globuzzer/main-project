@@ -3,13 +3,14 @@ import { FaBars } from "react-icons/fa";
 import { FiMapPin } from "react-icons/fi";
 import { RiCloseLine } from "react-icons/ri";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
+import { FooterContext, BloggerContext } from "../contexts/refContext";
 import logo from "../../../assets/TravelBlog/globuzz_logo.svg";
 import logoSmall from "../../../assets/TravelBlog/globe_logo.svg";
 import Icon from "../../../components/TravelBlog/icon/Icon";
 
-import useModal from "./../GetStarted/useModal";
-import GetStartedModal from "./../GetStarted/GetStartedModal";
-//import { multiStepContext } from "./../ApplicationCard/StepContext";
+import useModal from "../GetStarted/useModal";
+import GetStartedModal from "../GetStarted/GetStartedModal";
+import { multiStepContext } from "../GetStarted/StepContext";
 
 import menu from "./Menu.module.css";
 
@@ -36,12 +37,16 @@ export const steps = [
 ];
 
 function Menu() {
+  // const { currentStepNumber } = useContext(multiStepContext);
   //for toggling the modal
   const { isShowing, toggle } = useModal();
-  
+
   const [smallScreen, setSmallScreen] = useState(false);
   const [scroll, setScroll] = useState(false);
   const [sideMenu, setSideMenu] = useState(false);
+
+  const footerRef = useContext(FooterContext);
+  const bloggerRef = useContext(BloggerContext);
 
   useEffect(() => {
     window.addEventListener("resize", checkScreen);
@@ -59,7 +64,11 @@ function Menu() {
   };
 
   const checkScroll = () => {
-    window.pageYOffset > 50 ? setScroll(true) : setScroll(false);
+    window.pageYOffset > 0 ? setScroll(true) : setScroll(false);
+  };
+
+  const goToRef = (sectionRef) => {
+    window.scrollTo({ top: sectionRef.current.offsetTop });
   };
 
   const navStyle = () => {
@@ -99,18 +108,31 @@ function Menu() {
         <ul className={`${menu.menuItems} ${menu.menuRight}`}>
           {!smallScreen && (
             <Fragment>
-              <li className={menu.menuList}>Testimonials</li>
-              <li className={menu.menuList}>Contact us</li>
+              <li className={menu.menuList} onClick={() => goToRef(bloggerRef)}>
+                Testimonials
+              </li>
+              <li className={menu.menuList} onClick={() => goToRef(footerRef)}>
+                Contact us
+              </li>
             </Fragment>
           )}
 
           {/* <li className={menu.menuList}>Get started</li> */}
-          <li onClick={toggle} className={menu.menuList}>
+          <li
+            onClick={toggle}
+            className={menu.menuList}
+            style={{ background: scroll && "#f24b6a", color: scroll && "#fff" }}
+          >
             Get started
           </li>
         </ul>
       </nav>
-      <GetStartedModal isShowing={isShowing} hide={toggle} steps={steps} />
+      <GetStartedModal
+        isShowing={isShowing}
+        hide={toggle}
+        steps={steps}
+        // currentStep={currentStepNumber}
+      />
 
       <nav className={menu.sideMenu} style={{ left: sideMenu && "0px" }}>
         <ul className={`${menu.sideItems} ${menu.sideLeft}`}>
@@ -135,7 +157,11 @@ function Menu() {
         </ul>
 
         <ul className={`${menu.sideItems} ${menu.sideRight}`}>
-          <li className={menu.sideList} onClick={toggle}>
+          <li
+            className={menu.sideList}
+            onClick={toggle}
+            style={{ background: scroll && "#f24b6a" }}
+          >
             Get started
           </li>
         </ul>

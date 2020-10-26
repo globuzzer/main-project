@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Button } from "react-bootstrap";
+import prem from "../../../assets/TravelBlog/prem.svg";
+import fre from "../../../assets/TravelBlog/fre.svg";
 import "./GetStartedModal.css";
 import { multiStepContext } from "./StepContext";
 
@@ -7,7 +9,7 @@ class GetStarted3 extends Component {
   state = {
     plan: null,
   };
-  static contextType = multiStepContext;
+  // static contextType = multiStepContext;
 
   //proceed to next step
   proceed = (e) => {
@@ -37,11 +39,7 @@ class GetStarted3 extends Component {
         <div className="grey_box3">
           {/* FREE PACKAGE */}
           <form className="package_box" name="myPackage">
-            <img
-              src="/assets/fre.svg"
-              alt="easys"
-              className="package_free package1"
-            />
+            <img src={fre} alt="easys" className="package_free package1" />
 
             {/* Choose button */}
             <ChooseButton
@@ -54,7 +52,7 @@ class GetStarted3 extends Component {
             {/* PREMIUM PACKAGE */}
 
             <img
-              src="/assets/prem.svg"
+              src={prem}
               alt="easys"
               className="package_premium package_free"
             />
@@ -80,7 +78,7 @@ class GetStarted3 extends Component {
               <a
                 href="#"
                 onClick={(e) => this.previous(e)}
-                  //| setCurrentStepNumber(2)}
+                //| setCurrentStepNumber(2)}
                 className="backs"
               >
                 back
