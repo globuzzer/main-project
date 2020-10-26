@@ -25,6 +25,10 @@
     width: 100%;
 }
 
+.slick-dots li.slick-active button:before {
+    color: #881798;
+  }
+
 @media (min-width:768px) {
     .wrapper{
         display: grid;
