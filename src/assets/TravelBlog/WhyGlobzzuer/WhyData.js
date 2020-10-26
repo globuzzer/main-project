@@ -10,14 +10,14 @@ export default [
         text:"Begin creating content right away! Our platform provides you with the latest technology, making your experience seamless."
     },
     {
-        icon: audience,
-        title:"Establised travel audience",
-        text: "Reach a broader audience through our already settled community of travelers, locals, and expats."
-    },
-    {
         icon: worldClass,
         title:"World-class support team",
         text: "Get professional guidance in setting up your travel blog or transfering your existing blog to Globuzzer’s platform. We'll support you through each step!"
+    },
+    {
+        icon: audience,
+        title:"Establised travel audience",
+        text: "Reach a broader audience through our already settled community of travelers, locals, and expats."
     },
     {
         icon: earnFromBlog,
