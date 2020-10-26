@@ -62,7 +62,7 @@ const BloggersJourney = () => {
     <div className={styles.wrapper}>
         <BlogHeader label="Bloggers' journey within Globuzzer" className={styles.header}/>
         <p className={styles.description}>Get inspired by people who turned their dreams into reality. Read their stories to find out more about their accomplishments.</p>
-        {width >=768 ? <BloggersJourneyDesk/> : <BloggersJourneyMobile/>}
+        {width >=730 ? <BloggersJourneyDesk/> : <BloggersJourneyMobile/>}
     </div>
     )
 }

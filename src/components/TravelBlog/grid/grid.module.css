@@ -3,7 +3,8 @@
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
 }
 
-@media screen and (max-width: 760px) {
+/* @media screen and (max-width: 760px) {
   .grid {
+    display: block;
   }
-}
+} */
