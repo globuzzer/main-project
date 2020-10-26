@@ -16,12 +16,28 @@ const BloggersJourney = () => {
     const settings = {
       dots: true,
       dotsClass: "slick-dots",
-      infinite: true,
+      infinite: false,
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
       autoplaySpeed: 3000,
+      appendDots: (dots) => (
+        <div>
+          <ul> {dots} </ul>
+        </div>
+      ),
+      customPaging: (i) => (
+        <div
+          className="custom-dots"
+          style={{
+            backgroundColor: "#e5e5e5",
+            borderRadius: "50px",
+            padding: "10px",
+            marginTop: "10px",
+          }}
+        ></div>
+      ),
     };
     return (
       <div className={styles.mobile}>
