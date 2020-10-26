@@ -10,7 +10,7 @@ const GetStarted4 = ({ setShowHeader }) => {
     setShowHeader(false);
   }, [setShowHeader]);
   return (
-    <div>
+    <React.Fragment>
       <div className="header_box">
         <div className="topic">
           <h2 id="start4">Thank you!</h2>
@@ -36,7 +36,7 @@ const GetStarted4 = ({ setShowHeader }) => {
           </button>
         </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 

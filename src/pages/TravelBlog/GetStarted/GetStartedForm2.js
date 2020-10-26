@@ -99,7 +99,7 @@ class GetStartedForm extends Component {
                 />
 
                 {formErrors?.firstName?.length > 0 && (
-                  <span className="errorMessage">{formErrors.firstName}</span>
+                  <div className="errorMessage">{formErrors.firstName}</div>
                 )}
               </div>
 
@@ -114,7 +114,7 @@ class GetStartedForm extends Component {
                   defaultValue={values.lastName}
                 />
                 {formErrors?.lastName?.length > 0 && (
-                  <span className="errorMessage">{formErrors.lastName}</span>
+                  <div className="errorMessage">{formErrors.lastName}</div>
                 )}
               </div>
 
@@ -129,7 +129,7 @@ class GetStartedForm extends Component {
                   name="email"
                 />
                 {formErrors?.email?.length > 0 && (
-                  <span className="errorMessage">{formErrors.email}</span>
+                  <div className="errorMessage">{formErrors.email}</div>
                 )}
               </div>
 
@@ -145,7 +145,7 @@ class GetStartedForm extends Component {
                   defaultValue={values.PhoneNumber}
                 />
                 {formErrors?.PhoneNumber?.length > 0 && (
-                  <span className="errorMessage">{formErrors.PhoneNumber}</span>
+                  <div className="errorMessage">{formErrors.PhoneNumber}</div>
                 )}
               </div>
 

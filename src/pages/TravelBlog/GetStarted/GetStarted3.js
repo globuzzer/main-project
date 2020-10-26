@@ -65,15 +65,14 @@ class GetStarted3 extends Component {
             />
           </form>
           <div className="continue3">
-            <span>
-              <button
-                onClick={(e) => this.validatePlanButton(e)}
-                className="choose3"
-                style={{ color: "#FFFFFF" }}
-              >
-                Send
-              </button>
-            </span>
+            <button
+              onClick={(e) => this.validatePlanButton(e)}
+              className="choose3"
+              style={{ color: "#FFFFFF" }}
+            >
+              Send
+            </button>
+
             <div>
               <a
                 href="#"
