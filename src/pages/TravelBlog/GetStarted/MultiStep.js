@@ -49,7 +49,7 @@ export class MultiStep extends Component {
     e.preventDefault();
     const { name, value } = e.target;
 
-    let formErrors = this.state.formErrors;
+    const formErrors = this.state.formErrors;
 
     console.log("value: ", value);
     console.log("name: ", name);
@@ -126,7 +126,7 @@ export class MultiStep extends Component {
         );
 
       case 4:
-       return <GetStarted4 {...{ setShowHeader }} />;
+        return <GetStarted4 setShowHeader={setShowHeader} />;
       default:
         break;
     }
