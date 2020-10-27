@@ -1,0 +1,160 @@
+.nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    border-bottom: 1px solid white;
+    z-index: 10;
+    padding: 20px 0;
+    transition: 0.3s ease;
+    width: 90%;
+    left: 50px;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+li {
+  cursor: pointer;
+}
+
+.options {
+    display: flex;
+    align-items: center;
+}
+
+.ownCityBtn {
+    background-color: #f24b6a;
+    border-radius: 10px;
+    border: none;
+    height: 37px;
+    width: 221px;
+    color: #ffffff;
+    font-weight: 700;
+    font-family: "Montserrat", sans-serif;
+}
+
+.optionItems {
+    display: flex;
+    align-items: center;
+}
+
+.weatherIcon {
+    padding-right: 10px;
+}
+
+.weatherText {
+    display: flex;
+    color: #ffffff;
+}
+
+.loginBtn {
+    margin: 0 15px;
+    font-size: 13px;
+}
+
+.signUpBtn {
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    width: 97px;
+    height: 25px;
+    font-size: 13px;
+    background-color: transparent;
+    color: #ffffff;
+    font-family: "Montserrat", sans-serif;
+}
+
+.right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.option {
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+    position: relative;
+    padding: 0 20px;
+}
+
+.option:hover{
+    background: #373c47;
+    padding: 20px 10px; 
+}
+
+.destination {
+    display: none;
+    position: absolute;
+    justify-content: space-between;
+    z-index: 1;
+    color: #ecf0f1;
+    top: 60px;
+    left: -150px;
+    background: #373c47;
+}
+
+.destination ul {
+    padding: 15px;
+}
+
+.destination ul li {
+    padding: 20px 0;
+    width: 110px;
+    display: block;
+}
+
+.destination ul li:hover {
+      border-bottom: 1px solid #f24b6a;
+}
+
+.bs-search {
+    position: absolute;
+    top: 50%;
+    left: 6px;
+    transform: translateY(-50%);
+}
+
+.s p{
+    width: 100px;
+}
+
+.s .recently {
+    padding-top: 12px;
+}
+
+.s div{
+    position: relative;
+    width: 200px;
+}
+
+.s div input {
+    padding: 5px 30px;
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+    background: #c4c4c4;
+    color: #888888;
+    font-size: 11px;
+}
+
+.s div .bs-search{
+    color: #8888;
+}
+
+.d p {
+    width: 120px;
+}
+
+.option .dest:hover .d, .option .service:hover .s, .option .topic:hover .t{
+    display: flex;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+    position: relative;
+    padding: 0 20px;
+}
