@@ -9,7 +9,7 @@ import { Pricing } from "./pages/Pricing";
 import { Career } from "./pages/Career";
 import { AboutUs } from "./pages/AboutUs";
 import OwnCitySection from "./pages/OwnCitySection";
-import { SignUp } from "./pages/SignUp";
+import  SignUpNow  from "./pages/SignUpNow";
 import Helsinki from "./pages/Helsinki";
 import ScrollToTop from "./utils/ScrollToTop";
 
@@ -46,7 +46,7 @@ const App = () => {
           <OwnCitySection />
         </Route>
         <Route path="/signup">
-          <SignUp />
+          <SignUpNow />
         </Route>
         <Route path="/helsinki">
           <Helsinki />
