@@ -122,23 +122,15 @@ input[type="checkbox"]:checked:after {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  width: 8vw;
+  width: 15vw;
   position: relative;
 }
 
 .divider-line {
-  display: flex;
-  justify-content: center;
   height: 2px;
-  background: white;
+  background: #fff;
   position: absolute;
-  width: 100%;
-  top: 50%;
-  left: 63%;
-}
-
-.divider-line-3 {
-  width: 100%;
+  width: 74%;
   left: 63%;
 }
 
@@ -169,6 +161,10 @@ input[type="checkbox"]:checked:after {
   background: #de3857;
 }
 
+.circle_text {
+  padding-bottom: 18px;
+}
+
 .circle_text_active {
   font-weight: 900;
 }
@@ -182,6 +178,10 @@ input[type="checkbox"]:checked:after {
   font-size: 30px;
   line-height: 4.5rem;
   color: #ffffff;
+}
+
+#start4 {
+  padding-bottom: 55px;
 }
 
 .topic {
@@ -482,6 +482,16 @@ label {
   margin-left: 1.5rem;
 }
 
+.free_premium_button.free_button {
+  background: green;
+  color: #fff;
+}
+
+.free_premium_button.premium_button {
+  background: red;
+  color: #fff;
+}
+
 /* GetStarted4 */
 
 .thanks {
@@ -521,6 +531,7 @@ label {
 .package_free:hover {
   box-shadow: 0px 0px 10px rgba(85, 85, 85, 0.25);
 }
+
 .free_premium_button {
   display: block;
   position: relative;

@@ -13,7 +13,7 @@ const GetStarted4 = ({ setShowHeader }) => {
     <React.Fragment>
       <div className="header_box">
         <div className="topic">
-          <h2 id="start4">Thank you!</h2>
+          <h2 id="start4">Thank you for choosing globuzzer!</h2>
           <button onClick={handleClose} id="close_thanks">
             X
           </button>

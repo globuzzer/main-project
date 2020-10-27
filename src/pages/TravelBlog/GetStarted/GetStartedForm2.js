@@ -1,14 +1,13 @@
-import React, { Component } from "react";
+import React, { useContext, useState } from "react";
 import "./GetStartedModal.css";
-//import { Form, Button, Container } from "react-bootstrap";
-//import { multiStepContext } from "./StepContext";
-
-import { config as firebaseConfig, database } from "../config/firebaseConfig";
-
+import { multiStepContext } from "./StepContext";
+import Firebase from "firebase";
+import { FIREBASE_CONFIG as firebaseConfig } from "../config/firebaseConfig";
 // Initialize Firebase
-
+Firebase.initializeApp(firebaseConfig);
+Firebase.analytics();
 //retrieving data from firebase
-
+const database = Firebase.firestore();
 database
   .collection("bloggers")
   .get()
@@ -23,12 +22,17 @@ database
   .catch((err) => {
     console.log(err);
   });
-
 //state
-class GetStartedForm extends Component {
+function GetStartedForm2({
+  nextStep,
+  prevStep,
+  values,
+  changeValue,
+  formErrors,
+}) {
   //dynamic  multi stepper numbers
-  // static contextType = multiStepContext;
-  state = {
+  const myContext = useContext(multiStepContext);
+  const [state, setState] = useState({
     firstName: "",
     lastName: "",
     email: "",
@@ -39,148 +43,130 @@ class GetStartedForm extends Component {
       email: "",
       PhoneNumber: "",
     },
-  };
+  });
   //adding data to data base
-  addNewBlogger = () => {
+  const addNewBlogger = () => {
     database.collection("bloggers").add({
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      email: this.state.email,
-      PhoneNumber: this.state.PhoneNumber,
+      firstName: state.firstName,
+      lastName: state.lastName,
+      email: state.email,
+      PhoneNumber: state.PhoneNumber,
     });
   };
-
   //proceed to next step
-  proceed = (e) => {
-    const { setCurrentStepNumber } = this.context;
-    e.preventDefault();
-    this.props.nextStep();
-    //setCurrentStepNumber(3);
+  const proceed = (e) => {
+    e.preventDefault() || nextStep() || myContext.setCurrentStepNumber(3);
   };
-
   //previous step
-  previous = (e) => {
+  const previous = (e) => {
     e.preventDefault();
-    this.props.prevStep();
+    prevStep();
   };
-
   //validate form
-  formValidation = (e) => {
+  const formValidation = (e) => {
     const validforms = document.forms["myForm"]["firstName"].value;
     const boxy = document.getElementById("privacy").checked;
     if (validforms === "" || boxy === "") {
       alert("Please fill in your information");
     } else {
-      this.proceed(e);
+      proceed(e);
     }
   };
-
-  render() {
-    //passing props from MultiStep Component
-    const { values, changeValue, formErrors } = this.props;
-    //dynamic  multi stepper numbers
-    const { setCurrentStepNumber } = this.context;
-
-    return (
-      <div>
-        <div className="grey_box2">
-          <div className="form_container">
-            <p className="require">* yes, you have to fill out these fields</p>
-            <h4 className="tell">Add your personal information</h4>
-            <form name="myForm" onSubmit={this.formValidation} noValidate>
-              <div>
-                <input
-                  noValidate
-                  className="text_input"
-                  placeholder="First name *"
-                  name="firstName"
-                  onChange={changeValue("firstName")}
-                  defaultValue={values.firstName}
-                />
-
-                {formErrors?.firstName?.length > 0 && (
-                  <div className="errorMessage">{formErrors.firstName}</div>
-                )}
-              </div>
-
-              <div>
-                <input
-                  noValidate
-                  className="text_input"
-                  type="text"
-                  placeholder="Last name *"
-                  name="lastName"
-                  onChange={changeValue("lasttName")}
-                  defaultValue={values.lastName}
-                />
-                {formErrors?.lastName?.length > 0 && (
-                  <div className="errorMessage">{formErrors.lastName}</div>
-                )}
-              </div>
-
-              <div>
-                <input
-                  noValidate
-                  className="text_input"
-                  type="email"
-                  placeholder="Email *"
-                  onChange={changeValue("email")}
-                  defaultValue={values.email}
-                  name="email"
-                />
-                {formErrors?.email?.length > 0 && (
-                  <div className="errorMessage">{formErrors.email}</div>
-                )}
-              </div>
-
-              <div>
-                <input
-                  noValidate
-                  className="text_input"
-                  type="tel"
-                  id="phone"
-                  placeholder="Phone number"
-                  name="PhoneNumber"
-                  onChange={changeValue("PhoneNumber")}
-                  defaultValue={values.PhoneNumber}
-                />
-                {formErrors?.PhoneNumber?.length > 0 && (
-                  <div className="errorMessage">{formErrors.PhoneNumber}</div>
-                )}
-              </div>
-
-              <div className="requires agrees">
-                <input type="checkbox" id="privacy" value="Privacy" />
-                <span className="conditions">
-                  *I agree to the
-                  <em style={{ color: "#de3857" }}>
-                    Privacy Policy and Terms of Service.
-                  </em>
-                </span>
-              </div>
-
-              <div>
-                <button
-                  onClick={(e) => this.formValidation(e) | this.addNewBlogger()}
-                  className="continue2"
-                >
-                  Continue
-                </button>
-
-                <a
-                  href="#"
-                  onClick={(e) => this.previous(e) | setCurrentStepNumber(1)}
-                  className="backs"
-                >
-                  back
-                </a>
-              </div>
-            </form>
-          </div>
+  //passing props from MultiStep Component
+  //const { values, changeValue, formErrors } = props;
+  return (
+    <div>
+      <div className="grey_box2">
+        <div className="form_container">
+          <p className="require">* yes, you have to fill out these fields</p>
+          <h4 className="tell">Add your personal information</h4>
+          <form name="myForm" onSubmit={formValidation} noValidate>
+            <div>
+              <input
+                noValidate
+                className="text_input"
+                placeholder="First name *"
+                name="firstName"
+                onChange={changeValue("firstName")}
+                defaultValue={values.firstName}
+              />
+              {formErrors?.firstName?.length > 0 && (
+                <div className="errorMessage">{formErrors.firstName}</div>
+              )}
+            </div>
+            <div>
+              <input
+                noValidate
+                className="text_input"
+                type="text"
+                placeholder="Last name *"
+                name="lastName"
+                onChange={changeValue("lasttName")}
+                defaultValue={values.lastName}
+              />
+              {formErrors?.lastName?.length > 0 && (
+                <div className="errorMessage">{formErrors.lastName}</div>
+              )}
+            </div>
+            <div>
+              <input
+                noValidate
+                className="text_input"
+                type="email"
+                placeholder="Email *"
+                onChange={changeValue("email")}
+                defaultValue={values.email}
+                name="email"
+              />
+              {formErrors?.email?.length > 0 && (
+                <div className="errorMessage">{formErrors.email}</div>
+              )}
+            </div>
+            <div>
+              <input
+                noValidate
+                className="text_input"
+                type="tel"
+                id="phone"
+                placeholder="Phone number"
+                name="PhoneNumber"
+                onChange={changeValue("PhoneNumber")}
+                defaultValue={values.PhoneNumber}
+              />
+              {formErrors?.PhoneNumber?.length > 0 && (
+                <div className="errorMessage">{formErrors.PhoneNumber}</div>
+              )}
+            </div>
+            <div className="requires agrees">
+              <input type="checkbox" id="privacy" value="Privacy" />
+              <span className="conditions">
+                *I agree to the
+                <em style={{ color: "#de3857" }}>
+                  Privacy Policy and Terms of Service.
+                </em>
+              </span>
+            </div>
+            <div>
+              <button
+                onClick={(e) => formValidation(e) || addNewBlogger()}
+                className="continue2"
+              >
+                Continue
+              </button>
+              <a
+                href="#"
+                onClick={(e) =>
+                  previous(e) || myContext.setCurrentStepNumber(1)
+                }
+                className="backs"
+              >
+                back
+              </a>
+            </div>
+          </form>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
-
-export default GetStartedForm;
+export default GetStartedForm2;

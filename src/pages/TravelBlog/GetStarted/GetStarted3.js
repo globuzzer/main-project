@@ -6,10 +6,10 @@ import "./GetStartedModal.css";
 import { multiStepContext } from "./StepContext";
 
 class GetStarted3 extends Component {
+  //static contextType = multiStepContext;
   state = {
     plan: null,
   };
-  // static contextType = multiStepContext;
 
   //proceed to next step
   proceed = (e) => {
@@ -32,8 +32,11 @@ class GetStarted3 extends Component {
     }
   };
 
+  setPlan = (type) => {
+    this.setState({ plan: type });
+  };
+
   render() {
-    //const { setCurrentStepNumber } = this.context;
     return (
       <div>
         <div className="grey_box3">
@@ -43,10 +46,10 @@ class GetStarted3 extends Component {
 
             {/* Choose button */}
             <ChooseButton
-              type="free"
-              state={this.state}
-              setState={(type) => this.setState(type)}
-              id="free_button"
+              className={`free_premium_button ${
+                this.state.plan === "free" && "free_button"
+              }`}
+              onClick={() => this.setPlan("free")}
             />
 
             {/* PREMIUM PACKAGE */}
@@ -58,10 +61,10 @@ class GetStarted3 extends Component {
             />
 
             <ChooseButton
-              type="premium"
-              state={this.state}
-              id="premium_button"
-              setState={(type) => this.setState(type)}
+              className={`free_premium_button ${
+                this.state.plan === "premium" && "premium_button"
+              }`}
+              onClick={() => this.setPlan("premium")}
             />
           </form>
           <div className="continue3">
@@ -77,7 +80,7 @@ class GetStarted3 extends Component {
               <a
                 href="#"
                 onClick={(e) => this.previous(e)}
-                //| setCurrentStepNumber(2)}
+                //| setCurrentStepNumber(2)
                 className="backs"
               >
                 back
@@ -92,13 +95,8 @@ class GetStarted3 extends Component {
 
 export default GetStarted3;
 
-const ChooseButton = ({ state, setState, type }) => (
-  <Button
-    variant="custom"
-    className={`px-4 py-2 ${state.plan === type && "active"}`}
-    onClick={() => setState({ plan: type })}
-    className="free_premium_button"
-  >
-    Choose <i class="fa fa-angle-right" aria-hidden="true"></i>
+const ChooseButton = ({ className, onClick }) => (
+  <Button className={className} onClick={onClick}>
+    Choose
   </Button>
 );

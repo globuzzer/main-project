@@ -8,7 +8,7 @@ const GetStartedModal = ({ isShowing, steps, currentStep, hide }) => {
   const [showHeader, setShowHeader] = useState(true);
 
   useEffect(() => {
-    let createSteps = steps.map((step, index) => ({
+    const createSteps = steps.map((step, index) => ({
       description: step.description,
       completed: index < currentStep - 1, // past are completed
       selected: index <= currentStep - 1, // past & present are colored
@@ -26,7 +26,8 @@ const GetStartedModal = ({ isShowing, steps, currentStep, hide }) => {
             <div className="modal_box">
               {/* Modal cards multi stepper */}
               <div
-                className={`header_box ${showHeader ? "d-block" : "d-none"}`}
+                className="header_box"
+                style={{ display: !showHeader && "none" }}
               >
                 <div id="header_box2">
                   <button onClick={hide} id="close">
