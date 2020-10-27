@@ -78,10 +78,10 @@ function BlogBanner() {
                   <button onClick={toggle}>Get statarted</button>
                 </div>
 
-                <div className={header.itemsRight}>
+                {/* <div className={header.itemsRight}>
                   <Icon label={<FaPlayCircle />} />
                   <span>watch the demo</span>
-                </div>
+                </div> */}
               </div>
             )}
           </div>

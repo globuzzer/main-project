@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState, useContext } from "react";
+import { IconContext } from "react-icons";
 import { FaBars } from "react-icons/fa";
 import { FiMapPin } from "react-icons/fi";
 import { RiCloseLine } from "react-icons/ri";
@@ -89,7 +90,7 @@ function Menu() {
           <li className={menu.menuList}>
             {smallScreen ? (
               <span onClick={() => setSideMenu(true)}>
-                <Icon label={<FaBars />} />
+                <Icon label={<FaBars />} myClass={menu.bars} />
               </span>
             ) : (
               <img src={logo} alt="logo" />
@@ -147,7 +148,7 @@ function Menu() {
           <li className={menu.sideList}>
             <span>globuzzer</span>
             <span onClick={() => setSideMenu(false)}>
-              <Icon label={<RiCloseLine />} />
+              <Icon label={<RiCloseLine />} myClass={menu.close} />
             </span>
           </li>
           <li className={menu.sideList}>

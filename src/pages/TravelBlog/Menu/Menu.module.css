@@ -35,6 +35,7 @@
   border-radius: 15px;
   padding: 3px 25px;
   color: #f24b6a;
+  filter: brightness(110%);
 }
 
 .menuRight .menuList:last-child:hover {
@@ -55,6 +56,16 @@
   justify-content: space-between;
   flex-direction: column;
   transition: all 0.5s;
+}
+
+.bars {
+  width: 35px;
+  height: 35px;
+}
+
+.close {
+  width: 25px;
+  height: 25px;
 }
 
 @media screen and (max-width: 755px) {
