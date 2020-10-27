@@ -521,6 +521,7 @@ label {
 .package_free:hover {
   box-shadow: 0px 0px 10px rgba(85, 85, 85, 0.25);
 }
+
 .free_premium_button {
   display: block;
   position: relative;

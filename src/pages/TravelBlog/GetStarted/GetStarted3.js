@@ -4,10 +4,22 @@ import prem from "../../../assets/TravelBlog/prem.svg";
 import fre from "../../../assets/TravelBlog/fre.svg";
 import "./GetStartedModal.css";
 import { multiStepContext } from "./StepContext";
+import Card from "./Card";
 
 class GetStarted3 extends Component {
   state = {
     plan: null,
+    list: {
+      free: [
+        { li: "Be a partner of Globuzzer" },
+        { li: "Be a partner of Globuzzer" },
+        { li: "Be a partner of Globuzzer" },
+        { li: "Be a partner of Globuzzer" },
+        { li: "Be a partner of Globuzzer" },
+        { li: "Be a partner of Globuzzer" },
+      ],
+      premium: [],
+    },
   };
   // static contextType = multiStepContext;
 

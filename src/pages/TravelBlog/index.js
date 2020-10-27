@@ -5,6 +5,7 @@ import HowItWorks from "./HowItWorks/HowItWorks";
 import WhyGlobuzzer from "./WhyGlobuzzer/WhyGlobuzzer";
 import WhoWeAre from "./WhoWeAre/WhoWeAre";
 import BloggersJourney from "./BloggersJourney/BloggersJourney";
+import Card from "./GetStarted/Card";
 import { Footer } from "../../components/Footer/Footer";
 import { FooterContext, BloggerContext } from "./contexts/refContext";
 
@@ -21,6 +22,7 @@ function Index() {
           <WhoWeAre />
           <BloggersJourney />
           <Footer />
+          <Card />
         </BloggerContext.Provider>
       </FooterContext.Provider>
     </div>
