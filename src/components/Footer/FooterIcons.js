@@ -3,7 +3,7 @@ import {
   FaPlayCircle,
   FaLinkedinIn,
   FaInstagram,
-  FaFacebookF,
+  FaFacebook,
   FaTwitter,
   FaPinterestP,
 } from "react-icons/fa";
@@ -13,10 +13,10 @@ const FooterIcons = () => {
     <>
       <div className="footer-content-icon-container">
         <a
-          className="footer_icons_container"
+          className="footer-icons-container"
           href="https://www.facebook.com/Globuzzer/"
         >
-          <FaFacebookF className="footer-icons" />
+          <FaFacebook className="footer-icons" />
         </a>
         <a
           className="footer-icons-container"
