@@ -1,19 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { FaPlayCircle } from "react-icons/fa";
 import Icon from "../../../components/TravelBlog/icon/Icon";
 import Center from "../../../components/TravelBlog/center/Center";
 import Flex from "../../../components/TravelBlog/flex/Flex";
 import Menu from "../Menu/Menu";
 
-import useModal from "./../GetStarted/useModal";
-import GetStartedModal from "./../GetStarted/GetStartedModal";
-
-
-
+import useModal from "../GetStarted/useModal";
+import GetStartedModal from "../GetStarted/GetStartedModal";
+import { multiStepContext } from "../GetStarted/StepContext";
 import header from "./Header.module.css";
 import video from "../../../assets/TravelBlog/vid.mp4";
-
-
 
 //initial variable for multi-step modals // connected to GetStartedModal file
 export const steps = [
@@ -37,13 +33,12 @@ export const steps = [
   },
 ];
 
-
-
 function BlogBanner() {
   //for toggling the modal
   const { isShowing, toggle } = useModal();
 
   const [smallScreen, setSmallScreen] = useState(false);
+  const myContext = useContext(multiStepContext);
 
   useEffect(() => {
     window.addEventListener("resize", checkScreen);
@@ -103,7 +98,12 @@ function BlogBanner() {
           )}
         </Flex>
       </Center>
-      <GetStartedModal isShowing={isShowing} hide={toggle} steps={steps} />
+      <GetStartedModal
+        isShowing={isShowing}
+        hide={toggle}
+        steps={steps}
+        currentStep={myContext.currentStepNumber}
+      />
     </div>
   );
 }

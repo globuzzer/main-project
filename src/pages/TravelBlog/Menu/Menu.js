@@ -37,7 +37,7 @@ export const steps = [
 ];
 
 function Menu() {
-  // const { currentStepNumber } = useContext(multiStepContext);
+  const myContext = useContext(multiStepContext);
   //for toggling the modal
   const { isShowing, toggle } = useModal();
 
@@ -139,7 +139,7 @@ function Menu() {
         isShowing={isShowing}
         hide={toggle}
         steps={steps}
-        // currentStep={currentStepNumber}
+        currentStep={myContext.currentStepNumber}
       />
 
       <nav className={menu.sideMenu} style={{ left: sideMenu && "0px" }}>

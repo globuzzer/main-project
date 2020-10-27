@@ -4,24 +4,12 @@ import prem from "../../../assets/TravelBlog/prem.svg";
 import fre from "../../../assets/TravelBlog/fre.svg";
 import "./GetStartedModal.css";
 import { multiStepContext } from "./StepContext";
-import Card from "./Card";
 
 class GetStarted3 extends Component {
+  //static contextType = multiStepContext;
   state = {
     plan: null,
-    list: {
-      free: [
-        { li: "Be a partner of Globuzzer" },
-        { li: "Be a partner of Globuzzer" },
-        { li: "Be a partner of Globuzzer" },
-        { li: "Be a partner of Globuzzer" },
-        { li: "Be a partner of Globuzzer" },
-        { li: "Be a partner of Globuzzer" },
-      ],
-      premium: [],
-    },
   };
-  // static contextType = multiStepContext;
 
   //proceed to next step
   proceed = (e) => {
@@ -45,7 +33,7 @@ class GetStarted3 extends Component {
   };
 
   render() {
-    //const { setCurrentStepNumber } = this.context;
+    const { setCurrentStepNumber } = this.context;
     return (
       <div>
         <div className="grey_box3">
@@ -89,7 +77,7 @@ class GetStarted3 extends Component {
               <a
                 href="#"
                 onClick={(e) => this.previous(e)}
-                //| setCurrentStepNumber(2)}
+                //| setCurrentStepNumber(2)
                 className="backs"
               >
                 back
