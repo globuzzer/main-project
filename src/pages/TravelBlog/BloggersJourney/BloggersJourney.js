@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import styles from "./BloggersJourney.module.css";
+import './BloggersJourney.css';
 import BloggersData from "../../../assets/TravelBlog/BloggersJourney/BloggersData";
 import BloggerCard from "./BloggerCard";
 import "slick-carousel/slick/slick.css";
@@ -13,31 +14,22 @@ const BloggersJourney = () => {
   const myRef = useContext(BloggerContext);
 
   const BloggersJourneyMobile = () => {
+
+    useEffect(()=>{
+      window.addEventListener("load", ()=>{
+        const active = document.querySelector('.slick-active');
+        active.style.backgroundColor="green";
+      })
+    })
     const settings = {
       dots: true,
-      dotsClass: "slick-dots",
-      infinite: false,
+      dotsClass: "custom-dots",
+      infinite: true,
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
       autoplaySpeed: 3000,
-      appendDots: (dots) => (
-        <div>
-          <ul> {dots} </ul>
-        </div>
-      ),
-      customPaging: (i) => (
-        <div
-          className="custom-dots"
-          style={{
-            backgroundColor: "#e5e5e5",
-            borderRadius: "50px",
-            padding: "10px",
-            marginTop: "10px",
-          }}
-        ></div>
-      ),
     };
     return (
       <div className={styles.mobile}>
