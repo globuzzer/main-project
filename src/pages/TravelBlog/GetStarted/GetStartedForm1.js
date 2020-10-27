@@ -1,12 +1,12 @@
 import React, { useState, useContext } from "react";
 
-// import { multiStepContext } from "./StepContext";
+ import { multiStepContext } from "./StepContext";
 
 import "./GetStartedModal.css";
 
 export default ({ nextStep }) => {
   //dynamic  multi stepper numbers
-  // const { setCurrentStepNumber } = useContext(multiStepContext);
+  const { setCurrentStepNumber } = useContext(multiStepContext);
 
   //initial state for form
   const [value, setValue] = useState("");
@@ -17,8 +17,8 @@ export default ({ nextStep }) => {
   };
 
   //continue to the next page function
-  const proceed = (e) => e.preventDefault() | nextStep();
-  // | setCurrentStepNumber(2);
+  const proceed = (e) =>
+    e.preventDefault() | nextStep() | setCurrentStepNumber(2);
   const validateRadioButton = (e) => {
     let valids = false;
     const forms = document.myform.field;

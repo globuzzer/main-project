@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-//import App from "./AppMenu";
-import Menu from "./../Menu/Menu";
+import Menu from "../Menu/Menu";
 
 export const multiStepContext = React.createContext();
 const StepContext = () => {
@@ -19,8 +18,7 @@ const StepContext = () => {
           setfinalData,
         }}
       >
-        <Menu/>
-        {/* <App /> */}
+        <Menu />
       </multiStepContext.Provider>
     </div>
   );

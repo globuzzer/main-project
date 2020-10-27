@@ -4,11 +4,15 @@ import "./css/index.css";
 import { BrowserRouter } from "react-router-dom";
 import StepContext from "./pages/TravelBlog/GetStarted/StepContext";
 import App from "./App";
+import Menu from "./pages/TravelBlog/Menu/Menu"
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+//   <BrowserRouter>
+    <StepContext>
+      <Menu />
+    </StepContext>,
+//     <App />
+//   </BrowserRouter>,
 
   document.getElementById("root")
 );
