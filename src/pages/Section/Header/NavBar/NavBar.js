@@ -4,13 +4,12 @@ import { Link } from "react-router-dom";
 import { IconContext } from "react-icons";
 import { BsSearch } from "react-icons/bs";
 import { RiArrowDropDownFill } from "react-icons/ri";
-import { ReactComponent as Logo } from "../../assets/Section/Header/Logo.svg";
-import WeatherIcon from "../../assets/Section/Header/weather-icon.svg";
-import { GetWindowDimension } from "../../utils/GetWindowDimension";
+import { ReactComponent as Logo } from "../../../../assets/Section/Header/Logo.svg";
+import WeatherIcon from "../../../../assets/Section/Header/weather-icon.svg";
+import { GetWindowDimension } from "../../../../utils/GetWindowDimension";
 import NavigationMobile from "./NavigationMobile";
 import axios from "axios";
-import { apiKey } from "../../constants/index";
-import { cityID } from "../../constants/index";
+import { apiKey, cityID } from "../../../../constants/index";
 const NavBar = () => {
   const { width } = GetWindowDimension();
   const [scroll, setScroll] = useState(false);
@@ -60,12 +59,12 @@ const NavBar = () => {
         <Logo className={styles.logo} />
       </a>
       <div className={styles.right}>
-        <li className={styles.option} className={styles.dest}>
+        <li className={styles.dest}>
           Destinations
           <IconContext.Provider value={{ className: "dropdown" }}>
             <RiArrowDropDownFill />
           </IconContext.Provider>
-          <nav className={styles.destination} className={styles.d}>
+          <nav className={styles.destination}>
             <ul>
               <p className={styles.recently}>Recently:</p>
               <li>Rome</li>
@@ -106,16 +105,16 @@ const NavBar = () => {
           </nav>
         </li>
 
-        <li className={styles.option} className={styles.service}>
+        <li className={styles.service}>
           Services
           <IconContext.Provider value={{ className: "dropdown" }}>
             <RiArrowDropDownFill />
           </IconContext.Provider>
-          <nav className={styles.destination} className={styles.s}>
+          <nav className={styles.destination}>
             <ul>
               <div>
                 <IconContext.Provider value={{ className: "bs-search" }}>
-                  <BsSearch />
+                  <BsSearch className={styles.search}/>
                 </IconContext.Provider>
                 <input type="text" placeholder="Search for services here..." />
               </div>
@@ -142,12 +141,12 @@ const NavBar = () => {
           </nav>
         </li>
 
-        <li className={styles.option} className={styles.topic}>
+        <li className={styles.topic}>
           Topics
           <IconContext.Provider value={{ className: "dropdown" }}>
             <RiArrowDropDownFill />
           </IconContext.Provider>
-          <nav className={styles.destination} className={styles.t}>
+          <nav className={styles.destination}>
             <ul>
               <p className={styles.recently}>Recently:</p>
               <li>Rome</li>

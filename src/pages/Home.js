@@ -19,7 +19,7 @@ import { Footer } from "../components/Footer/Footer";
 import { SearchCity } from "../components/SearchCity/SearchCity";
 import { JoinCommunity } from "../components/JoinCommunity/JoinCommunity";
 import { RequestNewCity } from "../components/RequestNewCity/RequestNewCity";
-
+import {Link} from 'react-router-dom';
 export const Home = () => {
   const [query, setQuery] = useState("");
   const [moreJoinCity, setMoreJoinCity] = useState(false);
@@ -66,7 +66,7 @@ Most importantly, we have been in the same spot, and we can support you. `;
           <p id="header_suggestion">
             Maybe{" "}
             <a href="https://globuzzer.mn.co/groups/195831/feed">Stockholm</a>,
-            <a href="https://globuzzer.mn.co/groups/195832/feed"> Helsinki</a>{" "}
+            <Link to='/section'> Helsinki</Link>{" "}
             or <a href="https://globuzzer.mn.co/groups/195834/feed">Paris</a>?
           </p>
         </section>

@@ -18,6 +18,7 @@ li {
 
 li {
   cursor: pointer;
+  color: white;
 }
 
 .options {
@@ -50,6 +51,13 @@ li {
     color: #ffffff;
 }
 
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .loginBtn {
     margin: 0 15px;
     font-size: 13px;
@@ -73,18 +81,23 @@ li {
     flex-direction: row;
 }
 
-.option {
+.dest, .topic, .service {
     cursor: pointer;
     font-size: 16px;
     font-weight: 500;
     color: #ffffff;
     position: relative;
     padding: 0 20px;
+    display: flex;
 }
 
-.option:hover{
+.dest:hover, .topic:hover, .service:hover{
     background: #373c47;
     padding: 20px 10px; 
+}
+
+.dest:hover .destination, .topic:hover .destination, .service:hover .destination{
+    display: flex;
 }
 
 .destination {
@@ -102,7 +115,7 @@ li {
     padding: 15px;
 }
 
-.destination ul li {
+.destination li{
     padding: 20px 0;
     width: 110px;
     display: block;
@@ -112,27 +125,27 @@ li {
       border-bottom: 1px solid #f24b6a;
 }
 
-.bs-search {
+.search {
     position: absolute;
     top: 50%;
     left: 6px;
     transform: translateY(-50%);
 }
 
-.s p{
+.destination p{
     width: 100px;
 }
 
-.s .recently {
+.destination .recently {
     padding-top: 12px;
 }
 
-.s div{
+.destination div{
     position: relative;
     width: 200px;
 }
 
-.s div input {
+.destination div input {
     padding: 5px 30px;
     border: 1px solid #c4c4c4;
     border-radius: 5px;
@@ -141,20 +154,11 @@ li {
     font-size: 11px;
 }
 
-.s div .bs-search{
+.destination div .search{
     color: #8888;
 }
 
-.d p {
+.destination p {
     width: 120px;
 }
 
-.option .dest:hover .d, .option .service:hover .s, .option .topic:hover .t{
-    display: flex;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 500;
-    color: #ffffff;
-    position: relative;
-    padding: 0 20px;
-}
