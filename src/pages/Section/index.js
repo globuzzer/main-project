@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header/Header';
 import NavBar from './Header/NavBar/NavBar';
 import Services from './Services/Services'
+import Topics from './Topics/Topics';
 import styles from './index.module.css';
 
 const index = () => {
@@ -13,6 +14,9 @@ const index = () => {
             </div>
             <div className={styles.services}>
                 <Services/>
+            </div>
+            <div className={styles.topics}>
+                <Topics/>
             </div>
             
         </div>
