@@ -13,13 +13,14 @@ import { SignUp } from "./pages/SignUp";
 import Helsinki from "./pages/Helsinki";
 import ScrollToTop from "./utils/ScrollToTop";
 import TravelBlog from './pages/TravelBlog/index';
+import Section from './pages/Section/index';
 const App = () => {
   const location = useLocation();
   const { pathname } = location;
 
   return (
     <>
-      {pathname !== "/signup" && pathname !== "/own-city-section" && pathname !== "/travel-blog" && (
+      {pathname !== "/signup" && pathname !== "/own-city-section" && pathname !== "/travel-blog" && pathname != "/section" && (
         <Navigation />
       )}
       <ScrollToTop />
@@ -53,6 +54,9 @@ const App = () => {
         </Route>
         <Route path='/travel-blog'>
           <TravelBlog/>
+        </Route>
+        <Route path='/section'>
+          <Section/>
         </Route>
       </Switch>
     </>
