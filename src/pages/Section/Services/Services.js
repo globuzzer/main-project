@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from './Services.module.css';
-import {SectionHeader} from "../../../components/SectionHeader/SectionHeader";
+import BlogHeader from '../../../components/TravelBlog/sectionHeader/SectionHeader';
 import ServiceCard from "./ServiceCard";
 import {ServiceData} from '../../../assets/Section/Services/ServiceData';
 import more from '../../../assets/Section/Services/more.svg';
@@ -27,7 +27,7 @@ const Services = () => {
   };
   return (
     <div className={styles.wrapper} >
-      <SectionHeader header="Recommend Services" />
+      <BlogHeader label="Recommend Services" />
       <div className={styles.container}>
         <ServiceCard servicesToRender={servicesToShow}/> 
         <div className={styles.moreBtn} onClick={showMoreHandler}>

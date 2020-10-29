@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Members.module.css';
-import {SectionHeader} from '../../../components/SectionHeader/SectionHeader';
+import BlogHeader from '../../../components/TravelBlog/sectionHeader/SectionHeader';
 import Asya from '../../../assets/Section/Members/Asya.jpg';
 import Chloe from '../../../assets/Section/Members/Chloe.jpg';
 import Gabriela from '../../../assets/Section/Members/Gabriela.jpg';
@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 const Members = () => {
     return (
     <div className={styles.wrapper}>
-        <SectionHeader header="Top members to meet" />
+        <BlogHeader label="Top members to meet" />
         <div className={styles.grid}>
           <div className={styles.empty}/>
           <div className={styles.memberContainer}>

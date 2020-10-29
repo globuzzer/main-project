@@ -2,13 +2,13 @@ import React, {useState, useEffect} from 'react';
 import styles from './Articles.module.css';
 import './Articles.css';
 import ArticleCard from './ArticleCard';
+import BlogHeader from '../../../components/TravelBlog/sectionHeader/SectionHeader';
 import {ArticleDataDesk} from '../../../assets/Section/Articles/ArticleDataDesk';
 import  {ArticleDataMobile } from '../../../assets/Section/Articles/ArticleDataMobile';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
 import {GetWindowDimension} from '../../../utils/GetWindowDimension';
-import {SectionHeader} from '../../../components/SectionHeader/SectionHeader';
 import prev from '../../../assets/Section/Articles/prev.svg';
 import { render } from '@testing-library/react';
 const articlesPerPage = 4;
@@ -84,7 +84,7 @@ const Articles = () => {
     };
     return (
         <div className={styles.wrapper} style={{display:"grid", gridGap:"30px" }}>
-            <SectionHeader header="Top Articles to see"/>
+            <BlogHeader label="Top Articles to see"/>
             {width >= 1100 ? <ArticlesDesk/> : <ArticlesMobile/> }
         </div>
     );

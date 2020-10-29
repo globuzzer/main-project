@@ -1,6 +1,6 @@
 import React ,{useState, useEffect} from 'react';
 import styles from './Topics.module.css';
-import {SectionHeader} from '../../../components/SectionHeader/SectionHeader';
+import BlogHeader from '../../../components/TravelBlog/sectionHeader/SectionHeader';
 import TopicCard from './TopicCard';
 import {TopicsData} from '../../../assets/Section/Topics/TopicsData';
 import arrow from '../../../assets/Section/Topics/arrow-icon.svg';
@@ -34,7 +34,7 @@ const Topics = () => {
   
       return (
       <div className={styles.wrapper}>
-        <SectionHeader header="Top Topics to explore" />
+        <BlogHeader label="Top Topics to explore" />
         <div className={styles.container}>
             <TopicCard topicsToRender={topicsToShow}/>
         </div>
@@ -69,7 +69,7 @@ const Topics = () => {
       }
       return (
       <div className={styles.wrapper}>
-        <SectionHeader header="Top Topics to explore" />
+        <BlogHeader label="Top Topics to explore" />
         <div className={styles.container}>
             <TopicCard topicsToRender={topicsToShow}/>
         </div>
