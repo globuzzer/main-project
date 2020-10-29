@@ -4,6 +4,7 @@ import NavBar from './Header/NavBar/NavBar';
 import Services from './Services/Services'
 import Topics from './Topics/Topics';
 import Members from './Members/Members';
+import Articles from './Articles/Articles';
 import styles from './index.module.css';
 
 const index = () => {
@@ -21,6 +22,9 @@ const index = () => {
             </div>
             <div className={styles.members}>
                 <Members/>
+            </div>
+            <div className={styles.articles}>
+                <Articles/>
             </div>
         </div>
     );

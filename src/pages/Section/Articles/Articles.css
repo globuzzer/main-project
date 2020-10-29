@@ -1,0 +1,10 @@
+.slick-slider button {
+    width: 62px;
+    height: 62px;
+    border-radius: 50px;
+    background-color: red;
+}
+
+.slick-slider button.slick-prev:hover, .slick-slider button.slick-next:hover {
+    background-color: green;
+}
