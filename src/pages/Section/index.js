@@ -6,6 +6,7 @@ import Topics from './Topics/Topics';
 import Members from './Members/Members';
 import Articles from './Articles/Articles';
 import Relocate from './Relocate/Relocate';
+import SliderBanner from './SliderBanner/SliderBanner';
 import styles from './index.module.css';
 
 const index = () => {
@@ -20,6 +21,9 @@ const index = () => {
             </div>
             <div className={styles.topics}>
                 <Topics/>
+            </div>
+            <div className={styles.slider}>
+                <SliderBanner/>
             </div>
             <div className={styles.members}>
                 <Members/>
