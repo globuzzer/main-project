@@ -34,7 +34,7 @@ function Form2({ nextStep, prevStep }) {
   const handleInput = ({ name, value }) => {
     if (!value) return `${name} cannot be empty`;
     if (name === "firstName" || name === "lastName") {
-      if (value.length < 5) return `${name} cannot be less than 5`;
+      if (value.length < 3) return `${name} cannot be less than 3`;
       if (value.length > 50) return `${name} cannot be more than 50`;
     }
 
@@ -81,6 +81,8 @@ function Form2({ nextStep, prevStep }) {
       if (window.innerWidth <= 700) return nextStep();
       return alert("Please agree to Privacy policy");
     }
+
+    nextStep();
   };
 
   const { firstName, lastName, email, phone } = data;

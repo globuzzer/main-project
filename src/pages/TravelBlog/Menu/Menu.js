@@ -11,12 +11,11 @@ import { getStarted } from "../multi_step/showGetStarted";
 import menu from "./Menu.module.css";
 
 function Menu() {
-  const myContext = useContext(getStarted);
-
   const [smallScreen, setSmallScreen] = useState(false);
   const [scroll, setScroll] = useState(false);
   const [sideMenu, setSideMenu] = useState(false);
 
+  const startedContext = useContext(getStarted);
   const footerRef = useContext(FooterContext);
   const bloggerRef = useContext(BloggerContext);
 
@@ -30,8 +29,6 @@ function Menu() {
       window.removeEventListener("scroll", checkScroll);
     };
   }, []);
-
-  console.log(myContext);
 
   const checkScreen = () => {
     window.innerWidth <= 755 ? setSmallScreen(true) : setSmallScreen(false);
@@ -101,7 +98,7 @@ function Menu() {
 
           {/* <li className={menu.menuList}>Get started</li> */}
           <li
-            onClick={() => myContext.setGetSarted(true)}
+            onClick={() => startedContext.setGetStarted(true)}
             className={menu.menuList}
             style={{ background: scroll && "#f24b6a", color: scroll && "#fff" }}
           >
@@ -135,7 +132,7 @@ function Menu() {
         <ul className={`${menu.sideItems} ${menu.sideRight}`}>
           <li
             className={menu.sideList}
-            onClick={() => myContext.setGetSarted(true)}
+            onClick={() => startedContext.setGetSarted(true)}
             style={{ background: scroll && "#f24b6a" }}
           >
             Get started

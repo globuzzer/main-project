@@ -97,6 +97,7 @@ function UserForm() {
                 circle={user.circle}
                 label="About your desired topic"
                 style={circleStyle(1)}
+                lineClass={user.circleLine}
               />
 
               <CircleWrapper
@@ -105,6 +106,7 @@ function UserForm() {
                 circle={user.circle}
                 label="About you"
                 style={circleStyle(2)}
+                lineClass={user.circleLine}
               />
 
               <CircleWrapper
