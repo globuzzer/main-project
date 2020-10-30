@@ -8,6 +8,8 @@ import Articles from './Articles/Articles';
 import Relocate from './Relocate/Relocate';
 import SliderBanner from './SliderBanner/SliderBanner';
 import Vimeo from './Vimeo/Vimeo';
+import {OwnSection} from '../../components/OwnSection/OwnSection';
+import {Footer} from '../../components/Footer/Footer';
 import styles from './index.module.css';
 
 const index = () => {
@@ -36,6 +38,11 @@ const index = () => {
             <div className={styles.relocate}>
                 <Relocate/>
             </div>
+            <div className={styles.footer}>
+            <OwnSection/>
+            <Footer/>
+            </div>
+        
         </div>
     );
 }
