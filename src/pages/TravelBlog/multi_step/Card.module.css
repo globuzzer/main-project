@@ -1,5 +1,6 @@
 .container {
-  width: 192px;
+  width: 50%;
+  max-width: 192px;
   color: #777777;
   margin: 0 auto;
   box-shadow: 0px 0px 10px rgba(85, 85, 85, 0.25);
@@ -36,7 +37,6 @@
 }
 
 .underline {
-  border-top: 2px solid #5ebfbf;
   width: 21px;
   margin: 5px 0;
 }
@@ -57,7 +57,7 @@
 }
 
 .items li {
-  background: url("../../../assets/TravelBlog/checkMark.png") left no-repeat;
+  background: url("../multi_step/image/checkMark.png") left no-repeat;
   padding: 8px 0 8px 25px;
   color: #909090;
   font-size: 9px;
@@ -78,7 +78,32 @@
   font-size: 9px;
 }
 
-.btnDiv button:active {
-  background: green;
-  color: #fff;
+@media (max-width: 700px) {
+  .container {
+    max-width: 146px;
+  }
+
+  .header {
+    font-size: 12px;
+  }
+
+  .amount {
+    font-size: 18px;
+  }
+
+  .time {
+    font-size: 6px;
+  }
+
+  .items li {
+    font-size: 6px;
+  }
+
+  .free {
+    margin-top: -9px;
+    margin-left: -5px;
+  }
+  .mainHeader {
+    padding-left: 5px;
+  }
 }

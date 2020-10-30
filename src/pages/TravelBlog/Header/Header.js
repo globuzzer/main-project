@@ -5,9 +5,7 @@ import Center from "../../../components/TravelBlog/center/Center";
 import Flex from "../../../components/TravelBlog/flex/Flex";
 import Menu from "../Menu/Menu";
 
-import useModal from "../GetStarted/useModal";
-import GetStartedModal from "../GetStarted/GetStartedModal";
-import { multiStepContext } from "../GetStarted/StepContext";
+import { getStarted } from "../multi_step/showGetStarted";
 import header from "./Header.module.css";
 import video from "../../../assets/TravelBlog/vid.mp4";
 
@@ -35,10 +33,9 @@ export const steps = [
 
 function BlogBanner() {
   //for toggling the modal
-  const { isShowing, toggle } = useModal();
 
   const [smallScreen, setSmallScreen] = useState(false);
-  const myContext = useContext(multiStepContext);
+  const myContext = useContext(getStarted);
 
   useEffect(() => {
     window.addEventListener("resize", checkScreen);
@@ -75,7 +72,9 @@ function BlogBanner() {
             {!smallScreen && (
               <div className={header.items}>
                 <div>
-                  <button onClick={toggle}>Get statarted</button>
+                  <button onClick={() => myContext.setGetStarted(true)}>
+                    Get statarted
+                  </button>
                 </div>
 
                 {/* <div className={header.itemsRight}>
@@ -93,17 +92,13 @@ function BlogBanner() {
 
           {smallScreen && (
             <div className={header.btnSmall}>
-              <button onClick={toggle}>Get statarted</button>
+              <button onClick={() => myContext.setGetStarted(true)}>
+                Get statarted
+              </button>
             </div>
           )}
         </Flex>
       </Center>
-      <GetStartedModal
-        isShowing={isShowing}
-        hide={toggle}
-        steps={steps}
-        currentStep={myContext.currentStepNumber}
-      />
     </div>
   );
 }

@@ -1,0 +1,309 @@
+.container {
+  width: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.7);
+  height: 100vh;
+  z-index: 1000;
+}
+
+.formContainer {
+  width: 80%;
+  max-width: 1200px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* For top (red part) */
+.top {
+  background: linear-gradient(180deg, #de3857 0%, #f24b6a 100%);
+  color: #fff;
+}
+
+.closeBtn {
+  cursor: pointer;
+  position: fixed;
+  right: 5px;
+  top: 5px;
+}
+
+.closeBtn img {
+  width: 37px;
+  height: 37px;
+}
+
+.top header {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+  padding: 30px 0;
+}
+
+.circleContainer {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  width: 360px;
+  margin: 0 auto;
+}
+
+.circle {
+  border: 1px solid #fff;
+  width: 27px;
+  padding: 2px 0;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.circleWrapper p {
+  width: 100px;
+  font-size: 13px;
+  margin: 0 auto;
+  line-height: 22px;
+  padding: 12px 0;
+}
+
+/*For bottom (grey part) */
+
+.bottom {
+  background: #f9f9f9;
+  padding: 35px;
+}
+
+.pageContainer {
+  width: 45%;
+  min-width: 380px;
+  margin: 0 auto;
+  color: #888888;
+}
+
+.reminder {
+  font-size: 11px;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.pageHeader {
+  color: #555555;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 15px 0;
+}
+
+.option {
+  border-bottom: 1px solid #e4e4e4;
+  padding: 8px 0;
+}
+
+.otherOption {
+  border: none;
+}
+
+label {
+  padding-left: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.textarea {
+  padding: 8px 0;
+}
+
+.textarea textarea {
+  width: 390px;
+  height: 90px;
+  resize: none;
+  border-radius: 1px solid #e4e4e4;
+}
+
+.continue {
+  padding: 5px 0 20px 0;
+}
+
+.btn {
+  width: 90px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  color: #fff;
+}
+
+.danger {
+  background: linear-gradient(180deg, #f24b6a 0%, #ca3f59 100%);
+}
+
+/* Form 2 */
+.formInput {
+  margin: 10px 0;
+}
+
+.formInput input[type="text"] {
+  padding: 8px;
+  width: 380px;
+  border: 1px solid #c4c4c4;
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+.formInput input::placeholder {
+  color: #888888;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.continue span {
+  margin-left: 15px;
+  color: #f24b6a;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  border-bottom: 1px solid #f24b6a;
+}
+
+/* Form 3 */
+.form3Container {
+  width: 60%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.send {
+  text-align: center;
+  padding: 40px 0 30px 0;
+}
+
+.send button {
+  background: #f24b6a;
+  color: #fff;
+}
+
+.send span {
+  margin-left: 15px;
+  color: #f24b6a;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  border-bottom: 1px solid #f24b6a;
+}
+
+.freeUnderline {
+  border-top: 2px solid #5ebfbf;
+}
+
+.premiumUnderline {
+  border-top: 2px solid #f24b6a;
+}
+
+.freeLi:nth-child(1),
+.freeLi:nth-child(2) {
+  color: #53bfbf !important;
+}
+
+.premiumLi:nth-child(1),
+.premiumLi:nth-child(2) {
+  color: #f24b6a !important;
+}
+
+/* Form 4 */
+.gratitude {
+  text-align: center;
+  font-size: 30px;
+  padding: 65px 0;
+}
+
+.gratitudeBody {
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+}
+
+.end {
+  padding: 50px 0 15px 0;
+  text-align: center;
+}
+
+.end button {
+  width: 90px;
+  height: 40px;
+  background: linear-gradient(180deg, #f24b6a 0%, #ca3f59 100%);
+  border-radius: 10px;
+  border: none;
+  color: #fff;
+}
+
+@media (max-width: 700px) {
+  .formContainer {
+    width: 95%;
+  }
+  .closeBtn img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .mainHeader {
+    text-transform: uppercase;
+    font-size: 20px;
+  }
+
+  .circleWrapper p {
+    font-size: 12px;
+  }
+
+  .pageContainer {
+    width: 98%;
+    min-width: 100px;
+  }
+
+  .pageHeader {
+    font-size: 16px;
+  }
+
+  .btn {
+    height: 36px;
+  }
+
+  /* Form 1 */
+  label {
+    font-size: 13px;
+  }
+
+  .textarea textarea {
+    width: 100%;
+  }
+
+  .continue {
+    padding: 5px 0;
+  }
+
+  /* Form 2 */
+  .continue button {
+    font-size: 12px;
+  }
+
+  /* Form 3 */
+  .form3Container {
+    width: 100%;
+  }
+
+  /* Form 4 */
+  .smallPara {
+    text-align: center;
+    color: #555555;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 5px 0 40px 0;
+  }
+
+  .gratitudeBody {
+    font-size: 13px;
+    width: 95%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}

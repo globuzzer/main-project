@@ -1,5 +1,4 @@
 import React, { Fragment, useEffect, useState, useContext } from "react";
-import { IconContext } from "react-icons";
 import { FaBars } from "react-icons/fa";
 import { FiMapPin } from "react-icons/fi";
 import { RiCloseLine } from "react-icons/ri";
@@ -8,39 +7,11 @@ import { FooterContext, BloggerContext } from "../contexts/refContext";
 import logo from "../../../assets/TravelBlog/globuzz_logo.svg";
 import logoSmall from "../../../assets/TravelBlog/globe_logo.svg";
 import Icon from "../../../components/TravelBlog/icon/Icon";
-
-import useModal from "../GetStarted/useModal";
-import GetStartedModal from "../GetStarted/GetStartedModal";
-import { multiStepContext } from "../GetStarted/StepContext";
-
+import { getStarted } from "../multi_step/showGetStarted";
 import menu from "./Menu.module.css";
 
-//initial variable for multi-step modals // connected to GetStartedModal file
-export const steps = [
-  {
-    description: `About your \n desired topic`,
-    completed: false,
-    selected: true,
-    highlighted: true,
-  },
-  {
-    description: "About you",
-    completed: false,
-    selected: false,
-    highlighted: false,
-  },
-  {
-    description: `About your \n blog plan`,
-    completed: false,
-    selected: false,
-    highlighted: false,
-  },
-];
-
 function Menu() {
-  const myContext = useContext(multiStepContext);
-  //for toggling the modal
-  const { isShowing, toggle } = useModal();
+  const myContext = useContext(getStarted);
 
   const [smallScreen, setSmallScreen] = useState(false);
   const [scroll, setScroll] = useState(false);
@@ -59,6 +30,8 @@ function Menu() {
       window.removeEventListener("scroll", checkScroll);
     };
   }, []);
+
+  console.log(myContext);
 
   const checkScreen = () => {
     window.innerWidth <= 755 ? setSmallScreen(true) : setSmallScreen(false);
@@ -128,7 +101,7 @@ function Menu() {
 
           {/* <li className={menu.menuList}>Get started</li> */}
           <li
-            onClick={toggle}
+            onClick={() => myContext.setGetSarted(true)}
             className={menu.menuList}
             style={{ background: scroll && "#f24b6a", color: scroll && "#fff" }}
           >
@@ -136,12 +109,6 @@ function Menu() {
           </li>
         </ul>
       </nav>
-      <GetStartedModal
-        isShowing={isShowing}
-        hide={toggle}
-        steps={steps}
-        currentStep={myContext.currentStepNumber}
-      />
 
       <nav className={menu.sideMenu} style={{ left: sideMenu && "0px" }}>
         <ul className={`${menu.sideItems} ${menu.sideLeft}`}>
@@ -168,7 +135,7 @@ function Menu() {
         <ul className={`${menu.sideItems} ${menu.sideRight}`}>
           <li
             className={menu.sideList}
-            onClick={toggle}
+            onClick={() => myContext.setGetSarted(true)}
             style={{ background: scroll && "#f24b6a" }}
           >
             Get started
