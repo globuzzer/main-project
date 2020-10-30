@@ -7,6 +7,7 @@ import Members from './Members/Members';
 import Articles from './Articles/Articles';
 import Relocate from './Relocate/Relocate';
 import SliderBanner from './SliderBanner/SliderBanner';
+import Vimeo from './Vimeo/Vimeo';
 import styles from './index.module.css';
 
 const index = () => {
@@ -24,6 +25,7 @@ const index = () => {
             </div>
             <div className={styles.slider}>
                 <SliderBanner/>
+                <Vimeo/>
             </div>
             <div className={styles.members}>
                 <Members/>
