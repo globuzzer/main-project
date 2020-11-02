@@ -3,7 +3,7 @@ import styles from './NavBar.module.css';
 import { Link } from "react-router-dom";
 import { IconContext } from "react-icons";
 import { BsSearch } from "react-icons/bs";
-import { RiArrowDropDownFill } from "react-icons/ri";
+import  {RiArrowDropDownFill}  from "react-icons/ri";
 import { ReactComponent as Logo } from "../../../../assets/Section/Header/Logo.svg";
 import WeatherIcon from "../../../../assets/Section/Header/weather-icon.svg";
 import { GetWindowDimension } from "../../../../utils/GetWindowDimension";

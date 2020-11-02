@@ -19,16 +19,17 @@ const index = () => {
             <div className={styles.header}>
             <Header/>
             </div>
+            <div className={styles.center}>
             <div className={styles.services}>
                 <Services/>
-            </div>
-            <div className={styles.topics}>
                 <Topics/>
             </div>
             <div className={styles.slider}>
                 <SliderBanner/>
                 <Vimeo/>
             </div>
+            </div>
+            
             <div className={styles.members}>
                 <Members/>
             </div>
