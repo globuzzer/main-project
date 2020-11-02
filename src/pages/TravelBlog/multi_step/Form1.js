@@ -39,24 +39,30 @@ function Form1({ nextStep }) {
       <div className={user.pageBody}>
         {options.map((option, index) => (
           <div className={user.option} key={index}>
-            <input
+            <label>
+              <input
               type="radio"
               value={option.value}
               onChange={handleChange}
               name="topic"
             />
-            <label>{option.label}</label>
+            {option.label}
+            <span className={user.checkmark}/>
+            </label>
           </div>
         ))}
 
         <div className={`${user.option} ${user.otherOption}`}>
+         
+          <label>
           <input
             type="radio"
             value="other"
             onChange={handleChange}
             name="topic"
           />
-          <label>Other(Please explain in the field below)</label>
+          <span className={user.checkmark}/>
+          Other(Please explain in the field below)</label>
         </div>
 
         <div className={user.textarea}>

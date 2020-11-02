@@ -6,6 +6,7 @@
   z-index: 1000;
 }
 
+Input
 .formContainer {
   width: 80%;
   max-width: 1200px;
@@ -55,7 +56,7 @@
 
 .circleLine {
   border-bottom: 2px solid #fff;
-  width: 106%;
+  width: 95%;
   position: absolute;
   left: 61%;
   top: 12%;
@@ -115,11 +116,60 @@
 }
 
 label {
-  padding-left: 8px;
+  display: grid;
+  grid-template-columns: repeat(2, 20px 1fr);
+  grid-gap: 1rem;
   font-size: 14px;
   font-weight: 500;
+  width: 100vw;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
+label input {
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  background-color: #ffffff;
+  border: 1px solid #c4c4c4;
+  border-radius: 50%;
+}
+
+label:hover input ~ .checkmark {
+  filter: brightness(110%);
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+label input:checked ~ .checkmark:after {
+  display: block;
+}
+
+label .checkmark:after {
+  top: 2px;
+  left: 2px;
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  background: #f24b6a;
+}
 .textarea {
   padding: 8px 0;
 }
@@ -149,7 +199,7 @@ label {
 
 /* Form 2 */
 .formInput {
-  margin: 10px 0;
+  margin: 20px 0;
 }
 
 .formInput input[type="text"] {
@@ -169,7 +219,7 @@ label {
 .continue span {
   margin-left: 15px;
   color: #f24b6a;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 14px;
   cursor: pointer;
   border-bottom: 1px solid #f24b6a;
@@ -270,9 +320,9 @@ label {
 }
 
 @media (max-width: 700px) {
-  .formContainer {
+  /* .formContainer {
     width: 95%;
-  }
+  } */
 
   .closeBtn img {
     width: 30px;
@@ -289,11 +339,12 @@ label {
   }
 
   .bottom {
-    padding: 20px 8px;
+    padding: 30px;
+    height: 60vh;
   }
 
   .pageContainer {
-    width: 98%;
+    width: 100%;
     min-width: 100px;
   }
 
@@ -320,11 +371,13 @@ label {
 
   /* Form 2 */
   .continue button {
-    font-size: 12px;
+    font-size: 13px;
+    font-weight: 800;
   }
 
   .formInput input[type="text"] {
     width: 90%;
+    height: 25px;
   }
 
   /* Form 3 */
@@ -351,5 +404,11 @@ label {
     width: 95%;
     max-width: 300px;
     margin: 0 auto;
+  }
+}
+
+@media (min-width:1100px) {
+  .circleLine {
+    width: 106%;
   }
 }
