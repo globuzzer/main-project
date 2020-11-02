@@ -10,6 +10,8 @@ function Card({
   underline,
   onClick,
   btnStyle,
+  chooseImg,
+  next
 }) {
   return (
     <div className={card.container}>
@@ -35,12 +37,15 @@ function Card({
           ))}
         </ul>
 
-        <div className={card.btnDiv}>
+        
+      </div>
+      <div className={card.btnDiv} style={{backgroundImage:`url(${chooseImg})`}}>
           <button onClick={onClick} style={btnStyle}>
             Choose
+            <img src={next} alt="next-arrow"/>
           </button>
+          
         </div>
-      </div>
     </div>
   );
 }

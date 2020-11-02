@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import free from "./image/free.png";
+import blue from './image/blue.svg';
+import pink from './image/pink.svg';
+import premium from './image/premium.svg';
+import nextBtn from './image/next.svg';
 import Card from "./Card";
 import user from "./userForm.module.css";
 
@@ -54,25 +58,29 @@ function Form3({ nextStep, prevStep }) {
           price="0.00"
           className={user.freeLi}
           underline={user.freeUnderline}
+          chooseImg={blue}
           onClick={() => setPlan("free")}
           btnStyle={btnStyle("free")}
+          next={nextBtn}
         />
 
         <Card
-          src={free}
+          src={premium}
           type="premium"
           lists={lists.premium}
           price={19.99}
           className={user.premiumLi}
           underline={user.premiumUnderline}
+          chooseImg={pink}
           onClick={() => setPlan("premium")}
           btnStyle={btnStyle("premium")}
+          next={nextBtn}
         />
       </div>
 
       <div className={`${user.send}`}>
         <button className={`${user.btn}`} onClick={validate}>
-          send
+          Send
         </button>
 
         <span onClick={() => prevStep()}>back</span>

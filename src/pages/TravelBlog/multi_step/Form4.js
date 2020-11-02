@@ -22,7 +22,7 @@ export default function Form4({ resetPage }) {
       </p>
 
       <div className={user.end}>
-        <button onClick={endForm}>close</button>
+        <button onClick={endForm}>Close</button>
       </div>
     </div>
   );

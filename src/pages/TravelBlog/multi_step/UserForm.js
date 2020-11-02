@@ -41,6 +41,13 @@ function UserForm() {
       };
   };
 
+  const stepTextStyle = (n) => {
+    if (currentPage >=n)
+    return {
+      fontWeight:"700"
+    };
+  };
+
   const resetPage = () => {
     setCurrentPage(1);
   };
@@ -96,6 +103,7 @@ function UserForm() {
                 number={1}
                 circle={user.circle}
                 label="About your desired topic"
+                chosen={stepTextStyle(1)}
                 style={circleStyle(1)}
                 lineClass={user.circleLine}
               />
@@ -105,6 +113,7 @@ function UserForm() {
                 number={2}
                 circle={user.circle}
                 label="About you"
+                chosen={stepTextStyle(2)}
                 style={circleStyle(2)}
                 lineClass={user.circleLine}
               />
@@ -114,6 +123,7 @@ function UserForm() {
                 number={3}
                 circle={user.circle}
                 label="About your blog plan"
+                chosen={stepTextStyle(3)}
                 style={circleStyle(3)}
               />
             </div>

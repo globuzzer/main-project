@@ -6,6 +6,7 @@ export default function circleWrapper({
   number,
   label,
   style = null,
+  chosen=null,
   lineClass,
 }) {
   return (
@@ -15,7 +16,7 @@ export default function circleWrapper({
       </div>
 
       <div className={lineClass}></div>
-      <p>{label}</p>
+      <p style={chosen}>{label}</p>
     </div>
   );
 }

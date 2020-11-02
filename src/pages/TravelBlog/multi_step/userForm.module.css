@@ -36,9 +36,10 @@ Input
 
 .top header {
   text-align: center;
-  font-size: 30px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 500;
   padding: 30px 0;
+  line-height: 22px;
 }
 
 .circleContainer {
@@ -108,7 +109,7 @@ Input
 
 .option {
   border-bottom: 1px solid #e4e4e4;
-  padding: 8px 0;
+  padding: 12px 0;
 }
 
 .otherOption {
@@ -117,7 +118,7 @@ Input
 
 label {
   display: grid;
-  grid-template-columns: repeat(2, 20px 1fr);
+  grid-template-columns: repeat(1, 20px 1fr);
   grid-gap: 1rem;
   font-size: 14px;
   font-weight: 500;
@@ -245,12 +246,13 @@ label .checkmark:after {
 .send button {
   background: #f24b6a;
   color: #fff;
+  font-weight: 600;
 }
 
 .send span {
   margin-left: 15px;
   color: #f24b6a;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 14px;
   cursor: pointer;
   border-bottom: 1px solid #f24b6a;
@@ -284,6 +286,7 @@ label .checkmark:after {
 .gratitudeBody {
   font-weight: 500;
   font-size: 16px;
+  line-height: 28px;
   text-align: center;
 }
 
@@ -299,6 +302,7 @@ label .checkmark:after {
   border-radius: 10px;
   border: none;
   color: #fff;
+  font-weight: 600;
 }
 
 @media (min-width: 1001px) and (max-width: 1200px) {
@@ -320,9 +324,9 @@ label .checkmark:after {
 }
 
 @media (max-width: 700px) {
-  /* .formContainer {
-    width: 95%;
-  } */
+  .formContainer {
+    width: 100%;
+  }
 
   .closeBtn img {
     width: 30px;
@@ -339,8 +343,8 @@ label .checkmark:after {
   }
 
   .bottom {
-    padding: 30px;
-    height: 60vh;
+    padding: 20px;
+    height: 70vh;
   }
 
   .pageContainer {
@@ -363,6 +367,8 @@ label .checkmark:after {
 
   .textarea textarea {
     width: 100%;
+    border: 1px solid #e4e4e4;
+    border-radius: 7px;
   }
 
   .continue {
@@ -387,7 +393,7 @@ label .checkmark:after {
 
   .send {
     text-align: left;
-    padding: 40px 0 10px 0;
+    padding: 40px 0 10px 0
   }
 
   /* Form 4 */
