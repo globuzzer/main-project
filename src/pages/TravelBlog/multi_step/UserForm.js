@@ -33,6 +33,7 @@ function UserForm() {
     setCurrentPage(currentPage - 1);
   };
 
+
   const circleStyle = (n) => {
     if (currentPage >= n)
       return {
@@ -50,6 +51,7 @@ function UserForm() {
 
   const resetPage = () => {
     setCurrentPage(1);
+    window.localStorage.clear();
   };
 
   const closeGetStarted = () => {

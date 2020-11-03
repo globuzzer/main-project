@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Joi from "joi";
 import Input from "./Input";
 import user from "./userForm.module.css";
 
 function Form2({ nextStep, prevStep }) {
+  const localFormData = window.localStorage.getItem("form");
+  const [savedData, setSavedData] = useState(localFormData);
   const [data, setData] = useState({
     firstName: "",
     lastName: "",
@@ -26,6 +28,16 @@ function Form2({ nextStep, prevStep }) {
     email: Joi.string().email({ tlds: {} }).required(),
     phone: Joi.number().required(),
   });
+
+  useEffect(() => {
+    if (!savedData) {
+      const newFormData = window.localStorage.getItem("form");
+      setSavedData(newFormData);
+    }
+    if (savedData) {
+      setData(JSON.parse(savedData));
+    }
+  }, []);
 
   const handleCheck = () => {
     setAgree(!agree);
@@ -74,15 +86,14 @@ function Form2({ nextStep, prevStep }) {
   };
 
   const validate = () => {
+    window.localStorage.setItem("form", JSON.stringify(data));
+    nextStep();
     const errors = handleForm();
-
     if (errors) return setError(errors);
     if (!agree) {
       if (window.innerWidth <= 700) return nextStep();
       return alert("Please agree to Privacy policy");
     }
-
-    nextStep();
   };
 
   const { firstName, lastName, email, phone } = data;
