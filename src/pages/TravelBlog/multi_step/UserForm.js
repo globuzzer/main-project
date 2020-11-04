@@ -33,7 +33,6 @@ function UserForm() {
     setCurrentPage(currentPage - 1);
   };
 
-
   const circleStyle = (n) => {
     if (currentPage >= n)
       return {
@@ -43,10 +42,10 @@ function UserForm() {
   };
 
   const stepTextStyle = (n) => {
-    if (currentPage >=n)
-    return {
-      fontWeight:"700"
-    };
+    if (currentPage >= n)
+      return {
+        fontWeight: "700",
+      };
   };
 
   const resetPage = () => {
@@ -79,7 +78,7 @@ function UserForm() {
   return (
     <div
       className={user.container}
-      style={{ display: display.showGetStarted ? "block" : "none" }}
+      style={{ display: display.showGetStarted ? "flex" : "none" }}
     >
       <div className={user.formContainer}>
         <div className={user.top}>
