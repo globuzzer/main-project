@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./SliderBanner.module.css";
+import "./SliderBanner.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -10,6 +11,7 @@ const SliderBanner = () => {
   const slideImage = [sliderImg, sliderImg, sliderImg];
   const settings = {
     dots: true,
+    dotsClass: "slider-dots",
     infinite: true,
     speed: 500,
     slidesToShow: 1,
