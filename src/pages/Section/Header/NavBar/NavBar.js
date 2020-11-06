@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import styles from './NavBar.module.css';
+import styles from "./NavBar.module.css";
 import { Link } from "react-router-dom";
 import { IconContext } from "react-icons";
 import { BsSearch } from "react-icons/bs";
-import  {RiArrowDropDownFill}  from "react-icons/ri";
+import { RiArrowDropDownFill } from "react-icons/ri";
 import { ReactComponent as Logo } from "../../../../assets/Section/Header/Logo.svg";
 import WeatherIcon from "../../../../assets/Section/Header/weather-icon.svg";
 import { GetWindowDimension } from "../../../../utils/GetWindowDimension";
 import NavigationMobile from "./NavigationMobile";
 import axios from "axios";
-import { apiKey, cityID } from "../../../../constants/index";
+import { apiKey, cityID } from "../../constants/index";
 const NavBar = () => {
   const { width } = GetWindowDimension();
   const [scroll, setScroll] = useState(false);
@@ -18,16 +18,23 @@ const NavBar = () => {
     setScroll(false);
   };
 
-  
   const currentTemp = () => {
     let key = apiKey;
     let id = cityID;
     const temp = document.querySelector(".temperature");
     if (temp) {
       axios
-        .get("http://api.openweathermap.org/data/2.5/weather?id=" + id + "&appid=" + key + "&units=metric")
+        .get(
+          "http://api.openweathermap.org/data/2.5/weather?id=" +
+            id +
+            "&appid=" +
+            key +
+            "&units=metric"
+        )
         .then((data) => {
-          document.querySelector(".temperature").innerHTML = Math.ceil(data.data.main.temp);
+          document.querySelector("#temp").innerHTML = Math.ceil(
+            data.data.main.temp
+          );
         })
         .catch((error) => {
           console.log(error);
@@ -52,7 +59,6 @@ const NavBar = () => {
     }
   };
 
- 
   const DesktopNav = () => (
     <div className={styles.nav} style={navStyle()}>
       <a className={styles.logoContainer} href="#">
@@ -114,7 +120,7 @@ const NavBar = () => {
             <ul>
               <div>
                 <IconContext.Provider value={{ className: "bs-search" }}>
-                  <BsSearch className={styles.search}/>
+                  <BsSearch className={styles.search} />
                 </IconContext.Provider>
                 <input type="text" placeholder="Search for services here..." />
               </div>
@@ -193,7 +199,10 @@ const NavBar = () => {
           </nav>
         </li>
 
-        <a className={styles.option} href="https://pricing-page-mobile.web.app/pricing">
+        <a
+          className={styles.option}
+          href="https://pricing-page-mobile.web.app/pricing"
+        >
           Pricing
         </a>
       </div>
@@ -205,17 +214,16 @@ const NavBar = () => {
         <div className={styles.optionItems}>
           <img src={WeatherIcon} alt="weather" className={styles.weatherIcon} />
           <span className={styles.weatherText}>
-            <p className={styles.temperature}></p>
+            <p className={styles.temperature} id="temp"></p>
             <p>&#8451;</p>
           </span>
 
           <div className={styles.loginBtn}>
             <Link>Login</Link>
           </div>
-          <Link to='/cities'>
-          <button className={styles.signUpBtn} >Sign Up</button>
+          <Link to="/cities">
+            <button className={styles.signUpBtn}>Sign Up</button>
           </Link>
-          
         </div>
       </div>
     </div>
