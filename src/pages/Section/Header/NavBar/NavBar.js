@@ -13,6 +13,7 @@ import { apiKey, cityID } from "../../constants/index";
 const NavBar = () => {
   const { width } = GetWindowDimension();
   const [scroll, setScroll] = useState(false);
+  const [weather, setWeather] = useState("");
   const handleScroll = () => {
     if (window.pageYOffset > 30) return setScroll(true);
     setScroll(false);
@@ -21,8 +22,8 @@ const NavBar = () => {
   const currentTemp = () => {
     let key = apiKey;
     let id = cityID;
-    const temp = document.querySelector(".temperature");
-    if (temp) {
+    const temperature = document.querySelector("#temp");
+    if (temperature) {
       axios
         .get(
           "http://api.openweathermap.org/data/2.5/weather?id=" +
@@ -32,9 +33,8 @@ const NavBar = () => {
             "&units=metric"
         )
         .then((data) => {
-          document.querySelector("#temp").innerHTML = Math.ceil(
-            data.data.main.temp
-          );
+          const temp = Math.ceil(data.data.main.temp);
+          setWeather(temp);
         })
         .catch((error) => {
           console.log(error);
@@ -214,7 +214,9 @@ const NavBar = () => {
         <div className={styles.optionItems}>
           <img src={WeatherIcon} alt="weather" className={styles.weatherIcon} />
           <span className={styles.weatherText}>
-            <p className={styles.temperature} id="temp"></p>
+            <p className={styles.temperature} id="temp">
+              {weather}
+            </p>
             <p>&#8451;</p>
           </span>
 
