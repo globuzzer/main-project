@@ -3,7 +3,6 @@ import BlogHeader from "../../../components/TravelBlog/sectionHeader/SectionHead
 import Section from "../../../components/TravelBlog/section/Section";
 import Grid from "../../../components/TravelBlog/grid/Grid";
 import Todo from "../../../components/TravelBlog/todo/Todo";
-import hCss from "./HowItWorks.module.css";
 
 function HowItWorks() {
   const [smallScreen, setSmallScreen] = useState(false);
@@ -20,7 +19,7 @@ function HowItWorks() {
   };
 
   return (
-    <Section> 
+    <Section>
       <BlogHeader label={smallScreen ? "How does it work? " : "How it works"} />
 
       <Grid>
@@ -36,18 +35,11 @@ function HowItWorks() {
         />
         <Todo
           number={3}
-          header={
-            <span className={!smallScreen ? hCss.success : undefined}>
-              Start to make revenue
-            </span>
-          }
+          header="Start to make revenue"
           body={
             <span>
-              Begin creating content! Set up{" "}
-              <span className={!smallScreen ? hCss.success : undefined}>
-                subscription
-              </span>{" "}
-              prices and choose streams to make revenue
+              Begin creating content! Set up subscription prices and choose
+              streams to make revenue
             </span>
           }
         />

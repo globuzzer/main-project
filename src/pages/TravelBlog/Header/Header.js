@@ -1,14 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { FaPlayCircle } from "react-icons/fa";
 import Icon from "../../../components/TravelBlog/icon/Icon";
 import Center from "../../../components/TravelBlog/center/Center";
 import Flex from "../../../components/TravelBlog/flex/Flex";
 import Menu from "../Menu/Menu";
+
+import { getStarted } from "../multi_step/showGetStarted";
 import header from "./Header.module.css";
 import video from "../../../assets/TravelBlog/vid.mp4";
 
+//initial variable for multi-step modals // connected to GetStartedModal file
+export const steps = [
+  {
+    description: `About your \n desired topic`,
+    completed: false,
+    selected: true,
+    highlighted: true,
+  },
+  {
+    description: "About you",
+    completed: false,
+    selected: false,
+    highlighted: false,
+  },
+  {
+    description: `About your \n blog plan`,
+    completed: false,
+    selected: false,
+    highlighted: false,
+  },
+];
+
 function BlogBanner() {
+  //for toggling the modal
+
   const [smallScreen, setSmallScreen] = useState(false);
+  const myContext = useContext(getStarted);
 
   useEffect(() => {
     window.addEventListener("resize", checkScreen);
@@ -45,13 +72,15 @@ function BlogBanner() {
             {!smallScreen && (
               <div className={header.items}>
                 <div>
-                  <button>Get statarted</button>
+                  <button onClick={() => myContext.setGetStarted(true)}>
+                    Get statarted
+                  </button>
                 </div>
 
-                <div className={header.itemsRight}>
+                {/* <div className={header.itemsRight}>
                   <Icon label={<FaPlayCircle />} />
                   <span>watch the demo</span>
-                </div>
+                </div> */}
               </div>
             )}
           </div>
@@ -63,7 +92,9 @@ function BlogBanner() {
 
           {smallScreen && (
             <div className={header.btnSmall}>
-              <button>Get statarted</button>
+              <button onClick={() => myContext.setGetStarted(true)}>
+                Get statarted
+              </button>
             </div>
           )}
         </Flex>

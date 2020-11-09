@@ -3,6 +3,7 @@
   width: 95%;
   margin: 0 auto;
   position: relative;
+  transition: all 0.3s ease-in-out;
 }
 
 .mainMenu,
@@ -34,6 +35,7 @@
   border-radius: 15px;
   padding: 3px 25px;
   color: #f24b6a;
+  filter: brightness(110%);
 }
 
 .menuRight .menuList:last-child:hover {
@@ -42,7 +44,7 @@
 }
 
 .sideMenu {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: -250px;
   background: #2a293a;
@@ -54,6 +56,16 @@
   justify-content: space-between;
   flex-direction: column;
   transition: all 0.5s;
+}
+
+.bars {
+  width: 35px;
+  height: 35px;
+}
+
+.close {
+  width: 25px;
+  height: 25px;
 }
 
 @media screen and (max-width: 755px) {

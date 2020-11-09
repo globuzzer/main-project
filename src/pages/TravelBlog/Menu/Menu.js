@@ -1,18 +1,23 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState, useContext } from "react";
 import { FaBars } from "react-icons/fa";
 import { FiMapPin } from "react-icons/fi";
 import { RiCloseLine } from "react-icons/ri";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
+import { FooterContext, BloggerContext } from "../contexts/refContext";
 import logo from "../../../assets/TravelBlog/globuzz_logo.svg";
 import logoSmall from "../../../assets/TravelBlog/globe_logo.svg";
 import Icon from "../../../components/TravelBlog/icon/Icon";
-
+import { getStarted } from "../multi_step/showGetStarted";
 import menu from "./Menu.module.css";
 
 function Menu() {
   const [smallScreen, setSmallScreen] = useState(false);
   const [scroll, setScroll] = useState(false);
   const [sideMenu, setSideMenu] = useState(false);
+
+  const startedContext = useContext(getStarted);
+  const footerRef = useContext(FooterContext);
+  const bloggerRef = useContext(BloggerContext);
 
   useEffect(() => {
     window.addEventListener("resize", checkScreen);
@@ -30,7 +35,11 @@ function Menu() {
   };
 
   const checkScroll = () => {
-    window.pageYOffset > 50 ? setScroll(true) : setScroll(false);
+    window.pageYOffset > 0 ? setScroll(true) : setScroll(false);
+  };
+
+  const goToRef = (sectionRef) => {
+    window.scrollTo({ top: sectionRef.current.offsetTop });
   };
 
   const navStyle = () => {
@@ -51,7 +60,7 @@ function Menu() {
           <li className={menu.menuList}>
             {smallScreen ? (
               <span onClick={() => setSideMenu(true)}>
-                <Icon label={<FaBars />} />
+                <Icon label={<FaBars />} myClass={menu.bars} />
               </span>
             ) : (
               <img src={logo} alt="logo" />
@@ -70,12 +79,31 @@ function Menu() {
         <ul className={`${menu.menuItems} ${menu.menuRight}`}>
           {!smallScreen && (
             <Fragment>
-              <li className={menu.menuList}>Testimonials</li>
-              <li className={menu.menuList}>Contact us</li>
+              <li
+                className={menu.menuList}
+                onClick={() => goToRef(bloggerRef)}
+                style={{ color: scroll && "#fff " }}
+              >
+                Testimonials
+              </li>
+              <li
+                className={menu.menuList}
+                onClick={() => goToRef(footerRef)}
+                style={{ color: scroll && "#fff " }}
+              >
+                Contact us
+              </li>
             </Fragment>
           )}
 
-          <li className={menu.menuList}>Get started</li>
+          {/* <li className={menu.menuList}>Get started</li> */}
+          <li
+            onClick={() => startedContext.setGetStarted(true)}
+            className={menu.menuList}
+            style={{ background: scroll && "#f24b6a", color: scroll && "#fff" }}
+          >
+            Get started
+          </li>
         </ul>
       </nav>
 
@@ -84,7 +112,7 @@ function Menu() {
           <li className={menu.sideList}>
             <span>globuzzer</span>
             <span onClick={() => setSideMenu(false)}>
-              <Icon label={<RiCloseLine />} />
+              <Icon label={<RiCloseLine />} myClass={menu.close} />
             </span>
           </li>
           <li className={menu.sideList}>
@@ -102,7 +130,13 @@ function Menu() {
         </ul>
 
         <ul className={`${menu.sideItems} ${menu.sideRight}`}>
-          <li className={menu.sideList}>Get started</li>
+          <li
+            className={menu.sideList}
+            onClick={() => startedContext.setGetSarted(true)}
+            style={{ background: scroll && "#f24b6a" }}
+          >
+            Get started
+          </li>
         </ul>
       </nav>
     </Fragment>

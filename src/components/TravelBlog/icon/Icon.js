@@ -6,7 +6,7 @@ export default function Icon({ label, myClass = null }) {
     <IconContext.Provider
       value={{
         style: { verticalAlign: "middle" },
-        className: { myClass },
+        className: myClass,
       }}
     >
       {label}

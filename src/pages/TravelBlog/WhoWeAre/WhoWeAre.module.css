@@ -71,10 +71,6 @@
         line-height: 40px;
         padding: 0 30px;
     }
-
-    .emphasize {
-        color: #1BF37E;
-    }
 }
 @media (min-width:1100px) {
     .wrapper {
