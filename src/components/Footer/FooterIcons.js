@@ -3,8 +3,8 @@ import {
   FaPlayCircle,
   FaLinkedinIn,
   FaInstagram,
-  FaFacebook,
   FaTwitter,
+  FaFacebook,
   FaPinterestP,
 } from "react-icons/fa";
 import "./style.css";
