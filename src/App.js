@@ -12,17 +12,23 @@ import OwnCitySection from "./pages/OwnCitySection";
 import { SignUp } from "./pages/SignUp";
 import Helsinki from "./pages/Helsinki";
 import ScrollToTop from "./utils/ScrollToTop";
-import TravelBlog from './pages/TravelBlog/index';
+import TravelBlog from "./pages/TravelBlog/index";
+import Section from "./pages/Section/index";
+import SignUpSection from "./pages/Section/SignUp/SignUpSection";
+import Package from "./pages/Section/SignUp/Package";
 const App = () => {
   const location = useLocation();
   const { pathname } = location;
 
   return (
     <>
-      {pathname !== "/signup" && pathname !== "/own-city-section" && pathname !== "/travel-blog" && (
-        <Navigation />
-      )}
-      <ScrollToTop />
+      {pathname !== "/signup" &&
+        pathname !== "/own-city-section" &&
+        pathname !== "/travel-blog" &&
+        pathname != "/section" &&
+        pathname != "/cities" &&
+        pathname != "/cities/:city" && <Navigation />}
+      {pathname !== "/section" && <ScrollToTop />}
       <Switch>
         <Route path="/" exact>
           <Home />
@@ -51,9 +57,14 @@ const App = () => {
         <Route path="/helsinki">
           <Helsinki />
         </Route>
-        <Route path='/travel-blog'>
-          <TravelBlog/>
+        <Route path="/travel-blog">
+          <TravelBlog />
         </Route>
+        <Route path="/section">
+          <Section />
+        </Route>
+        <Route exact path="/cities" component={SignUpSection} />
+        <Route exact path="/cities/:city" component={Package} />
       </Switch>
     </>
   );
