@@ -73,7 +73,7 @@ function BlogBanner() {
               <div className={header.items}>
                 <div>
                   <button onClick={() => myContext.setGetStarted(true)}>
-                    Get statarted
+                    Get started
                   </button>
                 </div>
 

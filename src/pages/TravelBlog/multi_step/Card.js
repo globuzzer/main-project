@@ -11,10 +11,10 @@ function Card({
   onClick,
   btnStyle,
   chooseImg,
-  next
+  next,
 }) {
   return (
-    <div className={card.container}>
+    <div className={card.container} onClick={onClick}>
       <div className={card.wrapper}>
         <div className={card.flex}>
           <div className={card.free}>
@@ -36,16 +36,16 @@ function Card({
             </li>
           ))}
         </ul>
-
-        
       </div>
-      <div className={card.btnDiv} style={{backgroundImage:`url(${chooseImg})`}}>
-          <button onClick={onClick} style={btnStyle}>
-            Choose
-            <img src={next} alt="next-arrow"/>
-          </button>
-          
-        </div>
+      <div
+        className={card.btnDiv}
+        style={{ backgroundImage: `url(${chooseImg})` }}
+      >
+        <button onClick={onClick} style={btnStyle}>
+          Choose
+          <img src={next} alt="next-arrow" />
+        </button>
+      </div>
     </div>
   );
 }
