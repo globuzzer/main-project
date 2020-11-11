@@ -5,6 +5,10 @@
     justify-content: center;
     background-repeat: no-repeat;
     background-size: cover;
+    transition: all 1s ease;
+    background-blend-mode: color;
+    background-color: rgba(0, 0, 0, .5);
+    background-position: 50%;
 }
 
 .text {
@@ -30,7 +34,8 @@
     }
 
     .card:hover {
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        filter: brightness(1.2);
+        background-color: rgba(0, 0, 0, .3);
         cursor: pointer;
     }
 

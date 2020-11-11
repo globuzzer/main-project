@@ -14,6 +14,9 @@
 ul,
 li {
   list-style: none;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
 }
 
 li {
@@ -81,19 +84,27 @@ li {
     flex-direction: row;
 }
 
+
 .dest, .topic, .service {
     cursor: pointer;
     font-size: 16px;
     font-weight: 500;
     color: #ffffff;
     position: relative;
-    padding: 0 20px;
-    display: flex;
+    /* padding: 0 20px;
+    display: flex; */
 }
 
+.right li {
+    padding: 20px 12px;
+    margin: 0 5px;
+}
+
+.topic .destination {
+    left: -482px;
+}
 .dest:hover, .topic:hover, .service:hover{
     background: #373c47;
-    padding: 20px 10px; 
 }
 
 .dest:hover .destination, .topic:hover .destination, .service:hover .destination{
@@ -112,16 +123,19 @@ li {
 }
 
 .destination ul {
-    padding: 15px;
+    padding: 20px 15px;
+}
+
+.destination ul:first-child {
+    padding-right: 80px;
 }
 
 .destination li{
-    padding: 20px 0;
+    padding: 10px 0;
     width: 110px;
-    display: block;
 }
 
-.destination ul li:hover {
+.destination ul li:hover, .helsinki {
       border-bottom: 1px solid #f24b6a;
 }
 

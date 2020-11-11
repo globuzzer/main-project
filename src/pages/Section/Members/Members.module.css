@@ -132,4 +132,8 @@
     width: 53px;
     height: 47px;
   }
+
+  .city {
+    width: 100%;
+  }
 }

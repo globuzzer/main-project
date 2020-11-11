@@ -5,15 +5,15 @@ export default [
     },
     {
         id:2,
-        text:"Eduacation"
+        text:"Attraction"
     },
     {
         id:3,
-        text:"Eduacation"
+        text:"Accomodation"
     },
     {
         id:4,
-        text:"Eduacation"
+        text:"Culture"
     },
     {
         id:5,
@@ -21,35 +21,35 @@ export default [
     },
     {
         id:6,
-        text:"Eduacation"
+        text:"Attraction"
     },
     {
         id:7,
-        text:"Eduacation"
+        text:"Accomodation"
     },
     {
         id:8,
-        text:"Eduacation"
+        text:"Transportation"
     },
     {
         id:9,
-        text:"Eduacation"
+        text:"Culture"
     },
     {
         id:10,
-        text:"Eduacation"
+        text:"Events"
     },
     {
         id:11,
-        text:"Eduacation"
+        text:"Health"
     },
     {
         id:12,
-        text:"Eduacation"
+        text:"Sports"
     },
     {
         id:13,
-        text:"Eduacation"
+        text:"Entertainment"
     },
     {
         id:14,
@@ -57,6 +57,6 @@ export default [
     },
     {
         id:15,
-        text:"Eduacation"
+        text:"Attraction"
     }
 ]

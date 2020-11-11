@@ -52,7 +52,7 @@ const Articles = () => {
       infinite: false,
       speed: 500,
       slidesToShow: 4,
-      slidesToScroll: 4,
+      slidesToScroll: 1,
       className: "slider variable-width",
       variableWidth: true,
     };

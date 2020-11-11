@@ -17,8 +17,8 @@
 
 @media (min-width: 1100px) {
   .card {
-    width: 216px;
-    height: 76px;
+    width: 175px;
+    height: 55px;
     justify-content: space-around;
   }
 

@@ -10,6 +10,12 @@
     justify-content: space-around;
 }
 
+.wrapper:hover{
+    filter: brightness(110%);
+    cursor: pointer;
+    box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.2);
+}
+
 .container {
     color: #ffffff;
     align-self: center;
@@ -52,10 +58,11 @@
 
 @media (min-width:1100px) {
     .wrapper {
-        width: 250px;
-        height: 440px;
+        width: 230px;
+        height: 400px;
         justify-content: center;
         align-items: center;
+        margin-left: 60px;
     }
 
     .container {

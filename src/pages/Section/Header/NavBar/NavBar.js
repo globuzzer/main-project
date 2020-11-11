@@ -80,7 +80,7 @@ const NavBar = () => {
             </ul>
 
             <ul>
-              <li>Helsinki</li>
+              <li className={styles.helsinki}>Helsinki</li>
               <li>Rome</li>
               <li>Stockholm</li>
               <li>London</li>

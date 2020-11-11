@@ -36,10 +36,12 @@
         border: none;
         cursor: pointer;
         font-family: "Montserrat", sans-serif;
-        color: #888888;
-        opacity: 0.7;
+        color: #000;
 }
 
+.headerInput:focus{
+    outline: none;
+}
 .submit{
     width: 95px;
     height: 50px;
@@ -65,11 +67,13 @@
     margin-top: 10px;
     left: 0px;
     width: 100%;
+    transition: 3s ease-out;
 }
 
 .suggestions{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-gap: 10px;
 }
 
 @media (min-width:1100px){
@@ -87,9 +91,9 @@
     }
 
     .resultContainer{
-        max-height: 350px;
-        width: 688px;
-        top: 70px;
+        max-height: 125px;
+        width: 594px;
+        top: 60px;
         left: 0px;
         padding: 10px 0;
     }
