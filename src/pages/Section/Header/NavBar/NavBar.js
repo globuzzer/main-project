@@ -14,8 +14,9 @@ const NavBar = () => {
   const { width } = GetWindowDimension();
   const [scroll, setScroll] = useState(false);
   const [weather, setWeather] = useState("");
+
   const handleScroll = () => {
-    if (window.pageYOffset > 30) return setScroll(true);
+    if (window.pageYOffset > 60) return setScroll(true);
     setScroll(false);
   };
 
@@ -51,10 +52,7 @@ const NavBar = () => {
     if (scroll) {
       return {
         backgroundColor: "rgba(128, 128, 128, 0.6)",
-        boxShadow: "0px 1px 7px 0px rgba(0, 0, 0, 0.63)",
-        width: "100%",
-        borderBottom: "0",
-        left: 0,
+        scrollBehavior:"smooth"
       };
     }
   };
