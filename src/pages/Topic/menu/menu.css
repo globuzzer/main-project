@@ -1,0 +1,310 @@
+.top-menu {
+  width: 95%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  color: #ecf0f1;
+  position: absolute;
+  z-index: 1;
+  border-bottom: 1px solid #ecf0f1;
+  transition: 0.5s;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  cursor: pointer;
+}
+
+.m-center,
+.m-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.m-list,
+.m-right li {
+  padding: 30px 12px;
+  margin: 0 5px;
+}
+
+.menuOwn:hover {
+  filter: brightness(120%);
+}
+
+.m-right li {
+  font-size: 14px;
+}
+
+.m-right img {
+  width: 18px;
+  height: 15px;
+}
+
+.m-list {
+  position: relative;
+  font-size: 14px;
+}
+
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.m-list:last-child {
+  background: #f24b6a;
+  padding: 5px 8px;
+  border-radius: 5px;
+}
+
+.m-right li:last-child {
+  border: 1px solid #ecf0f1;
+  padding: 0 17px;
+  border-radius: 5px;
+}
+
+.m-list:not(:last-child):hover {
+  background: #272a32;
+}
+
+.m-center i {
+  position: absolute;
+}
+
+.destination {
+  display: none;
+  position: absolute;
+  justify-content: space-between;
+  z-index: 1;
+  color: #ecf0f1;
+  top: 73px;
+  left: -150px;
+  background: #373c47;
+}
+
+.t {
+  left: -420px;
+}
+
+.d p {
+  width: 120px;
+}
+
+.s p {
+  width: 100px;
+}
+
+.t p {
+  width: 90px;
+}
+
+.recently {
+  padding: 35px 0 14px 0;
+}
+
+.s .recently {
+  padding-top: 12px;
+}
+
+.s input {
+  padding: 5px 30px;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  background: #c4c4c4;
+  color: #888888;
+  font-size: 11px;
+}
+
+.s div {
+  position: relative;
+  width: 200px;
+}
+
+.bs-search {
+  position: absolute;
+  top: 50%;
+  left: 6px;
+  transform: translateY(-50%);
+}
+
+.s .bs-search {
+  color: #8888;
+}
+
+.destination ul:first-child {
+  padding-right: 80px;
+}
+
+.destination li {
+  padding: 5px 0;
+  width: 110px;
+}
+
+.destination li:hover {
+  border-bottom: 1px solid #f24b6a;
+}
+
+.destination ul {
+  padding: 20px 15px;
+}
+
+.dest:hover .d {
+  display: flex;
+}
+
+.service:hover .s {
+  display: flex;
+}
+
+.topic:hover .t {
+  display: flex;
+}
+
+.top-menu-small {
+  display: none;
+}
+
+.sidebar-small {
+  display: none;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@media screen and (max-width: 1145px) {
+  .top-menu {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .top-menu {
+    display: none;
+  }
+
+  .top-menu-small {
+    position: absolute;
+    color: #fff;
+    z-index: 2;
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid #f9f9f9;
+    transition: all 1s;
+  }
+
+  .menu-small {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 15px;
+  }
+
+  .logo {
+    text-align: center;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+  .bars {
+    font-size: 25px;
+  }
+
+  .sidebar-small {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    position: fixed;
+    height: 100%;
+    right: 0;
+    background: #2a293a;
+    color: #fff;
+    width: 210px;
+    z-index: 3;
+    font-size: 14px;
+    font-weight: 600;
+    transform: translateX(500px);
+    transition: transform 0.5s;
+    padding: 10px 0;
+  }
+
+  .sidebar-small li {
+    padding: 12px 15px;
+  }
+
+  .line {
+    border-bottom: 1px solid #5f5d73;
+  }
+
+  .sidebar-top {
+    flex-basis: 40%;
+  }
+
+  .sidebar-top li {
+    position: relative;
+  }
+
+  .sidebar-top li span:last-child {
+    margin-left: 25px;
+  }
+
+  .sidebar-top .icon {
+    left: 13px;
+  }
+
+  .sidebar-bottom {
+    flex-basis: 60%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .sidebar-btn {
+    text-align: center;
+  }
+
+  .sidebar-btn button {
+    background: #f24b6a;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+  }
+
+  .sidebar-auth {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 10px;
+  }
+
+  .sidebar-auth li {
+    padding: 8px;
+  }
+
+  .sidebar-auth li:last-child {
+    border: 1px solid #f24b6a;
+    border-radius: 5px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .menu-small li {
+    display: inline-block;
+  }
+
+  .logo {
+    text-align: right;
+    margin-left: 0%;
+    transform: translateX(0);
+    width: 78%;
+  }
+}

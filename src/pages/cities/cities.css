@@ -1,0 +1,251 @@
+.city-container {
+  background: #2a293a;
+  height: 100vh;
+  position: relative;
+  color: #fff;
+}
+
+.cityBack {
+  position: absolute;
+  color: #fff;
+  top: 20px;
+  left: 35px;
+  cursor: pointer;
+}
+
+.cityBack span {
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+.backIcon {
+  font-size: 30px;
+  vertical-align: middle;
+}
+
+.city-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 1200px;
+}
+
+.city-content header {
+  text-align: center;
+  margin: 15px 0;
+  padding: 10px 0;
+}
+
+.city-content span {
+  margin: 0 10px;
+  vertical-align: middle;
+}
+
+.city-content span:first-child {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.city-content span:last-child {
+  position: relative;
+}
+
+.city-search {
+  position: absolute;
+  left: 4%;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888888;
+}
+
+.city-content input {
+  width: 289px;
+  padding: 11px 0 11px 30px;
+  border: 1px solid #c3c3c3;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  color: #888888;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.cities {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: minmax(168px, auto);
+  gap: 7px;
+  margin: 30px 0 50px 0;
+  padding: 25px 0;
+}
+
+.city-card {
+  position: relative;
+  cursor: pointer;
+}
+
+.city-card:hover {
+  filter: brightness(120%);
+}
+
+.city-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.city-card p {
+  margin: 13px 0;
+}
+
+.city-card p:first-child {
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.city-card p:last-child {
+  font-size: 14px;
+}
+
+.city-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.good {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  color: #fff;
+  opacity: 1;
+}
+
+.city-btn {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.city-btn button {
+  border: none;
+  background: #f24b6a;
+  border-radius: 10px;
+  width: 138px;
+  height: 46px;
+  color: #fff;
+}
+
+@media screen and (max-width: 1134px) {
+  .cities {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(248px, 1fr));
+    grid-auto-rows: minmax(160px, auto);
+    margin: 35px 0;
+  }
+
+  .city-btn {
+    margin-top: 25px;
+  }
+}
+
+@media screen and (min-width: 901px) and (max-width: 1134px) {
+  .cities {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-auto-rows: minmax(155px, auto);
+    margin: 15px 0;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .city-content input {
+    font-size: 12px;
+  }
+
+  .city-content span:first-child {
+    font-size: 24px;
+  }
+
+  .cities {
+    grid-template-columns: repeat(auto-fill, minmax(164px, 1fr));
+    grid-auto-rows: minmax(98px, auto);
+  }
+
+  .city-btn {
+    margin-top: 20px;
+  }
+
+  .city-center {
+    width: 90%;
+  }
+
+  .city-card p:first-child {
+    font-size: 14px;
+  }
+
+  .city-card p:last-child {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 380px) {
+  .city-container {
+    position: static;
+    height: auto;
+  }
+
+  .cityBack {
+    position: static;
+
+    padding: 10px 0 20px 10px;
+  }
+
+  .city-content {
+    position: static;
+    transform: translate(0, 0);
+    margin: 0 auto;
+  }
+
+  .city-content header {
+    margin-top: 20px;
+  }
+
+  .city-content input {
+    width: 300px;
+  }
+
+  .city-btn {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 650px) {
+  .cities {
+    margin: 5px 0;
+  }
+  .city-content header {
+    display: block;
+  }
+
+  .city-content input {
+    width: 100%;
+  }
+
+  .city-content span {
+    display: block;
+  }
+
+  .city-content span:last-child {
+    margin-top: 8px;
+  }
+
+  .city-search {
+    left: 2%;
+  }
+}
