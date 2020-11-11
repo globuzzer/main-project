@@ -87,13 +87,13 @@ function Form2({ nextStep, prevStep }) {
 
   const validate = () => {
     window.localStorage.setItem("form", JSON.stringify(data));
-    nextStep();
     const errors = handleForm();
     if (errors) return setError(errors);
     if (!agree) {
       if (window.innerWidth <= 700) return nextStep();
       return alert("Please agree to Privacy policy");
     }
+    nextStep();
   };
 
   const { firstName, lastName, email, phone } = data;
@@ -140,13 +140,11 @@ function Form2({ nextStep, prevStep }) {
         />
 
         {window.innerWidth > 700 && (
-          <Input
-            type="checkbox"
-            className={user.formInput}
-            name="check"
-            onChange={handleCheck}
-            label="I agree to the Privacy Policy and Terms of Service"
-          />
+          <label className={user.term} onChange={handleCheck}>
+            <p>I agree to the Privacy Policy and Terms of Service</p>
+            <input type="checkbox" required />
+            <span className={user.check}></span>
+          </label>
         )}
 
         <div className={`${user.continue}`}>

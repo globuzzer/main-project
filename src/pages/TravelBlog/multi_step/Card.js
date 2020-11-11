@@ -14,7 +14,7 @@ function Card({
   next
 }) {
   return (
-    <div className={card.container}>
+    <div className={card.container} onClick={onClick}>
       <div className={card.wrapper}>
         <div className={card.flex}>
           <div className={card.free}>

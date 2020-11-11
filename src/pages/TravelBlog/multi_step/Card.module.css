@@ -118,3 +118,10 @@
     padding-left: 5px;
   }
 }
+
+@media (min-width: 1100px) {
+  .container:hover {
+    cursor: pointer;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  }
+}
