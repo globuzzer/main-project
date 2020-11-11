@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "../../assets/Footer/globuzzer_logo.png";
 import FooterCopyRight from "./FooterCopyright";
 import FooterIcons from "./FooterIcons";
 import { GetWindowDimension } from "../../utils/GetWindowDimension";
+import { FooterContext } from "../../pages/TravelBlog/contexts/refContext";
 import "./style.css";
 
 const mapLink = `https://www.google.com/maps/place/Back%C3%A4ngsv%C3%A4gen+24,+192+73+Sollentuna/@59.4576364,17.
 8907952,17z/data=!3m1!4b1!4m5!3m4!1s0x465f98b09703d6db:0x75988cff7b409cd4!8m2!3d59.4576337!4d17.8929839?shorturl=1`;
 export const Footer = () => {
+  const myRef = useContext(FooterContext);
   const { width } = GetWindowDimension();
   const FooterDesktop = () => (
-    <footer id="main_footer">
+    <footer id="main_footer" ref={myRef}>
       <img src={logo} alt="logo" className="footer-logo" />
       <div className="footer-content">
         <div className="footer-content-column">
