@@ -1,10 +1,8 @@
 import React, { useEffect, useState, useContext } from "react";
-import { FaPlayCircle } from "react-icons/fa";
-import Icon from "../../../components/TravelBlog/icon/Icon";
 import Center from "../../../components/TravelBlog/center/Center";
 import Flex from "../../../components/TravelBlog/flex/Flex";
 import Menu from "../Menu/Menu";
-
+import ReactPlayer from 'react-player';
 import { getStarted } from "../multi_step/showGetStarted";
 import header from "./Header.module.css";
 import video from "../../../assets/TravelBlog/vid.mp4";
@@ -76,18 +74,11 @@ function BlogBanner() {
                     Get started
                   </button>
                 </div>
-
-                {/* <div className={header.itemsRight}>
-                  <Icon label={<FaPlayCircle />} />
-                  <span>watch the demo</span>
-                </div> */}
               </div>
             )}
           </div>
           <div className={header.right}>
-            <video autoPlay loop>
-              <source src={video} type="video/mp4" />
-            </video>
+            <ReactPlayer url={video} playing={true} loop={true} width='100%' height='100%'/>
           </div>
 
           {smallScreen && (
