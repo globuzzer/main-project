@@ -5,6 +5,7 @@ import share from "./share-icon.svg";
 
 export const RelocateData = [
     {
+        id:1,
         img:FlagIcon,
         price: "€20",
         title:"Relocating to Stockholm",
@@ -13,10 +14,10 @@ export const RelocateData = [
         textThree:"What visa do I require for Sweden?",
         author: author,
         name:"Sofia",
-        heart: heart,
         share: share
     },
     {
+        id:2,
         img:FlagIcon,
         price: "€20",
         title:"Relocating to Stockholm",
@@ -25,10 +26,10 @@ export const RelocateData = [
         textThree:"What visa do I require for Sweden?",
         author: author,
         name:"Sofia",
-        heart: heart,
         share: share
     },
     {
+        id:3,
         img:FlagIcon,
         price: "€20",
         title:"Relocating to Stockholm",
@@ -37,10 +38,10 @@ export const RelocateData = [
         textThree:"What visa do I require for Sweden?",
         author: author,
         name:"Sofia",
-        heart: heart,
         share: share
     },
     {
+        id:4,
         img:FlagIcon,
         price: "€20",
         title:"Relocating to Stockholm",
@@ -49,10 +50,10 @@ export const RelocateData = [
         textThree:"What visa do I require for Sweden?",
         author: author,
         name:"Sofia",
-        heart: heart,
         share: share
     },
     {
+        id:5,
         img:FlagIcon,
         price: "€20",
         title:"Relocating to Stockholm",
@@ -61,10 +62,10 @@ export const RelocateData = [
         textThree:"What visa do I require for Sweden?",
         author: author,
         name:"Sofia",
-        heart: heart,
         share: share
     },
     {
+        id:6,
         img:FlagIcon,
         price: "€20",
         title:"Relocating to Stockholm",
@@ -73,7 +74,6 @@ export const RelocateData = [
         textThree:"What visa do I require for Sweden?",
         author: author,
         name:"Sofia",
-        heart: heart,
         share: share
     }
 ]

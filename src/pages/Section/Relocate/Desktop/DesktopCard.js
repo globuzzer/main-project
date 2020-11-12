@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './DesktopCard.module.css';
-const DesktopCard = ({packagesToRender, click, like}) => {
-    return (
+import { BsHeart, BsHeartFill } from "react-icons/bs";
+const DesktopCard = ({packagesToRender, heart}) => {
+      return (
         <>
         {packagesToRender.map((item,index)=>(
           <div className={styles.wrapper} key={index}>
@@ -24,8 +25,10 @@ const DesktopCard = ({packagesToRender, click, like}) => {
                 <p>{item.name}</p>
               </div>
               <div className={styles.item}>
-                <img src={item.heart} alt="heart-icon" onClick={click} />
-                <p>{like}</p>
+              <span onClick={() => heart(item)}>
+              {item.liked ? <BsHeartFill color="#f24b6a" size="20px" /> : <BsHeart color="#f24b6a" size="20px" /> }
+            </span>
+                <p>15k</p>
               </div>
               <div className={styles.item}>
                 <img src={item.share} alt="share-icon" />

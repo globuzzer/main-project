@@ -11,8 +11,12 @@ let arrayHoldingPackages = [];
 const Desktop = () => {
   const [packagesToShow, setPackagesToShow]=useState([]);
   const [next, setNext]=useState(3);
-  const [like,setLike] = useState(50);
-  const increaseLike = () =>setLike(like + 1);
+  const [like,setLike] = useState();
+  const increaseLike = (item) =>{ 
+    const likeNumber = RelocateData.find((p) => p.id === item.id);
+    setLike(likeNumber);
+    likeNumber.liked = !likeNumber.liked;
+  };
 
   const loopWithSlice = (start, end)=>{
     const slicedPackages = RelocateData.slice(start,end);
@@ -31,7 +35,7 @@ const Desktop = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
-        <DesktopCard packagesToRender={packagesToShow} click={increaseLike} like={like}/>
+        <DesktopCard packagesToRender={packagesToShow} heart={increaseLike}/>
         <div className={styles.guide}>
           <p className={styles.title}>Start to create your own Guides!</p>
           <img src={Add} alt="add-btn" className={styles.addBtn} />

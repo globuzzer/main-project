@@ -8,8 +8,12 @@ let arrayHoldingPackages = [];
 const Mobile = () => {
   const [packagesToShow, setPackagesToShow]=useState([]);
   const [next, setNext]=useState(3);
-  const [like,setLike] = useState(50);
-  const increaseLike = () =>setLike(like + 1);
+  const [like,setLike] = useState();
+  const increaseLike = (item) =>{ 
+    const likeNumber = RelocateData.find((p) => p.id === item.id);
+    setLike(likeNumber);
+    likeNumber.liked = !likeNumber.liked;
+  };
   const loopWithSlice = (start, end)=>{
     const slicedPackages = RelocateData.slice(start,end);
     arrayHoldingPackages=[...arrayHoldingPackages, ...slicedPackages];
@@ -26,7 +30,7 @@ const Mobile = () => {
   };
   return (
     <div className={styles.wrapper}>
-      <MobileCard packagesToRender={packagesToShow} click={increaseLike} number={like}/>
+      <MobileCard packagesToRender={packagesToShow} heart={increaseLike}/>
       <button className={styles.more} onClick={showPackagesHandler}>View more</button>
     </div>
   );
