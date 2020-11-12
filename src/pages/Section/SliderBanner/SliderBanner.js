@@ -4,7 +4,6 @@ import "./SliderBanner.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { GetWindowDimension } from "../../../utils/GetWindowDimension";
 import sliderImg from "../../../assets/Section/slider-banner.jpg";
 
 const SliderBanner = () => {
@@ -20,16 +19,12 @@ const SliderBanner = () => {
     autoplaySpeed: 3000,
     arrows: false,
   };
-  const { width } = GetWindowDimension();
-  const sliderStyle = () => ({
-    width: `${width}px`,
-  });
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <Slider {...settings}>
           {slideImage.map((image, index) => (
-            <div className={styles.eachSlide} key={index}>
+            <div className={styles.eachSlide} key={index} >
               <div
                 style={{
                   backgroundImage: `url(${image})`,

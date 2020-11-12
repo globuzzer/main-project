@@ -6,7 +6,6 @@ import { TopicsData } from "../../../assets/Section/Topics/TopicsData";
 import arrow from "../../../assets/Section/Topics/arrow-icon.svg";
 import { Link } from "react-router-dom";
 import { GetWindowDimension } from "../../../utils/GetWindowDimension";
-
 const topicsPerPage = 6;
 const topicsPerPageDesk = 9;
 let arrayForHoldingTopics = [];

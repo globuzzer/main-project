@@ -1,3 +1,6 @@
+.container .slick-slide {
+  padding: 0;
+}
 .slider-dots {
   display: inline-block;
   vertical-align: middle;

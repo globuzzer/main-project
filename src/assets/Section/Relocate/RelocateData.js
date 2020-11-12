@@ -14,7 +14,6 @@ export const RelocateData = [
         author: author,
         name:"Sofia",
         heart: heart,
-        number:"15k",
         share: share
     },
     {
@@ -27,7 +26,6 @@ export const RelocateData = [
         author: author,
         name:"Sofia",
         heart: heart,
-        number:"15k",
         share: share
     },
     {
@@ -40,7 +38,6 @@ export const RelocateData = [
         author: author,
         name:"Sofia",
         heart: heart,
-        number:"15k",
         share: share
     },
     {
@@ -53,7 +50,6 @@ export const RelocateData = [
         author: author,
         name:"Sofia",
         heart: heart,
-        number:"15k",
         share: share
     },
     {
@@ -66,7 +62,6 @@ export const RelocateData = [
         author: author,
         name:"Sofia",
         heart: heart,
-        number:"15k",
         share: share
     },
     {
@@ -79,7 +74,6 @@ export const RelocateData = [
         author: author,
         name:"Sofia",
         heart: heart,
-        number:"15k",
         share: share
     }
 ]

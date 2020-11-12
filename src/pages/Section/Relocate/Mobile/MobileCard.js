@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './MobileCard.module.css';
 
-const Mobile = ({packagesToRender}) => {
+const Mobile = ({packagesToRender, click, number}) => {
     return (
         <>
         {packagesToRender.map((item,index)=>(
@@ -25,8 +25,8 @@ const Mobile = ({packagesToRender}) => {
                 <p>{item.name}</p>
               </div>
               <div className={styles.item}>
-                <img src={item.heart} alt="heart-icon" />
-                <p>{item.number}</p>
+                <img src={item.heart} alt="heart-icon" onClick={click}/>
+                <p>{number}</p>
               </div>
               <div className={styles.item}>
                 <img src={item.share} alt="share-icon" />

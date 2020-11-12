@@ -57,13 +57,13 @@ const Articles = () => {
       variableWidth: true,
     };
     return (
+      <div className='articles'>
       <Slider
         {...settings}
-        className={styles.slider}
-        style={{ width: 1160, justifySelf: "center" }}
+        className={styles.articles}
       >
         {ArticleDataDesk.map((data) => (
-          <div className={styles.eachSlide} style={{ width: 290 }}>
+          <div className={styles.eachSlide}>
             <div className={styles.card} key={data.index}>
               <div
                 className={styles.top}
@@ -90,6 +90,8 @@ const Articles = () => {
           </div>
         ))}
       </Slider>
+      </div>
+
     );
   };
   return (

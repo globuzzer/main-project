@@ -27,6 +27,10 @@
     justify-self: center;
   }
 
+  .slider {
+    align-self: flex-start;
+  }
+
   .footer {
     padding-top: 5rem;
   }

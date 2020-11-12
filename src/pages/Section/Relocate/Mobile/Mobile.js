@@ -8,7 +8,8 @@ let arrayHoldingPackages = [];
 const Mobile = () => {
   const [packagesToShow, setPackagesToShow]=useState([]);
   const [next, setNext]=useState(3);
-
+  const [like,setLike] = useState(50);
+  const increaseLike = () =>setLike(like + 1);
   const loopWithSlice = (start, end)=>{
     const slicedPackages = RelocateData.slice(start,end);
     arrayHoldingPackages=[...arrayHoldingPackages, ...slicedPackages];
@@ -25,7 +26,7 @@ const Mobile = () => {
   };
   return (
     <div className={styles.wrapper}>
-      <MobileCard packagesToRender={packagesToShow}/>
+      <MobileCard packagesToRender={packagesToShow} click={increaseLike} number={like}/>
       <button className={styles.more} onClick={showPackagesHandler}>View more</button>
     </div>
   );

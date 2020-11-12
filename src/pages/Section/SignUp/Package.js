@@ -4,18 +4,19 @@ import { SignUpData } from "../../../assets/Section/SignUp/SignUpData";
 import { IconContext } from "react-icons";
 import { IoIosArrowDropleft } from "react-icons/io";
 
-const Package = ({ history, match }) => {
+const Package = ({ history }) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    document.querySelector(".section_navigation").style.visibility = "hidden";
-    setCity();
-    // eslint-disable-next-line
+    let mounted = true;
+
+    mounted && setCity();
+
+    return () => (mounted = false);
   }, []);
 
   const setCity = () => {
-    const cityName = match.params.city;
-    const country = SignUpData.filter((c) => c.name === cityName);
+    const country = SignUpData.filter((c) => c.name === "Helsinki");
 
     setData(country[0].details);
   };
@@ -33,7 +34,7 @@ const Package = ({ history, match }) => {
         <header>
           <p>
             <span>$20 per month </span>
-            <span className={styles.cityName}>for {match.params.city}</span>
+            <span className={styles.cityName}>for Helsinki</span>
           </p>
         </header>
 

@@ -51,8 +51,11 @@
   }
 
   .moreBtn:hover {
-    color: #ffffff;
     background-color: #f24b6a;
     cursor: pointer;
+  }
+
+  .moreBtn:hover .moreText{
+    color: #ffffff;
   }
 }

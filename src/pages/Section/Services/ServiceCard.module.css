@@ -24,11 +24,10 @@
 
   .card:hover {
     background-color: #f24b6a;
-    color: #ffffff;
     cursor: pointer;
   }
 
-  .icon:hover {
+  .card:hover .text {
     color: #ffffff;
   }
 

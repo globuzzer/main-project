@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './DesktopCard.module.css';
-const DesktopCard = ({packagesToRender}) => {
+const DesktopCard = ({packagesToRender, click, like}) => {
     return (
         <>
         {packagesToRender.map((item,index)=>(
@@ -24,8 +24,8 @@ const DesktopCard = ({packagesToRender}) => {
                 <p>{item.name}</p>
               </div>
               <div className={styles.item}>
-                <img src={item.heart} alt="heart-icon" />
-                <p>{item.number}</p>
+                <img src={item.heart} alt="heart-icon" onClick={click} />
+                <p>{like}</p>
               </div>
               <div className={styles.item}>
                 <img src={item.share} alt="share-icon" />
