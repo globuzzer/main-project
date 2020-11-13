@@ -14,9 +14,9 @@ import {
   IoIosArrowForward,
 } from "react-icons/io";
 import { SiSkillshare } from "react-icons/si";
-import { sliceData } from "../../../../utils/sliceData";
-import { articlesData, videoData, slide } from "../../../../utils/data";
-import { articleRefContext } from "../../../../contexts/refs";
+import { sliceData } from "../../../utils/sliceData";
+import { articlesData, videoData, slide } from "../../../utils/data";
+import { articleRefContext } from "../../../contexts/refs";
 import "./video_articles.css";
 
 function Article() {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { city } from "../../../../utils/data";
+import { city } from "../../../utils/data";
 import { IconContext } from "react-icons";
 import { IoIosArrowDropleft } from "react-icons/io";
 import "./city.css";

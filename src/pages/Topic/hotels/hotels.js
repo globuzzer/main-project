@@ -4,10 +4,10 @@ import like from "../images/like.png";
 import { IconContext } from "react-icons";
 import { TiArrowSortedDown } from "react-icons/ti";
 import { IoIosArrowDown } from "react-icons/io";
-import { hotels } from "../../../../utils/data";
-import { sliceData } from "../../../../utils/sliceData";
+import { hotels } from "../../../utils/data";
+import { sliceData } from "../../../utils/sliceData";
 import "./hotels.css";
-import { hotelRefContext } from "../../../../contexts/refs";
+import { hotelRefContext } from "../../../contexts/refs";
 
 function Hotels() {
   const [data] = useState(hotels);

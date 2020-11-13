@@ -1,15 +1,15 @@
-import clarion from "../components/pages/topic/images/clarion.png";
-import scandic from "../components/pages/topic/images/scandic.png";
-import backPackers from "../components/pages/topic/images/backPackers.png";
-import helsinki from "../components/pages/topic/images/helsinki.jpg";
-import other1 from "../components/pages/topic/images/other-1.png";
-import other2 from "../components/pages/topic/images/other-2.png";
-import userImg from "../components/pages/topic/images/user.png";
-import mask from "../components/pages/topic/images/mask.png";
-import london from "../components/pages/topic/images/london.png";
-import lisbon from "../components/pages/topic/images/lisbon.png";
-import screenshot1 from "../components/pages/topic/images/screenshot1.png";
-import screenshot3 from "../components/pages/topic/images/screenshot3.png";
+import clarion from "../assets/Topic/clarion.png";
+import scandic from "../assets/Topic/scandic.png";
+import backPackers from "../assets/Topic/backPackers.png";
+import helsinki from "../assets/Topic/helsinki.jpg";
+import other1 from "../assets/Topic/other-1.png";
+import other2 from "../assets/Topic/other-2.png";
+import userImg from "../assets/Topic/user.png";
+import mask from "../assets/Topic/mask.png";
+import london from "../assets/Topic/london.png";
+import lisbon from "../assets/Topic/lisbon.png";
+import screenshot1 from "../assets/Topic/screenshot1.png";
+import screenshot3 from "../assets/Topic/screenshot3.png";
 
 export const articlesData = [
   {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { otherTopics } from "../../../../utils/data";
+import { otherTopics } from "../../../utils/data";
 import "./otherTopics.css";
 
 function OtherTopics() {
