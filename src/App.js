@@ -4,8 +4,6 @@ import { Switch, Route, useLocation } from "react-router-dom";
 import { Navigation } from "./components/Navigation/Navigation";
 import { Destination } from "./pages/Destination";
 import { Home } from "./pages/Home";
-import Topic from "./pages/Topic/Topic";
-import City from "./pages/cities/city/City";
 import { Services } from "./pages/Services";
 import { Pricing } from "./pages/Pricing";
 import { Career } from "./pages/Career";
@@ -21,10 +19,9 @@ const App = () => {
 
   return (
     <>
-      {pathname !== "/signup" &&
-        pathname !== "/own-city-section" &&
-        pathname !== "/topic" &&
-        pathname !== "/city" && <Navigation />}
+      {pathname !== "/signup" && pathname !== "/own-city-section" && (
+        <Navigation />
+      )}
       <ScrollToTop />
       <Switch>
         <Route path="/" exact>
@@ -53,12 +50,6 @@ const App = () => {
         </Route>
         <Route path="/helsinki">
           <Helsinki />
-        </Route>
-        <Route path="/city">
-          <City />
-        </Route>
-        <Route path="/topic">
-          <Topic />
         </Route>
       </Switch>
     </>
