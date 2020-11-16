@@ -2,8 +2,11 @@ import React from "react";
 import { AiFillCaretRight } from "react-icons/ai";
 import SearchBar from "./SearchBar/SearchBar";
 import styles from  "./Header.module.css";
-
+import JoinCityData from '../../../Data/JoinCityData';
+import { useParams } from "react-router-dom";
 const Header = () => {
+  let {city} = useParams();
+  const data = JoinCityData.find((data)=>data.name === city)
   return (
     <div className={styles.header}>
       <div className={styles.content}>
@@ -13,11 +16,11 @@ const Header = () => {
           </p>
           <AiFillCaretRight className={styles.icon} />
           <p>
-            <a href="https://globuzzer-section-page.web.app/">Helsinki</a>
+            <a id="city-name" href="#">{data.name}</a>
           </p>
         </div>
         <div className={styles.text}>
-          <p className={styles.textOne}>Helsinki Community</p>
+          <p className={styles.textOne}>{data.name} Community</p>
           <p className={styles.textTwo}>Explore different topics and information</p>
           <SearchBar />
           <p className={styles.suggestions}>

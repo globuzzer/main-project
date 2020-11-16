@@ -14,11 +14,26 @@ const NavBar = () => {
   const { width } = GetWindowDimension();
   const [scroll, setScroll] = useState(false);
   const [weather, setWeather] = useState("");
-
+ 
   const handleScroll = () => {
     if (window.pageYOffset > 60) return setScroll(true);
     setScroll(false);
   };
+
+  // const checkCityHandler = () => {
+  //   const currentCity = document.querySelector("#city-name").textContent;
+  //   const subCity = document.querySelectorAll('.cities');
+  //   console.log(currentCity);
+  //   console.log(subCity);
+  //   if (currentCity && subCity) {
+  //     for (let city of subCity) {
+  //       if (city.textContent === currentCity) {
+  //         console.log(city.textContent);
+  //         setActive(true);
+  //       } else setActive(false);
+  //     }
+  //   }
+  // }
 
   const currentTemp = () => {
     let key = apiKey;
@@ -45,6 +60,7 @@ const NavBar = () => {
 
   useEffect(() => {
     currentTemp();
+    // checkCityHandler();
     window.addEventListener("scroll", handleScroll);
   }, []);
 
@@ -80,7 +96,7 @@ const NavBar = () => {
             </ul>
 
             <ul>
-              <li className={styles.helsinki}>Helsinki</li>
+              <li>Helsinki</li>
               <li>Rome</li>
               <li>Stockholm</li>
               <li>London</li>

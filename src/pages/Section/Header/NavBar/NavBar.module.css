@@ -135,7 +135,7 @@ li {
     width: 110px;
 }
 
-.destination ul li:hover, .helsinki {
+.destination ul li:hover, .active {
       border-bottom: 1px solid #f24b6a;
 }
 

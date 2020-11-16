@@ -1,6 +1,6 @@
-import React from "react";
+import React,{useEffect} from "react";
 import "./css/App.css";
-import { Switch, Route, useLocation } from "react-router-dom";
+import { Switch, Route, useLocation, useParams, useRouteMatch } from "react-router-dom";
 import { Navigation } from "./components/Navigation/Navigation";
 import { Destination } from "./pages/Destination";
 import { Home } from "./pages/Home";
@@ -12,22 +12,20 @@ import OwnCitySection from "./pages/OwnCitySection";
 import { SignUp } from "./pages/SignUp";
 import ScrollToTop from "./utils/ScrollToTop";
 import TravelBlog from "./pages/TravelBlog/index";
-import Section from "./pages/Section/index";
 import Package from "./pages/Section/SignUp/Package";
 const App = () => {
   const location = useLocation();
-  const { pathname } = location;
-
+  const { pathname } = location;  
   return (
     <>
       {pathname !== "/signup" &&
         pathname !== "/own-city-section" &&
         pathname !== "/travel-blog" &&
-        pathname !== "/Helsinki" &&
+        pathname.indexOf("explore") === -1 &&
         pathname != "/cities" && <Navigation />}
-      {pathname !== "/Helsinki" && <ScrollToTop />}
+       <ScrollToTop />
       <Switch>
-        <Route path="/" exact>
+        <Route path="/">
           <Home />
         </Route>
         <Route path="/destination">
@@ -51,14 +49,8 @@ const App = () => {
         <Route path="/signup">
           <SignUp />
         </Route>
-        {/* <Route path="/Helsinki">
-          <Helsinki />
-        </Route> */}
         <Route path="/travel-blog">
           <TravelBlog />
-        </Route>
-        <Route path="/Helsinki">
-          <Section />
         </Route>
         <Route exact path="/cities" component={Package} />
       </Switch>

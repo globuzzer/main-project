@@ -19,9 +19,11 @@ import { Footer } from "../components/Footer/Footer";
 import { SearchCity } from "../components/SearchCity/SearchCity";
 import { JoinCommunity } from "../components/JoinCommunity/JoinCommunity";
 import { RequestNewCity } from "../components/RequestNewCity/RequestNewCity";
-import { Link } from "react-router-dom";
+import { Link, Switch, Route, useRouteMatch} from "react-router-dom";
+import Section from "../pages/Section/index";
 
 export const Home = () => {
+  let match = useRouteMatch();
   const [query, setQuery] = useState("");
   const [moreJoinCity, setMoreJoinCity] = useState(false);
   const [joinCity, setJoinCity] = useState(JoinCityData);
@@ -59,7 +61,12 @@ We are travelers. We are students.
 Most importantly, we have been in the same spot, and we can support you. `;
   return (
     <>
-        <LazyLoad>
+    <Switch>
+      <Route path='/explore/:city'>
+        <Section/>
+      </Route>
+      <Route path={match.path}>
+      <LazyLoad>
         <section className="section_header" id="section_header">
           <p id="header_1">The global community of locals and expats</p>
           <p id="header_2">Complete guidance when relocating to a new city</p>
@@ -150,7 +157,8 @@ Most importantly, we have been in the same spot, and we can support you. `;
       </section>
       <OwnSection />
       <Footer />
-  
+      </Route>
+    </Switch>
     </>
   );
 };

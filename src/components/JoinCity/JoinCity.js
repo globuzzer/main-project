@@ -41,9 +41,9 @@ export const JoinCity = (props) => {
                         View More
                     </button>
                 ) : (
-                    <button type="button" id="joincity_join">
-                       <Link to='/Helsinki'>Explore</Link> 
-                    </button>
+                    <Link to={`/explore/${name}`} type="button" id="joincity_join">
+                      Explore
+                    </Link>
                 )}
 
                 {!isViewMore && <p id="joincity_members">{members} members</p>}
