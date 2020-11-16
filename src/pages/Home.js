@@ -59,7 +59,7 @@ We are travelers. We are students.
 Most importantly, we have been in the same spot, and we can support you. `;
   return (
     <>
-      <LazyLoad>
+        <LazyLoad>
         <section className="section_header" id="section_header">
           <p id="header_1">The global community of locals and expats</p>
           <p id="header_2">Complete guidance when relocating to a new city</p>
@@ -108,7 +108,7 @@ Most importantly, we have been in the same spot, and we can support you. `;
         </div>
         <div className="joincity_grid">
           {joinCity.map((cityData, index) => (
-            <JoinCity cityData={cityData} key={index} />
+            <JoinCity cityData={cityData} key={index}/>
           ))}
           {!moreJoinCity && joinCity.length > 0 && (
             <JoinCity
@@ -150,6 +150,7 @@ Most importantly, we have been in the same spot, and we can support you. `;
       </section>
       <OwnSection />
       <Footer />
+  
     </>
   );
 };

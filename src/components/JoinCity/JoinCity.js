@@ -1,6 +1,7 @@
 import React from "react";
 import LazyLoad from "react-lazyload";
 import "./style.css";
+import { Link } from "react-router-dom";
 
 const Loading = () => (
     <div>
@@ -11,9 +12,7 @@ const Loading = () => (
 export const JoinCity = (props) => {
     const {cityData, isViewMore, setMoreJoinCity} = props;
     const {name, img, members} = cityData;
-    const navigateTo = (url) => {
-        window.location.href = `${url}`;
-    };
+
     return (
         <LazyLoad placeholder={<Loading />}>
             <div
@@ -42,8 +41,8 @@ export const JoinCity = (props) => {
                         View More
                     </button>
                 ) : (
-                    <button type="button" id="joincity_join" onClick={() => navigateTo(cityData.url)}>
-                        Explore
+                    <button type="button" id="joincity_join">
+                       <Link to='/Helsinki'>Explore</Link> 
                     </button>
                 )}
 

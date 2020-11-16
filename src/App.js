@@ -10,7 +10,6 @@ import { Career } from "./pages/Career";
 import { AboutUs } from "./pages/AboutUs";
 import OwnCitySection from "./pages/OwnCitySection";
 import { SignUp } from "./pages/SignUp";
-import Helsinki from "./pages/Helsinki";
 import ScrollToTop from "./utils/ScrollToTop";
 import TravelBlog from "./pages/TravelBlog/index";
 import Section from "./pages/Section/index";
@@ -24,9 +23,9 @@ const App = () => {
       {pathname !== "/signup" &&
         pathname !== "/own-city-section" &&
         pathname !== "/travel-blog" &&
-        pathname != "/section" &&
+        pathname !== "/Helsinki" &&
         pathname != "/cities" && <Navigation />}
-      {pathname !== "/section" && <ScrollToTop />}
+      {pathname !== "/Helsinki" && <ScrollToTop />}
       <Switch>
         <Route path="/" exact>
           <Home />
@@ -52,13 +51,13 @@ const App = () => {
         <Route path="/signup">
           <SignUp />
         </Route>
-        <Route path="/helsinki">
+        {/* <Route path="/Helsinki">
           <Helsinki />
-        </Route>
+        </Route> */}
         <Route path="/travel-blog">
           <TravelBlog />
         </Route>
-        <Route path="/section">
+        <Route path="/Helsinki">
           <Section />
         </Route>
         <Route exact path="/cities" component={Package} />
