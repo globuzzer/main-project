@@ -11,7 +11,7 @@ import { VscThreeBars } from "react-icons/vsc";
 import { RiArrowDropDownFill } from "react-icons/ri";
 import icon_img from "../images/Vector.png";
 import logo from "../images/globuzzer_logo.png";
-import "./menu.css";
+import menu from "./menu.module.css";
 
 function Menu() {
   const [scroll, setScroll] = useState(false);
@@ -74,20 +74,20 @@ function Menu() {
 
   return (
     <React.Fragment>
-      <nav className="top-menu" style={navStyle()}>
-        <header className="m-header">
+      <nav className={menu.topMenu} style={navStyle()}>
+        <header className={menu.mHeader}>
           <img src={logo} alt="logo" />
         </header>
 
-        <ul className="m-center">
-          <li className="m-list dest">
+        <ul className={menu.mCenter}>
+          <li className={`${menu.mList} ${menu.dest}`}>
             Destinations
             <IconContext.Provider value={{ className: "dropdown" }}>
               <RiArrowDropDownFill />
             </IconContext.Provider>
-            <nav className="destination d">
+            <nav className={`${menu.destination} ${menu.d}`}>
               <ul>
-                <p className="recently">Recently:</p>
+                <p className={menu.recently}>Recently:</p>
                 <li>Rome</li>
                 <li>Stockholm</li>
               </ul>
@@ -126,12 +126,12 @@ function Menu() {
             </nav>
           </li>
 
-          <li className="m-list service">
+          <li className={`${menu.mList} ${menu.service}`}>
             Services
             <IconContext.Provider value={{ className: "dropdown" }}>
               <RiArrowDropDownFill />
             </IconContext.Provider>
-            <nav className="destination s">
+            <nav className={`${menu.destination} ${menu.s}`}>
               <ul>
                 <div>
                   <IconContext.Provider value={{ className: "bs-search" }}>
@@ -145,7 +145,7 @@ function Menu() {
                   />
                 </div>
 
-                <p className="recently">Recently:</p>
+                <p className={menu.recently}>Recently:</p>
                 <li style={serviceStyle("flight")}>Flight</li>
                 <li style={serviceStyle("hotel")}>Hotel</li>
               </ul>
@@ -167,14 +167,14 @@ function Menu() {
             </nav>
           </li>
 
-          <li className="m-list topic">
+          <li className={`${menu.mList} ${menu.topic}`}>
             Topics
             <IconContext.Provider value={{ className: "dropdown" }}>
               <RiArrowDropDownFill />
             </IconContext.Provider>
-            <nav className="destination t">
+            <nav className={`${menu.destination} ${menu.t}`}>
               <ul>
-                <p className="recently">Recently:</p>
+                <p className={menu.recently}>Recently:</p>
                 <li>Rome</li>
                 <li>Stockholm</li>
               </ul>
@@ -219,41 +219,43 @@ function Menu() {
             </nav>
           </li>
 
-          <li className="m-list">Pricing</li>
-          <li className="m-list menuOwn">Own your own city section</li>
+          <li className={menu.mList}>Pricing</li>
+          <li className={`${menu.mList} ${menu.menuOwn}`}>
+            Own your own city section
+          </li>
         </ul>
 
-        <ul className="m-right">
+        <ul className={menu.mRight}>
           <li>
             <img src={icon_img} alt="weather-icon" />
             {weather}
           </li>
           <li>Log in</li>
           <li>
-            <Link to="/city" className="link">
+            <Link to="/city" className="linked">
               Sign up
             </Link>
           </li>
         </ul>
       </nav>
 
-      <nav className="top-menu-small" style={navStyle()}>
-        <ul className="menu-small">
-          <li className="logo">
+      <nav className={menu.topMenuSmall} style={navStyle()}>
+        <ul className={menu.menuSmall}>
+          <li className={menu.logo}>
             <img src={logo} alt="logo" />
           </li>
 
-          <li className="bars" onClick={() => setSidebar(true)}>
+          <li className={menu.bars} onClick={() => setSidebar(true)}>
             <VscThreeBars />
           </li>
         </ul>
       </nav>
 
       <nav
-        className="sidebar-small"
+        className={menu.sidebarSmall}
         style={{ transform: displaySidebar && "translateX(0)" }}
       >
-        <ul className="sidebar-small-ul sidebar-top">
+        <ul className={`${menu.sidebarSmallUl} ${menu.sidebarTop}`}>
           <li>
             <span>
               <IconContext.Provider value={{ className: "icon" }}>
@@ -306,17 +308,19 @@ function Menu() {
 
         <div className="line"></div>
 
-        <ul className="sidebar-small-ul sidebar-bottom">
-          <div className="sidebar-btn">
+        <ul className={`${menu.sidebarSmallUl} ${menu.sidebarBottom}`}>
+          <div className={menu.sidebarBtn}>
             <li>
-              <button>Own your own city section</button>
+              <button className={menu.ownSection}>
+                Own your own city section
+              </button>
             </li>
           </div>
 
-          <div className="sidebar-auth">
+          <div className={menu.sidebarAuth}>
             <li>Login</li>
 
-            <Link to="/city" className="link">
+            <Link to="/city" className="linked">
               <li>Signup</li>
             </Link>
           </div>
