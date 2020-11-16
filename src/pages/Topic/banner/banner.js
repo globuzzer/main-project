@@ -13,8 +13,8 @@ import { RiHotelLine, RiShareForwardBoxFill } from "react-icons/ri";
 import { BiDollarCircle } from "react-icons/bi";
 import { VscGlobe } from "react-icons/vsc";
 import playButton from "../images/playButton.png";
-import { list } from "../../../../utils/data";
-import { hotelRefContext, articleRefContext } from "../../../../contexts/refs";
+import { list } from "../../../utils/data";
+import { hotelRefContext, articleRefContext } from "../../../contexts/refs";
 import "./banner.css";
 
 function Banner() {

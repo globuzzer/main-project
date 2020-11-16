@@ -1,9 +1,9 @@
 import React from "react";
-import globe from "../pages/topic/images/globe.png";
-import logo from "../pages/topic/images/globuzzer_logo.png";
-import f_i from "../pages/topic/images/facebook_icon.png";
-import twitter from "../pages/topic/images/twitter.png";
-import pinterest from "../pages/topic/images/pinterest.png";
+import globe from "../images/globe.png";
+import logo from "../images/globuzzer_logo.png";
+import f_i from "../images/facebook_icon.png";
+import twitter from "../images/twitter.png";
+import pinterest from "../images/pinterest.png";
 import "./footer.css";
 
 function Footer() {
