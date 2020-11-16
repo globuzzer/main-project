@@ -18,7 +18,6 @@ function Topic() {
           <Body />
         </articleRefContext.Provider>
       </hotelRefContext.Provider>
-
       <Footer />
     </React.Fragment>
   );
