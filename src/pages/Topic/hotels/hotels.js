@@ -6,7 +6,7 @@ import { TiArrowSortedDown } from "react-icons/ti";
 import { IoIosArrowDown } from "react-icons/io";
 import { hotels } from "../../../utils/data";
 import { sliceData } from "../../../utils/sliceData";
-import "./hotels.css";
+import hotel from "./hotels.module.css";
 import { hotelRefContext } from "../../../contexts/refs";
 
 function Hotels() {
@@ -61,13 +61,13 @@ function Hotels() {
   };
 
   return (
-    <section className="hotel" ref={hotelRef}>
-      <header className="hotel-header">
+    <section className={hotel.hotel} ref={hotelRef}>
+      <header className={hotel.header}>
         {window.innerWidth <= 515 ? "Hotels & hostels" : "find suitable hotels"}
-        <div className="underline"></div>
+        <div className={hotel.underline}></div>
       </header>
 
-      <div className="check">
+      <div className={hotel.check}>
         <div>
           <input type="date" placeholder="Check-in" />
         </div>
@@ -95,7 +95,7 @@ function Hotels() {
             </nav>
           </span>
 
-          <p className="form-select">
+          <p className={hotel.formselect}>
             <IconContext.Provider
               value={{
                 className: "dropIcon",
@@ -108,18 +108,18 @@ function Hotels() {
         </div>
       </div>
 
-      <div className="hotel-flex">
-        <div className="hotel-list">
+      <div className={hotel.hotelflex}>
+        <div className={hotel.hotelist}>
           {hotelSliced.map((d) => (
-            <div className="hotel-items" key={d.id}>
-              <div className="hotel-left">
+            <div className={hotel.hotelitems} key={d.id}>
+              <div className={hotel.hoteleft}>
                 <img src={d.img} alt={d.title} />
                 {d.recommended && <p>{d.recommended}</p>}
               </div>
-              <div className="hotel-right">
+              <div className={hotel.hotelright}>
                 <header>{d.title}</header>
 
-                <div className="right-p">
+                <div className={hotel.rightp}>
                   <p>{d.distance} km from city center</p>
                   <p>Price: {hotelPrice(d.price)}</p>
                   <p>
@@ -136,7 +136,7 @@ function Hotels() {
 
         {/* shows only when screen is in tablet and mobile devices */}
         {tabletSize && (
-          <div className="more-hotel" onClick={() => setHotelSize(data.length)}>
+          <div className={hotel.morehotel} onClick={() => setHotelSize(data.length)}>
             see more
             <IconContext.Provider
               value={{
@@ -148,17 +148,17 @@ function Hotels() {
           </div>
         )}
 
-        <div className="vimeo">
-          <div className="vimeo-content">
-            <header className="vimeo-header">Vimeo</header>
+        <div className={hotel.vimeo}>
+          <div className={hotel.content}>
+            <header className={hotel.vimeohead}>Vimeo</header>
 
-            <div className="vimeo-p">
+            <div className={hotel.vimeop}>
               <p>customisable player</p>
 
               <p>a vimeo feature</p>
             </div>
 
-            <div className="vimeo-btn">
+            <div className={hotel.vimeobtn}>
               <button>Learn more</button>
             </div>
           </div>

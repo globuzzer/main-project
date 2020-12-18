@@ -1,4 +1,4 @@
-.own-section {
+.ownsection {
   background: #5ebfbf;
   display: flex;
   justify-content: center;
@@ -7,20 +7,20 @@
   padding: 30px 0;
 }
 
-.own-right {
+.ownright {
   align-self: center;
   margin-left: 150px;
 }
 
-.own-right-small {
+.rightsmall {
   display: none;
 }
 
-.own-right-big {
+.rightbig {
   font-size: 30px;
 }
 
-.own-right button {
+.ownright button {
   border: none;
   background: #f24b6a;
   border-radius: 10px;
@@ -30,7 +30,7 @@
   margin-top: 35px;
 }
 
-.own-right button:hover {
+.ownright button:hover {
   filter: brightness(110%);
 }
 
@@ -44,27 +44,27 @@
   padding: 30px 0;
 }
 
-.footer-menu {
+.footermenu {
   display: flex;
   justify-content: space-between;
 }
 
-.footer-menu li {
+.footermenu li {
   padding: 5px 0;
   font-size: 13px;
 }
 
-.footer-menu img {
+.footermenu img {
   width: 29px;
   height: 29px;
 }
 
-.footer-menu img:hover {
+.footermenu img:hover {
   filter: brightness(110%);
   cursor: pointer;
 }
 
-.footer-small {
+.footersmall {
   display: none;
 }
 
@@ -74,38 +74,38 @@
     padding: 0;
   }
 
-  .own-section div {
+  .ownsection div {
     margin: 15px 0;
   }
 
-  .own-right {
+  .ownright {
     width: 100%;
     margin: 0;
   }
-  .own-left {
+  .ownleft {
     width: 100%;
   }
 
-  .own-left img {
+  .ownleft img {
     margin-top: 10px;
     width: 50%;
   }
 
-  .own-right-big {
+  .rightbig {
     display: none;
   }
 
-  .own-right-small {
+  .rightsmall {
     display: block;
     font-size: 14px;
   }
 
-  .own-right-small p {
+  .rightsmall p {
     margin: 15px 0;
     font-weight: bold;
   }
 
-  .own-right button {
+  .ownright button {
     margin: 10px 0;
   }
 
@@ -113,7 +113,7 @@
     display: none;
   }
 
-  .footer-small {
+  .footersmall {
     text-align: center;
     display: block;
     background: #f24b6a;
@@ -122,21 +122,21 @@
     font-size: 12px;
   }
 
-  .footer-small header {
+  .footersmall header {
     padding: 5px 0;
     margin: 20px 0 25px 0;
     cursor: pointer;
   }
 
-  .footer-small-menu li {
+  .smallmenu li {
     padding: 8px 0;
   }
 
-  .footer-small-menu li:nth-child(6) {
+  .smallmenu li:nth-child(6) {
     padding: 0px 0;
   }
 
-  .footer-small-menu img {
+  .smallmenu img {
     margin: 0 3px;
     width: 40px;
     height: 40px;

@@ -17,7 +17,7 @@ import { SiSkillshare } from "react-icons/si";
 import { sliceData } from "../../../utils/sliceData";
 import { articlesData, videoData, slide } from "../../../utils/data";
 import { articleRefContext } from "../../../contexts/refs";
-import "./video_articles.css";
+import videos from "./video_articles.module.css";
 
 function Article() {
   const [input, setInput] = useState(""); // for searching videos or articles
@@ -340,11 +340,11 @@ function Article() {
   };
 
   return (
-    <section className="article" ref={articleRef}>
-      <div className="article-left">
-        <div className="btn-group">
+    <section className={videos.article} ref={articleRef}>
+      <div className={videos.articleLeft}>
+        <div className={videos.btnGroup}>
           <button
-            className="btn btn-vid"
+            className={`${videos.btn} ${videos.btnVid}`}
             onMouseOver={handleClick}
             style={btnStyle("video")}
           >
@@ -352,7 +352,7 @@ function Article() {
           </button>
 
           <button
-            className="btn btn-art"
+            className={`${videos.btn} ${videos.btnArt}`}
             onMouseOver={handleClick}
             style={btnStyle("article")}
           >
@@ -360,7 +360,7 @@ function Article() {
           </button>
         </div>
 
-        <div className="search">
+        <div className={videos.search}>
           <input
             type="text"
             value={input}
@@ -375,10 +375,10 @@ function Article() {
         </div>
 
         {/* original data */}
-        <div className="article-card-container">{originalData()}</div>
+        <div className={videos.articleCardContainer}>{originalData()}</div>
 
         {/*Fist Articles after click */}
-        <div className="article-card-container">
+        <div className={videos.articleCardContainer}>
           <ArticleCard
             render={title === "videos" ? firstVideos : firstArticles}
             artRef={artRef}
@@ -394,9 +394,9 @@ function Article() {
         {!video.playVideo &&
           title === "videos" &&
           vid.map((v) => (
-            <div className="vid" key={v.id}>
+            <div className={videos.vid} key={v.id}>
               <img src={v.imgPath} alt="img" id="vidImg" />
-              <div className="playVid" onClick={() => playVideo(v)}>
+              <div className={videos.playVid} onClick={() => playVideo(v)}>
                 <img src={playButton} alt="playButton" id="playVid" />
               </div>
 
@@ -409,7 +409,7 @@ function Article() {
           ))}
 
         {title === "videos" && video.playVideo && (
-          <div className="video">
+          <div className={videos.video}>
             <span onClick={closeVideo}>
               <IconContext.Provider value={{ className: "icon" }}>
                 <AiOutlineCloseCircle />
@@ -420,7 +420,7 @@ function Article() {
         )}
 
         {title === "articles" && articleVideo.playVideo && (
-          <div className="video">
+          <div className={videos.video}>
             <span onClick={closeVideo}>
               <IconContext.Provider value={{ className: "icon" }}>
                 <AiOutlineCloseCircle />
@@ -437,11 +437,11 @@ function Article() {
         {!articleVideo.playVideo &&
           title === "articles" &&
           article.map((a) => (
-            <div className="helsinki" key={a.id}>
-              <div className="helsinki-left">
+            <div className={videos.helsinki} key={a.id}>
+              <div className={videos.helsinkileft}>
                 <img src={a.article.img.path} alt="helsinki" id="helsinki" />
 
-                <div className="helsinki-desc">
+                <div className={videos.helsinkidesc}>
                   <span onClick={() => playVideo(a)}>
                     <img src={playButton} alt="playButton" id="play" />
                   </span>
@@ -450,7 +450,7 @@ function Article() {
                 </div>
               </div>
 
-              <div className="helsinki-right">
+              <div className={videos.helsinkiright}>
                 <header>
                   <p>{a.article.title}</p>
                   <p onClick={closeArticle}>
@@ -462,7 +462,7 @@ function Article() {
                   </p>
                 </header>
 
-                <div className="para">
+                <div className={videos.para}>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
@@ -475,7 +475,7 @@ function Article() {
                   </p>
                 </div>
 
-                <div className="list-more list-more-article">
+                <div className={`${videos.listmore} ${videos.listMoreArticle}`}>
                   <p>
                     View more details{" "}
                     <IconContext.Provider
@@ -499,7 +499,7 @@ function Article() {
           ))}
 
         {/*Second Articles after click*/}
-        <div className="article-card-container">
+        <div className={videos.articleCardContainer}>
           <ArticleCard
             render={title === "videos" ? secondVideos : secondArticles}
             artRef={artRef}
@@ -513,7 +513,7 @@ function Article() {
           />
         </div>
 
-        <div className="more-articles" onClick={moreArticle}>
+        <div className={videos.moreArticles} onClick={moreArticle}>
           <p>
             <IconContext.Provider value={{ className: "arrow-down" }}>
               {moreOrLess().includes("less") ? (
@@ -534,13 +534,13 @@ function Article() {
         </div>
       </div>
 
-      <div className="article-right">
-        <div className="article-right-top">
+      <div className={videos.articleRight}>
+        <div className={videos.articleRightTop}>
           <Slider {...settings}>
             {slideShow.map((s) => (
-              <div className="slide" key={s.id}>
+              <div className={videos.slide} key={s.id}>
                 <img src={s.img} alt="mask" />
-                <div className="slide-items">
+                <div className={videos.slideItems}>
                   <p>{s.title}</p>
                   {window.innerWidth <= 900 && <p>{s.description}</p>}
                 </div>
@@ -549,51 +549,51 @@ function Article() {
           </Slider>
         </div>
 
-        <div className=" g-vimeo">
-          <div className="g-vimeo-content">
-            <header className="vimeo-header">Vimeo</header>
+        <div className={videos.gvimeo}>
+          <div className={videos.gvimeocontent}>
+            <header className={videos.vimeoheader}>Vimeo</header>
 
-            <div className="g-vimeo-p">
+            <div className={videos.gvimeop}>
               <p>customisable player</p>
             </div>
 
-            <div className="g-vimeo-btn">
+            <div className={videos.gvimeobtn}>
               <p>a vimeo feature</p>
               <button>Learn more</button>
             </div>
           </div>
         </div>
 
-        <div className="article-right-bottom">
+        <div className={videos.articleRightBottom}>
           <header>What are you looking for ?</header>
 
-          <div className="article-right-form">
+          <div className={videos.articleRightForm}>
             <select>
               <option>Discover Helsinki</option>
             </select>
 
-            <p className="form-select">
+            <p className={videos.formselect}>
               <IconContext.Provider value={{ className: "dropIcon" }}>
                 <TiArrowSortedDown />
               </IconContext.Provider>
             </p>
           </div>
 
-          <div className="article-right-form">
+          <div className={videos.articleRightForm}>
             <select>
               <option>Topic: Accomodation</option>
             </select>
 
-            <p className="form-select">
+            <p className={videos.formselect}>
               <IconContext.Provider value={{ className: "dropIcon" }}>
                 <TiArrowSortedDown />
               </IconContext.Provider>
             </p>
           </div>
 
-          <div className="article-right-form">
+          <div className={videos.articleRightForm}>
             <input type="text" placeholder="Search anything you want" />
-            <p className="form-search">
+            <p className={videos.formsearch}>
               <IconContext.Provider value={{ className: "search-icon" }}>
                 <BsSearch />
               </IconContext.Provider>

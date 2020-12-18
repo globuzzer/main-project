@@ -3,11 +3,11 @@ import Article from "../video_articles/video_articles";
 import Members from "../members/members";
 import Hotels from "../hotels/hotels";
 import OtherTopics from "../otherTopics/otherTopics";
-import "./body.css";
+import bodies from "./body.module.css";
 
 function Body() {
   return (
-    <div className="container">
+    <div className={bodies.container}>
       <Article />
       <Members />
       <Hotels />

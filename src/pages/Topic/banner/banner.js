@@ -15,7 +15,7 @@ import { VscGlobe } from "react-icons/vsc";
 import playButton from "../images/playButton.png";
 import { list } from "../../../utils/data";
 import { hotelRefContext, articleRefContext } from "../../../contexts/refs";
-import "./banner.css";
+import banner from "./banner.module.css";
 
 function Banner() {
   const [data, setData] = useState([]);
@@ -125,9 +125,9 @@ function Banner() {
   };
 
   return (
-    <section className="banner-container">
-      <div className="banner">
-        <div className="banner-nav">
+    <section className={banner.container}>
+      <div className={banner.banner}>
+        <div className={banner.nav}>
           <li>
             Landing page
             <IconContext.Provider value={{ className: "banner-arrow" }}>
@@ -143,17 +143,17 @@ function Banner() {
           <li>Accomodation</li>
         </div>
 
-        <div className="b-center">
-          <header className="b-header">
+        <div className={banner.center}>
+          <header className={banner.bheader}>
             <p>Accomodation in Helsinki</p>
             <p>Explore different kinds of information</p>
           </header>
 
-          <Link to="/city" className="link">
+          <Link to="/city" className={banner.link}>
             <button>Join us</button>
           </Link>
 
-          <div className="select-person">
+          <div className={banner.selectperson}>
             <span>I am a</span>
             <span>
               <input
@@ -189,9 +189,9 @@ function Banner() {
         </div>
       </div>
 
-      <div className="list">
+      <div className={banner.list}>
         <div
-          className="list-flex"
+          className={banner.listflex}
           onMouseOver={() => changeList("visa issue")}
           style={listStyle("visa issue")}
         >
@@ -203,7 +203,7 @@ function Banner() {
           <span>Visa issue</span>
         </div>
         <div
-          className="list-flex"
+          className={banner.listflex}
           onMouseOver={() => changeList("atm")}
           style={listStyle("atm")}
         >
@@ -215,7 +215,7 @@ function Banner() {
           <span>Visa issue</span>
         </div>
         <div
-          className="list-flex"
+          className={banner.listflex}
           onMouseOver={() => changeList("top hotels")}
           style={listStyle("top hotels")}
         >
@@ -227,7 +227,7 @@ function Banner() {
           <span>Top hotels</span>
         </div>
         <div
-          className="list-flex"
+          className={banner.listflex}
           onMouseOver={() => changeList("security risk")}
           style={listStyle("security risk")}
         >
@@ -241,7 +241,8 @@ function Banner() {
       </div>
 
       {video.playVideo && (
-        <div className="video banner-video">
+        // Not sure
+        <div className={`${banner.video} ${banner.bannervideo}`}>
           <span onClick={closeVideo}>
             <IconContext.Provider value={{ className: "icon" }}>
               <AiOutlineCloseCircle />
@@ -252,13 +253,13 @@ function Banner() {
       )}
 
       {!video.playVideo && (
-        <div className="list-item">
+        <div className={banner.listitem}>
           {data.map((d) => (
             <React.Fragment key={d.id}>
-              <div className="list-left">
+              <div className={banner.listleft}>
                 <img src={d.imgPath} alt="helsinki" id="list" />
-                <div className="list-desc">
-                  <div className="listVid" onClick={() => playVideo(d)}>
+                <div className={banner.listdesc}>
+                  <div className={banner.listVid} onClick={() => playVideo(d)}>
                     <img src={playButton} alt="playButton" id="listVid" />
                   </div>
                   <p>Accomodation in Helsinki</p>
@@ -269,7 +270,7 @@ function Banner() {
                 </IconContext.Provider>
               </div>
 
-              <div className="list-right">
+              <div className={banner.listright}>
                 <header>
                   <span>{d.title}</span>{" "}
                   <span onClick={closeList}>
@@ -279,7 +280,7 @@ function Banner() {
                   </span>
                 </header>
 
-                <div className="list-para">
+                <div className={banner.listpara}>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
@@ -292,7 +293,7 @@ function Banner() {
                   </p>
                 </div>
 
-                <div className="list-more">
+                <div className={banner.listmore}>
                   <p>
                     View more details{" "}
                     <IconContext.Provider

@@ -3,6 +3,7 @@ import { IconContext } from "react-icons";
 import { RiShareForwardBoxFill } from "react-icons/ri";
 import { BsHeart, BsHeartFill } from "react-icons/bs";
 
+
 function Article_card({
   render,
   artRef,

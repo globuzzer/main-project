@@ -4,17 +4,17 @@ import blueWoman from "../images/blue-woman.png";
 import casualBoy from "../images/casualBoy.png";
 import womanBlack from "../images/womanBlack.png";
 import womanGlasses from "../images/womanGlasses.png";
-import "./members.css";
+import member from "./members.module.css";
 
 function Members() {
   return (
-    <section className="member-container">
-      <header className="member-header">
-        Top members to meet<div className="underline"></div>
+    <section className={member.container}>
+      <header className={member.header}>
+        Top members to meet<div className={member.underline}></div>
       </header>
 
-      <div className="member-details big-screen">
-        <div className="details">
+      <div className={`${member.mdetails} ${member.bigscreen}`}>
+        <div className={member.details}>
           <img src={blueWoman} alt="blueWoman" />
           <header>Asya</header>
 
@@ -24,7 +24,7 @@ function Members() {
           </p>
         </div>
 
-        <div className="details">
+        <div className={member.details}>
           <img src={casualBoy} alt="casualBoy" />
           <header>Asya</header>
 
@@ -34,14 +34,14 @@ function Members() {
           </p>
         </div>
 
-        <div className="details big-circle">
-          <div className="inner-circle">
-            <div className="front">
+        <div className={`${member.details} ${member.bigcircle}`}>
+          <div className={member.innercircle}>
+            <div className={member.front}>
               <p>+</p>
             </div>
-            <div className="back">
+            <div className={member.back}>
               <p>
-                <Link to="/city" className="link">
+                <Link to="/city" className={member.link}>
                   Join us
                 </Link>
               </p>
@@ -49,7 +49,7 @@ function Members() {
           </div>
         </div>
 
-        <div className="details ">
+        <div className={member.details}>
           <img src={womanBlack} alt="womanBlack" />
           <header>Asya</header>
 
@@ -59,7 +59,7 @@ function Members() {
           </p>
         </div>
 
-        <div className="details">
+        <div className={member.details}>
           <img src={womanGlasses} alt="womanGlasses" />
           <header>Asya</header>
 
@@ -71,8 +71,8 @@ function Members() {
       </div>
 
       {/* For screens less than or equal to 900px*/}
-      <div className="member-details small-screen">
-        <div className="details">
+      <div className={`${member.mdetails} ${member.smallscreen}`}>
+        <div className={member.details}>
           <img src={blueWoman} alt="blueWoman" />
           <header>Asya</header>
 
@@ -82,8 +82,8 @@ function Members() {
           </p>
         </div>
 
-        <div className="member-details-flex">
-          <div className="details">
+        <div className={member.detailsflex}>
+          <div className={member.details}>
             <img src={casualBoy} alt="casualBoy" />
             <header>Asya</header>
 
@@ -93,10 +93,10 @@ function Members() {
             </p>
           </div>
 
-          <div className="details">
-            <div className="red-circle">
-              <div className="red-circle-wrapper">
-                <div className="red-circle-front">
+          <div className={member.details}>
+            <div className={member.redcircle}>
+              <div className={member.redcirclewrapper}>
+                <div className={member.redcirclefront}>
                   <p>
                     <svg
                       stroke="currentColor"
@@ -114,8 +114,8 @@ function Members() {
                     </svg>
                   </p>
                 </div>
-                <div className="red-circle-back">
-                  <Link to="/city" className="link">
+                <div className={member.redcircleback}>
+                  <Link to="/city" className={member.link}>
                     <p>Join us</p>
                   </Link>
                 </div>
@@ -123,7 +123,7 @@ function Members() {
             </div>
           </div>
 
-          <div className="details ">
+          <div className={member.details}>
             <img src={womanBlack} alt="womanBlack" />
             <header>Asya</header>
 
@@ -134,7 +134,7 @@ function Members() {
           </div>
         </div>
 
-        <div className="details">
+        <div className={member.details}>
           <img src={womanGlasses} alt="womanGlasses" />
           <header>Asya</header>
 

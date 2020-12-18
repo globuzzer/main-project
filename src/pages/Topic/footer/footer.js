@@ -4,23 +4,23 @@ import logo from "../images/globuzzer_logo.png";
 import f_i from "../images/facebook_icon.png";
 import twitter from "../images/twitter.png";
 import pinterest from "../images/pinterest.png";
-import "./footer.css";
+import footers from "./footer.module.css";
 
 function Footer() {
   return (
     <React.Fragment>
-      <div className="own-section">
-        <div className="own-left">
+      <div className={footers.ownsection}>
+        <div className={footers.ownleft}>
           <img src={globe} alt="globe" />
         </div>
 
-        <div className="own-right">
-          <div className="own-right-big">
+        <div className={footers.ownright}>
+          <div className={footers.rightbig}>
             <p>Want to have your own</p>
             <p>secton?</p>
           </div>
 
-          <div className="own-right-small">
+          <div className={footers.rightsmall}>
             <p>Become a part of our global community!</p>
             <p>Apply to start your own travel blog</p>
           </div>
@@ -29,12 +29,12 @@ function Footer() {
         </div>
       </div>
 
-      <footer className="footer">
+      <footer className={footers.footer}>
         <header>
           <img src={logo} alt="logo" />
         </header>
 
-        <nav className="footer-menu">
+        <nav className={footers.footermenu}>
           <ul>
             <li>Backängsvägen 24 </li>
             <li>192 73 Sollentuna, Sweden</li>
@@ -89,12 +89,12 @@ function Footer() {
         </nav>
       </footer>
 
-      <footer className="footer-small">
+      <footer className={footers.footersmall}>
         <header>
           <img src={logo} alt="logo" />
         </header>
 
-        <nav className="footer-small-menu">
+        <nav className={footers.smallmenu}>
           <ul>
             <li>Backängsvägen 24 </li>
             <li>192 73 Sollentuna, Sweden</li>

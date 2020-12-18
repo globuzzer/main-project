@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { otherTopics } from "../../../utils/data";
-import "./otherTopics.css";
+import others from "./otherTopics.module.css";
 
 function OtherTopics() {
   const [data] = useState(otherTopics);
@@ -27,20 +27,20 @@ function OtherTopics() {
     }
   };
   return (
-    <section className="other-topics">
-      <header className="other-topics-header">
+    <section className={others.othertopics}>
+      <header className={others.topicsheader}>
         {smallScreen ? "Related topics" : "Other topics"}
 
-        <div className="underline"></div>
+        <div className={others.underline}></div>
       </header>
 
-      <div className="card-container">
+      <div className={others.cardcontainer}>
         {data.map((d) => (
-          <div className="card" key={d.id} style={cardStyle(d)}>
+          <div className={others.card} key={d.id} style={cardStyle(d)}>
             <img src={d.img} alt={d.description} />
-            <div className="card-items">
-              <p className="card-items-top">{d.title}</p>
-              <p className="card-items-bottom">{d.description}</p>
+            <div className={others.carditems}>
+              <p className={others.cardItemsTop}>{d.title}</p>
+              <p className={others.cardItemsBottom}>{d.description}</p>
             </div>
           </div>
         ))}
