@@ -11,6 +11,7 @@ import { AboutUs } from "./pages/AboutUs";
 import OwnCitySection from "./pages/OwnCitySection";
 import { SignUp } from "./pages/SignUp";
 import Helsinki from "./pages/Helsinki";
+import TravelBlog from "./pages/TravelBlog/Blog/Blog";
 import ScrollToTop from "./utils/ScrollToTop";
 
 const App = () => {
@@ -18,41 +19,24 @@ const App = () => {
   const { pathname } = location;
 
   return (
-    <>
-      {pathname !== "/signup" && pathname !== "/own-city-section" && (
-        <Navigation />
-      )}
+    <div>
+      {pathname !== "/signup" &&
+        pathname !== "/own-city-section" &&
+        pathname !== "/blog" && <Navigation />}
       <ScrollToTop />
       <Switch>
-        <Route path="/" exact>
-          <Home />
-        </Route>
-        <Route path="/destination">
-          <Destination />
-        </Route>
-        <Route path="/services">
-          <Services />
-        </Route>
-        <Route path="/pricing">
-          <Pricing />
-        </Route>
-        <Route path="/career">
-          <Career />
-        </Route>
-        <Route path="/about-us">
-          <AboutUs />
-        </Route>
-        <Route path="/own-city-section">
-          <OwnCitySection />
-        </Route>
-        <Route path="/signup">
-          <SignUp />
-        </Route>
-        <Route path="/helsinki">
-          <Helsinki />
-        </Route>
+        <Route path="/" exact component={Home} />
+        <Route path="/destination" component={Destination} />
+        <Route path="/services" component={Services} />
+        <Route path="/pricing" component={Pricing} />
+        <Route path="/career" component={Career} />
+        <Route path="/about-us" component={AboutUs} />
+        <Route path="/own-city-section" component={OwnCitySection} />
+        <Route path="/signup" component={SignUp} />
+        <Route path="/helsinki" component={Helsinki} />
+        <Route path="/blog" exact component={TravelBlog} />
       </Switch>
-    </>
+    </div>
   );
 };
 
