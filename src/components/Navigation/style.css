@@ -1,6 +1,6 @@
 .section_navigation {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   height: 90px;
   width: 100%;
