@@ -1,5 +1,5 @@
 .section_header {
-    background-image: url("../assets/Home_header.png");
+    /* background-image: url("../assets/Home_header.png"); */
     height: 561px;
     width: 100%;
     display: flex;
@@ -119,18 +119,19 @@
 }
 
 .aux_list {
-    display: flex;
+    /* display: flex; */
     width: 100%;
-    overflow: scroll;
+    /* overflow: scroll; */
     padding-bottom: 40px;
 }
 
 .aux_services {
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-bottom: 100px;
+    text-align: -webkit-center;
 }
 
 .joincity_request_city_icon {
@@ -234,6 +235,7 @@
         width: 900px;
         justify-content: center;
         overflow: visible;
+        position: relative;
     }
     .joincity_grid {
         display: grid;
@@ -476,3 +478,36 @@
     align-items: center;
     margin-bottom: 78px;
 }
+
+
+
+/*Slick style over-write the original*/
+
+.slick-slide > div {
+    margin: 0 16px;
+    /* width: 98%; */
+}
+.slick-list {
+    margin: 0 -16px;
+}
+  
+.slick-next, .slick-prev {
+height: 62px !important;
+width: 62px !important;
+border-radius: 50%;
+}
+  
+.slick-next {
+background: url("../assets/AuxServices/right.png") center center no-repeat!important;
+margin: 0 -55px;
+}
+  
+.slick-prev {
+background: url("../assets/AuxServices/left.png") center center no-repeat!important;
+margin: 0 -55px;
+}
+  
+.slick-next::before, .slick-prev::before {
+    display: none;
+}
+/*slick end*/
