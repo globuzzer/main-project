@@ -11,6 +11,7 @@ import { AboutUs } from "./pages/AboutUs";
 import OwnCitySection from "./pages/OwnCitySection";
 import { SignUp } from "./pages/SignUp";
 import Helsinki from "./pages/Helsinki";
+import City from "./pages/City/index";
 import ScrollToTop from "./utils/ScrollToTop";
 
 const App = () => {
@@ -48,8 +49,11 @@ const App = () => {
         <Route path="/signup">
           <SignUp />
         </Route>
-        <Route path="/helsinki">
+        {/* <Route path="/helsinki">
           <Helsinki />
+        </Route> */}
+        <Route path="/:city">
+          <City name={pathname}/>
         </Route>
       </Switch>
     </>
