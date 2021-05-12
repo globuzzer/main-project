@@ -8,8 +8,8 @@
   z-index: 100;
   margin-left: -60px;
 }
-.feature_card_container h4{
-  border-bottom:1px solid #e4e4e4 ;
+.feature_card_container h4 {
+  border-bottom: 1px solid #e4e4e4;
 }
 .feature_card h4 {
   text-align: center;
@@ -61,7 +61,6 @@
   background-color: transparent;
   padding: 15px;
   color: #727272;
-
 }
 
 .btn_container {
@@ -101,4 +100,15 @@
   left: 0;
   top: 0;
   opacity: 0;
+}
+
+.circleItem {
+  color: #f24b6a;
+  display: flex;
+  justify-content: space-around;
+}
+
+.circleBox {
+  margin: 0 auto;
+  width: 200px;
 }

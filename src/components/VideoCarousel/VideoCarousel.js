@@ -17,13 +17,7 @@ const YoutubeSlide = (props) => {
 };
   export const VideoCarousel = ({ videos }) => (
     <div className="carousel_container">
-      <Carousel 
-        showArrows={false} 
-        showThumbs={false}
-        swipeable={true}
-        emulateTouch={true}
-        infiniteLoop={true}
-      >
+      <Carousel showArrows={false} showThumbs={false}>
         {(videos || []).map((videoData) => (
           <div key={videoData.id}>
             <YoutubeSlide videoData={videoData} />

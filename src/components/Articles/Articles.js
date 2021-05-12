@@ -17,6 +17,7 @@ const Articles = ({ city }) => {
       <div
         className={styles.eachSlide}
         key={data.id}
+        onClick={()=> window.open(data.link, "_blank")}
       >
         <div className={styles.card}>
           <div

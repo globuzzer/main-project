@@ -1,4 +1,5 @@
 import React from "react";
+import './members.css';
 import { FiPlus } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import styles from "./Members.module.css";

@@ -12,6 +12,7 @@
     "firebase": "^8.2.9",
     "firebase-tools": "^7.2.4",
     "history": "^5.0.0",
+    "keen-slider": "^5.4.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-google-autocomplete": "^1.2.4",
@@ -48,6 +49,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {}
+  }
 }

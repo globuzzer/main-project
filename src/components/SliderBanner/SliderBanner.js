@@ -26,7 +26,10 @@ const SliderBanner = ({ city }) => {
         <Slider {...settings}>
           {(news || []).map((news) => (
             <div key={news.id}>
-              <div className={styles.eachSlide}>
+              <div 
+                className={styles.eachSlide} 
+                onClick={()=> window.open(news.link, "_blank")}
+              >
                 <div
                   style={{
                     backgroundImage: `url(${news.image})`,

@@ -18,8 +18,9 @@ import useFetchDoc from "../hooks/useFetchDoc";
 import useFetchArray from "../hooks/useFetchArray";
 import { GetWindowDimension } from "../utils/GetWindowDimension";
 import { firestore } from "../utils/firebase.utils";
+import Spinner from "../components/Spinner/Spinner"
 
-export const Home = () => {
+const Home = () => {
   const { width } = GetWindowDimension();
   const [query, setQuery] = useState("");
   const [moreJoinCity, setMoreJoinCity] = useState(false);
@@ -77,7 +78,18 @@ useEffect(() => {
 
   return (
     <>
-      {isLoading() ? <div>Loading...</div>
+      {isLoading() ? 
+        <div>
+          <LazyLoad>
+            <section
+              className="section_header"
+              id="section_header"
+              style={{background: `white`}}
+            >
+            <Spinner />
+            </section>
+          </LazyLoad>
+        </div>
       : (
         <>
           <LazyLoad>
@@ -206,3 +218,4 @@ useEffect(() => {
     </>
   );
 };
+export default Home;
