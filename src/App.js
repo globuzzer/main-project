@@ -22,7 +22,7 @@ const App = () => {
         pathname !== "/own-city-section" &&
         pathname !== "/travel-blog" &&
         pathname.indexOf("explore") === -1 &&
-        pathname != "/cities" && <Navigation />}
+        pathname !== "/cities" && <Navigation />}
        <ScrollToTop />
       <Switch>
         <Route path="/">
