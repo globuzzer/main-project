@@ -27,20 +27,21 @@ const Vimeo = ({ city }) => {
             <div key={adv.id}>
               <div
                 className={styles.wrapper}
-                style={{background: adv.bgColor}}
+                // style={{background: adv.bgColor}}
+                onClick={()=> window.open(adv.link, "_blank")}
               >
                 <div className={styles.container}>
                   <img src={adv.logo} alt="logo"/>
-                  <p className={styles.caption}>{adv.text1}</p>
-                  <p className={styles.text}>{adv.text2}</p>
+                  {/* <p className={styles.caption}>{adv.text1}</p>
+                  <p className={styles.text}>{adv.text2}</p> */}
                 </div>
-                <button 
+                {/* <button 
                   type="button"
                   className={styles.btn} 
                   style={{background: adv.btColor}}
                 >
                   Learn more
-                </button>
+                </button> */}
               </div>
             </div>
           ))}
