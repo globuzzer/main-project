@@ -34,7 +34,7 @@ export const SignUp = () => {
     window.location.href = `${url}`;
   };
   return (
-    <div className="container">
+    <div className="signup_container">
       <Link to="/" className="link">
         <IoIosArrowDropleft className="link_icon" />
         Back to home

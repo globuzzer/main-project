@@ -151,7 +151,8 @@ button {
   line-height: 17px;
 }
 
-.mobile_hamburger_close:hover, .mobile_hamburger_close:visited {
+.mobile_hamburger_close:hover,
+.mobile_hamburger_close:visited {
   background-color: #f24b6a;
 }
 
