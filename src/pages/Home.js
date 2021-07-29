@@ -17,8 +17,10 @@ import { RequestNewCity } from "../components/RequestNewCity/RequestNewCity";
 import useFetchDoc from "../hooks/useFetchDoc";
 import useFetchArray from "../hooks/useFetchArray";
 import { GetWindowDimension } from "../utils/GetWindowDimension";
+import { firestore } from "../utils/firebase.utils";
+import Spinner from "../components/Spinner/Spinner"
 
-export const Home = () => {
+const Home = () => {
   const { width } = GetWindowDimension();
   const [query, setQuery] = useState("");
   const [moreJoinCity, setMoreJoinCity] = useState(false);
@@ -28,9 +30,25 @@ export const Home = () => {
   const texts = useFetchDoc("texts");
   const places = useFetchDoc("places");
   const features = useFetchDoc("features");
-  const cities = useFetchArray("cities");
+  // const cities = useFetchArray("cities");
   const articles = useFetchArray("articles");
+  const [cities, setCollection] = useState([]);
 
+useEffect(() => {
+  const unsubscribe = firestore
+    .collection("section_live")
+    .orderBy("name")
+    .onSnapshot((snapshot) => {
+      const newCity = snapshot.docs.map((doc) => (
+        // id: doc.id,
+        // ...doc.data(),
+        doc.data()
+    ));
+      setCollection(newCity);
+      // console.log(newCity);
+    });
+    return () => unsubscribe();
+}, []);
   const isLoading = () => {
     return (texts.loading || places.loading || features.loading || cities.loading || articles.loading || banners.loading);
   };
@@ -60,7 +78,18 @@ export const Home = () => {
 
   return (
     <>
-      {isLoading() ? <div>Loading...</div>
+      {isLoading() ? 
+        <div>
+          <LazyLoad>
+            <section
+              className="section_header"
+              id="section_header"
+              style={{background: `white`}}
+            >
+            <Spinner />
+            </section>
+          </LazyLoad>
+        </div>
       : (
         <>
           <LazyLoad>
@@ -145,20 +174,20 @@ export const Home = () => {
               />
             </div>
             <div className="joincity_grid">
-              {cities.items.map((cityData, index) => (
+              {cities && cities.map((cityData, index) => (
                 <JoinCity cityData={cityData} key={index} />
               ))}
-              {!moreJoinCity && cities.items.length > 0 && (
+              {!moreJoinCity && cities.length > 0 && (
                 <JoinCity
                   cityData={{ name: "Explore more cities" }}
                   isViewMore
                   setMoreJoinCity={setMoreJoinCity}
                 />
               )}
-              {moreJoinCity && cities.items.length > 0 && <RequestNewCity />}
+              {moreJoinCity && cities.length > 0 && <RequestNewCity />}
             </div>
             <div className="no_item">
-              {cities.items.length === 0 && <RequestNewCity />}
+              {cities.length === 0 && <RequestNewCity />}
             </div>
           </section>
           <JoinCommunity />
@@ -189,3 +218,4 @@ export const Home = () => {
     </>
   );
 };
+export default Home;

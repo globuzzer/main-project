@@ -1,0 +1,12 @@
+.box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  color: pink;
+  margin: 0 auto;
+}
+
+.box img {
+  background: transparent;
+}
