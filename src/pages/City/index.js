@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./style.css";
 import { firestore } from "../../utils/firebase.utils";
 import styles from "./index.module.css";
-import SHeader from "../../components/SHeader/SHeader";
+import SHeader from "../../components/Header/SHeader";
 import Services from "../../components/Services/Services";
 import Topics from "../../components/Topics/Topics";
 import SliderBanner from "../../components/SliderBanner/SliderBanner";
@@ -20,6 +20,7 @@ import NavBar from "../Section/Header/NavBar/NavBar";
 import Spinner from "../../components/Spinner/Spinner";
 
 const City = ({ name }) => {
+  console.log(name.split('/')[2])
   const [currentCity, setCurrentCity] = useState({});
   const cityName = name.replace("/", "");
   const features = useFetchDoc("features");
@@ -37,8 +38,9 @@ const City = ({ name }) => {
         // setCollection(newCity);
         setCurrentCity(newCity.filter((c) => c.name.toLowerCase() === cityName.toLowerCase())[0]);
       });
-     return () => unsubscribe();
+    return () => unsubscribe();
   }, [cityName]);
+ 
 
   return (
     !features.loading ? (
@@ -46,13 +48,13 @@ const City = ({ name }) => {
         <div className={styles.section}>
           {/* <NavBar /> */}
           <div className={styles.header}>
-            <SHeader city={currentCity} cityName={cityName}/>
+            <SHeader city={currentCity} cityName={cityName} />
           </div>
           <div className={styles.main}>
             <div className={styles.center}>
               <div className={styles.services}>
                 {/* <Services city={currentCity} /> */}
-          {/* just temporar... */}
+                {/* just temporar... */}
                 <section className="section_value">
                   <HomeValue
                     src={features.items[0].image}
@@ -73,7 +75,7 @@ const City = ({ name }) => {
                     imgDescription={features.items[2].text}
                   />
                 </section>
-          {/* ....... */}
+                {/* ....... */}
                 <Topics city={currentCity} cityName={cityName} />
               </div>
               <div className={styles.slider}>
@@ -97,31 +99,31 @@ const City = ({ name }) => {
           </div>
         </div>
       )
-      : (
-        <div>
-          <section className="city_header">
-            <div className="city_header_url">
-              <Link to="/">
-                <p>Landing Page</p>
-              </Link>
-              <AiFillCaretRight className="city_header_url_icon" />
-              <p>{cityName}</p>
+        : (
+          <div>
+            <section className="city_header">
+              <div className="city_header_url">
+                <Link to="/">
+                  <p>Landing Page</p>
+                </Link>
+                <AiFillCaretRight className="city_header_url_icon" />
+                <p>{cityName}</p>
+              </div>
+              <p id="header_1" >page not found</p>
+              <p id="city_header_2">try another city</p>
+            </section>
+            <div className={styles.footer}>
+              <OwnSection />
+              <Footer />
             </div>
-            <p id="header_1" >page not found</p>
-            <p id="city_header_2">try another city</p>
-          </section>
-          <div className={styles.footer}>
-            <OwnSection />
-            <Footer />
           </div>
-        </div>
-      )
+        )
     ) : (
-      <section className="city_header" style={{background: "white"}}>
+      <section className="city_header" style={{ background: "white" }}>
         <Spinner />
       </section>
     )
-    
+
   );
 };
 

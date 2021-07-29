@@ -9,7 +9,7 @@ const Topics = ({ city, cityName }) => {
   const arraySize = () => {
     let size;
     (window.innerWidth <= 900) ? (size = 6) : (size = 9);
-      return size;
+    return size;
   };
   const [cardsToShow, setCardsToShow] = useState(arraySize());
 
@@ -17,7 +17,7 @@ const Topics = ({ city, cityName }) => {
     let no = cardsToShow + 3;
     if (cardsToShow >= (topics || []).length) {
       if (window.innerWidth <= 1100) no = 3;
-          else no = 6;
+      else no = 6;
     }
     return setCardsToShow(no);
   };
@@ -35,7 +35,9 @@ const Topics = ({ city, cityName }) => {
       <BlogHeader label="Top Topics to explore" />
       <div className={styles.container}>
         {(topics || []).slice(0, cardsToShow).map((topic) => (
-          <div key={topic.id}>
+          <div
+            key={topic.id}
+          >
             <TopicCard
               topic={topic}
               cityName={cityName}
@@ -43,21 +45,21 @@ const Topics = ({ city, cityName }) => {
           </div>
         ))}
       </div>
-      <button 
-        type="button" 
+      <button
+        type="button"
         className={styles.moreBtn}
         onClick={moreCards}
       >
-        {moreOrLess().includes("less") ? "View Less" : "View More" }
+        {moreOrLess().includes("less") ? "View Less" : "View More"}
       </button>
       <div
         className={styles.moreDesk}
       >
-        <p 
-          className={styles.moreLink} 
+        <p
+          className={styles.moreLink}
           onClick={moreCards}
         >
-          {moreOrLess().includes("less") ? "See Less topics" : "See More topics" }
+          {moreOrLess().includes("less") ? "See Less topics" : "See More topics"}
           <img src={arrow} alt="arrow-icon" className={styles.arrow} />
         </p>
       </div>

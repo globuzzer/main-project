@@ -12,7 +12,9 @@ import OwnCitySection from "./pages/OwnCitySection";
 import { SignUp } from "./pages/SignUp";
 import City from "./pages/City/index";
 import ScrollToTop from "./utils/ScrollToTop";
-const Home = lazy(() => import ("./pages/Home"));
+import CityTopic from "./pages/Topic/CityTopic";
+import Landing from "./Landing";
+const Home = lazy(() => import("./pages/Home"));
 
 const App = () => {
   const location = useLocation();
@@ -29,9 +31,9 @@ const App = () => {
       <ScrollToTop />
       <Switch>
         <Route path="/" exact>
-        <Suspense fallback={<div></div>}>
-          <Home />
-        </Suspense>
+          <Suspense fallback={<div></div>}>
+            <Home />
+          </Suspense>
         </Route>
         <Route path="/destination">
           <Destination />
@@ -54,9 +56,21 @@ const App = () => {
         <Route path="/signup">
           <SignUp />
         </Route>
-        <Route path="/:city">
-          <City name={pathname}/>
+
+        <Route path='/index.html'>
+          <Landing />
         </Route>
+
+        <Route exact path="/:city">
+          <City name={pathname} />
+        </Route>
+        <Route path="/:city/:topic" render={props => (
+          <CityTopic
+            props={props.location.state}
+          />
+        )}
+
+        />
       </Switch>
     </>
   );
