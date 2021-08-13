@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import header from "./header.module.css";
 import { IconContext } from "react-icons";
 import {
@@ -18,6 +18,33 @@ const TopicHeader = ({ topics, topicName }) => {
 
   const hotelRef = useContext(hotelRefContext);
   const articleRef = useContext(articleRefContext);
+
+  useEffect(() => {
+    if (select.includes("short"))
+      return window.scrollTo({
+        top: hotelRef.current.offsetTop,
+        behavior: "smooth",
+      });
+
+    if (select.includes("long") || select.includes("student"))
+      return window.scrollTo({
+        top: articleRef.current.offsetTop,
+        behavior: "smooth",
+      });
+
+    //eslint-disable-next-line
+  }, [select]);
+
+  useEffect(() => {
+    changeHeight();
+    window.addEventListener('resize', changeHeight);
+  }, []);
+
+  const changeHeight = () => {
+    const width = window.innerWidth;
+    if (width <= 900) setHeight("81px");
+    if (width > 900 && width <= 1101) setHeight("99px");
+  };
 
   const handleSelect = () => {
     setShowList(!showList);

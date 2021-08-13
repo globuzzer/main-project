@@ -6,7 +6,7 @@ import { TiArrowSortedDown } from "react-icons/ti";
 import { IoIosArrowDown } from "react-icons/io";
 import { sliceData } from "../sliceData";
 import styles from "./hotels.module.css";
-// import { hotelRefContext } from "../contexts/Refs";
+import { hotelRefContext } from "../../../contexts/Refs";
 
 function Hotels({ topic }) {
   const { hotel, advertise } = topic
@@ -16,7 +16,7 @@ function Hotels({ topic }) {
   const [tabletSize, setTabletSize] = useState(false);
   const [hotelSize, setHotelSize] = useState();
 
-  // const hotelRef = useContext(hotelRefContext);
+  const hotelRef = useContext(hotelRefContext);
 
   useEffect(() => {
     window.addEventListener("resize", changeHotelSize);
@@ -61,9 +61,7 @@ function Hotels({ topic }) {
   };
 
   return (
-    <section className={styles.hotel}
-    //  ref={hotelRef}
-    >
+    <section className={styles.hotel} ref={hotelRef}>
       <header className={styles.header}>
         {window.innerWidth <= 515 ? "Hotels & hostels" : "Find suitable hotels"}
         <div className={styles.underline}></div>

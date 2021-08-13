@@ -1,0 +1,92 @@
+[debug] [2021-07-29T20:58:41.260Z] ----------------------------------------------------------------------
+[debug] [2021-07-29T20:58:41.262Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\quand\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2021-07-29T20:58:41.263Z] CLI Version:   9.12.1
+[debug] [2021-07-29T20:58:41.263Z] Platform:      win32
+[debug] [2021-07-29T20:58:41.263Z] Node Version:  v12.18.3
+[debug] [2021-07-29T20:58:41.264Z] Time:          Thu Jul 29 2021 23:58:41 GMT+0300 (Eastern European Summer Time)
+[debug] [2021-07-29T20:58:41.265Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-07-29T20:58:41.272Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-07-29T20:58:41.273Z] > authorizing via signed-in user (it.globuzzer@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\quand\Desktop\Globuzzer\main-project
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[debug] [2021-07-29T20:59:00.024Z] ----------------------------------------------------------------------
+[debug] [2021-07-29T20:59:00.026Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\quand\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2021-07-29T20:59:00.027Z] CLI Version:   9.12.1
+[debug] [2021-07-29T20:59:00.027Z] Platform:      win32
+[debug] [2021-07-29T20:59:00.027Z] Node Version:  v12.18.3
+[debug] [2021-07-29T20:59:00.028Z] Time:          Thu Jul 29 2021 23:59:00 GMT+0300 (Eastern European Summer Time)
+[debug] [2021-07-29T20:59:00.028Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-07-29T20:59:00.037Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-07-29T20:59:00.037Z] > authorizing via signed-in user (it.globuzzer@gmail.com)
+[debug] [2021-07-29T20:59:00.037Z] [iam] checking project pricing-page-mobile for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-07-29T20:59:00.041Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-07-29T20:59:00.041Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-07-29T20:59:00.158Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","date":"Thu, 29 Jul 2021 20:59:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-07-29T20:59:00.177Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/pricing-page-mobile:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2021-07-29T20:59:00.946Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Thu, 29 Jul 2021 20:59:00 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=718","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-07-29T20:59:00.948Z] [iam] error while checking permissions, command may fail: FirebaseError: Authorization failed. This account is missing the following required permissions on project pricing-page-mobile:
+
+  firebase.projects.get
+  firebasehosting.sites.update
+[debug] [2021-07-29T20:59:00.951Z] > refreshing access token with scopes: []
+[debug] [2021-07-29T20:59:00.951Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-07-29T20:59:01.041Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Thu, 29 Jul 2021 20:59:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-07-29T20:59:01.059Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/pricing-page-mobile [none]
+[debug] [2021-07-29T20:59:01.307Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/pricing-page-mobile 403
+[debug] [2021-07-29T20:59:01.308Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/pricing-page-mobile {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2021-07-29T20:59:01.308Z] HTTP Error: 403, The caller does not have permission
+[debug] [2021-07-29T20:59:01.372Z] FirebaseError: HTTP Error: 403, The caller does not have permission
+    at module.exports (C:\Users\quand\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:38:12)
+    at Client.doRequest (C:\Users\quand\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:238:23)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async Client.request (C:\Users\quand\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:96:20)
+    at async Object.getFirebaseProject (C:\Users\quand\AppData\Roaming\npm\node_modules\firebase-tools\lib\management\projects.js:290:21)
+    at async Object.getDefaultHostingSite (C:\Users\quand\AppData\Roaming\npm\node_modules\firebase-tools\lib\getDefaultHostingSite.js:8:21)
+    at async requireHostingSite (C:\Users\quand\AppData\Roaming\npm\node_modules\firebase-tools\lib\requireHostingSite.js:9:18)
+    at async Object.fn (C:\Users\quand\AppData\Roaming\npm\node_modules\firebase-tools\lib\commands\deploy.js:66:9)
+    at async C:\Users\quand\AppData\Roaming\npm\node_modules\firebase-tools\lib\command.js:169:17
+[error] 
+[error] Error: Failed to get Firebase project pricing-page-mobile. Please make sure the project exists and your account has permission to access it.
+[debug] [2021-07-29T20:59:06.708Z] ----------------------------------------------------------------------
+[debug] [2021-07-29T20:59:06.710Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\quand\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2021-07-29T20:59:06.711Z] CLI Version:   9.12.1
+[debug] [2021-07-29T20:59:06.711Z] Platform:      win32
+[debug] [2021-07-29T20:59:06.711Z] Node Version:  v12.18.3
+[debug] [2021-07-29T20:59:06.712Z] Time:          Thu Jul 29 2021 23:59:06 GMT+0300 (Eastern European Summer Time)
+[debug] [2021-07-29T20:59:06.712Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-07-29T20:59:06.718Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-07-29T20:59:06.718Z] > authorizing via signed-in user (it.globuzzer@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\quand\Desktop\Globuzzer\main-project
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
