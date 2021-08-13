@@ -6,6 +6,7 @@ import styles from "./Members.module.css";
 import BlogHeader from "../SectionHeader/BlogHeader";
 import { MemberCard } from "./MemberCard";
 import { GetWindowDimension } from "../../utils/GetWindowDimension";
+import { Fragment } from "react";
 
 const Members = ({ city }) => {
   const { topMembers } = city;
@@ -16,14 +17,14 @@ const Members = ({ city }) => {
       <BlogHeader label="Top members to meet" />
       <div className="member_meet_grid">
         {(topMembers || []).slice(0, 2).map((data) => (
-          <>
+          <Fragment key={data.id}>
             <div />
             <div className="member_ava_container">
               <img src={data.image} alt="ava" className="member_ava" />
               <p className="member_ava_name">{data.name}</p>
               <p className="member_ava_city">{data.flags}</p>
             </div>
-          </>
+          </Fragment>
           ))}
         <div className="flip-card">
           <div className="flip-card-inner">
@@ -38,14 +39,14 @@ const Members = ({ city }) => {
           </div>
         </div>
         {(topMembers || []).slice(2, 5).map((data) => (
-          <>
+          <Fragment key={data.id}>
             <div className="member_ava_container">
               <img src={data.image} alt="ava" className="member_ava" />
               <p className="member_ava_name">{data.name}</p>
               <p className="member_ava_city">{data.flags}</p>
             </div>
             <div />
-          </>
+          </Fragment>
           ))}
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Banner from '../../components/Topics/banner/Banner';
 import TopicHeader from '../../components/Header/TopicHeader';
 import { firestore } from '../../utils/firebase.utils';
@@ -9,11 +9,13 @@ import Hotels from '../../components/Topics/hotel/Hotels';
 import OtherTopics from '../../components/Topics/otherTopics/otherTopics';
 import { OwnSection } from '../../components/OwnSection/OwnSection';
 import { Footer } from '../../components/Footer/Footer';
+import { articleRefContext, hotelRefContext } from '../../contexts/Refs';
 
 const CityTopic = ({ props }) => {
+  const hotelRef = useRef(null);
+  const articleRef = useRef(null);
 
   const { topicId, topicName } = props;
-
   const [topics, setTopics] = useState([]);
 
   useEffect(() => {
@@ -32,34 +34,35 @@ const CityTopic = ({ props }) => {
 
   return (
     <div>
-      <div className={styles.header}>
-        <TopicHeader
-          topicName={topicName}
-          topics={topics}
-        />
-      </div>
+      <hotelRefContext.Provider value={hotelRef}>
+        <articleRefContext.Provider value={articleRef}>
+          <div className={styles.header}>
+            <TopicHeader
+              topicName={topicName}
+              topics={topics}
+            />
+          </div>
 
-      <div>
-        <Banner topics={topics} />
-      </div>
+          <div>
+            <Banner topics={topics} />
+          </div>
 
-      <div className={styles.container}>
-        <Article topicId={topicId} />
+          <div className={styles.container}>
+            <Article topicId={topicId} />
 
-        <Members city={topics} />
+            <Members city={topics} />
 
-        <Hotels topic={topics} />
+            <Hotels topic={topics} />
 
-        <OtherTopics topic={topics} />
-      </div>
+            <OtherTopics topic={topics} />
+          </div>
+        </articleRefContext.Provider>
+      </hotelRefContext.Provider>
 
       <div className={styles.footer}>
         <OwnSection />
         <Footer />
       </div>
-
-
-
     </div>
   )
 }

@@ -11,7 +11,7 @@ import {
 } from "react-icons/io";
 import { SiSkillshare } from "react-icons/si";
 import { sliceData } from "../sliceData";
-// import { articleRefContext } from "../contexts/Refs";
+import { articleRefContext } from "../../../contexts/Refs";
 import videos from "./video_articles.module.css";
 import { firestore } from "../../../utils/firebase.utils";
 import "slick-carousel/slick/slick.css";
@@ -53,8 +53,8 @@ function Article({ topicId }) {
   //slideshow state
   const [slideShow, setSlideShow] = useState([]);
   //section video_articles ref
-  // const articleRef = useContext(articleRefContext);
-  // const artRef = useRef(null);
+  const articleRef = useContext(articleRefContext);
+  const artRef = useRef(null);
 
   useEffect(() => {
     const width = window.innerWidth;
@@ -220,7 +220,7 @@ function Article({ topicId }) {
     const renderData = (
       <ArticleCard
         render={render}
-        // artRef={artRef}
+        artRef={artRef}
         articleHover={articleHover}
         showArticle={showArticle}
         setArticle={setArticle}
@@ -331,9 +331,7 @@ function Article({ topicId }) {
   };
 
   return (
-    <section className={videos.article}
-    //  ref={articleRef}
-    >
+    <section className={videos.article} ref={articleRef}>
       <div className={videos.articleLeft}>
         <GroupButtons
           input={input}
@@ -352,7 +350,7 @@ function Article({ topicId }) {
         <div className={videos.articleCardContainer}>
           <ArticleCard
             render={title === "videos" ? firstVideos : firstArticles}
-            // artRef={artRef}
+            artRef={artRef}
             articleHover={articleHover}
             showArticle={showArticle}
             playButton={playButton}
@@ -464,7 +462,7 @@ function Article({ topicId }) {
         <div className={videos.articleCardContainer}>
           <ArticleCard
             render={title === "videos" ? secondVideos : secondArticles}
-            // artRef={artRef}
+            artRef={artRef}
             articleHover={articleHover}
             showArticle={showArticle}
             setArticle={setArticle}
