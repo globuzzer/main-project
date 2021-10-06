@@ -11,10 +11,11 @@ import { RiShareForwardBoxFill } from "react-icons/ri";
 import playButton from '../../../../src/assets/Topic/playButton.png';
 
 const Banner = ({ topics }) => {
+  console.log('Q', topics)
 
   const [banners, setBanners] = useState([]);
   const [currentData, setCurrentData] = useState([]);
-  const [currentTitle, setCurrentTitle] = useState('visa issue');
+  const [currentTitle, setCurrentTitle] = useState('');
 
   const [video, setVideo] = useState({
     playVideo: false,
@@ -36,9 +37,11 @@ const Banner = ({ topics }) => {
   const getData = () => {
     const init = topics.banner && topics.banner.filter(d => d.id === 1);
     const bannerList = topics && topics.banner;
-
+    const current = topics.banner && topics.banner[0].title.toLocaleLowerCase();
+    
     setCurrentData(init);
-    setBanners(bannerList)
+    setBanners(bannerList);
+    setCurrentTitle(current);
   }
 
   const changeList = current => {
@@ -59,7 +62,6 @@ const Banner = ({ topics }) => {
   };
 
   const closeList = () => {
-    // setData([]);
     setCurrentData("");
   };
 

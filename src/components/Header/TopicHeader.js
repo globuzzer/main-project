@@ -10,14 +10,20 @@ import { articleRefContext, hotelRefContext } from '../../contexts/Refs';
 
 const TopicHeader = ({ topics, topicName }) => {
 
-  const { mainImg, title, subtitle, city } = topics;
+  const { mainImg, title, subtitle, city, bannerImg, selectHeaders } = topics;
 
+  //states
   const [select, setSelect] = useState('');
   const [showList, setShowList] = useState(false);
   const [height, setHeight] = useState("125px");
 
   const hotelRef = useContext(hotelRefContext);
   const articleRef = useContext(articleRefContext);
+
+  //booleans
+  const isAccomodation = topicName.toLowerCase() === 'accomodations';
+  const isEducation = topicName.toLowerCase() === 'education';
+  const isCareer = topicName.toLowerCase() === 'career';
 
   useEffect(() => {
     if (select.includes("short"))
@@ -59,7 +65,7 @@ const TopicHeader = ({ topics, topicName }) => {
 
     <section>
       <div
-        style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${mainImg})` }}
+        style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${mainImg || bannerImg})` }}
         className={header.banner}
       >
         <div className={header.nav}>
@@ -88,46 +94,44 @@ const TopicHeader = ({ topics, topicName }) => {
             <button>Join us</button>
           </Link>
 
-          <div className={header.selectperson}>
-            <span>I am a</span>
-            <span>
-              <input
-                type="text"
-                placeholder="Person who will stay for a long term"
-                value={select}
-                readOnly={true}
-                onClick={handleSelect}
-              />
+          {(isAccomodation || isEducation || isCareer) &&
+            <div className={header.selectperson}>
+              {isAccomodation && <span>I am a</span>}
+              {((isEducation) || (isCareer)) && <span>I want to </span>}
+              <span>
+                <input
+                  type="text"
+                  placeholder={selectHeaders ? selectHeaders[0] : ''}
+                  value={select}
+                  readOnly={true}
+                  onClick={handleSelect}
+                />
 
-              <IconContext.Provider
-                value={{
-                  className: "arrowDown",
-                  style: { transform: showList && "rotate(180deg)" },
-                }}
-              >
-                <IoIosArrowDown className={header.arrowDown} />
-              </IconContext.Provider>
+                <IconContext.Provider
+                  value={{
+                    className: "arrowDown",
+                    style: { transform: showList && "rotate(180deg)" },
+                  }}
+                >
+                  <IoIosArrowDown className={header.arrowDown} />
+                </IconContext.Provider>
 
-              <nav style={{ height: showList && height }}>
-                <ul>
-                  <li onClick={handleList}>
-                    Person who will stay for a long term
-                  </li>
-                  <li onClick={handleList}>
-                    Person who will stay for a short term
-                  </li>
-                  <li onClick={handleList}>
-                    Person who is a student
-                  </li>
-                </ul>
-              </nav>
-            </span>
+                <nav style={{ height: showList && height }}>
+                  <ul>
+                    {selectHeaders && selectHeaders.map((s, index) =>
+                      <li key={index} onClick={handleList}>
+                        {s}
+                      </li>
+                    )}
+                  </ul>
+                </nav>
+              </span>
 
-          </div>
+            </div>
+          }
         </div>
       </div>
     </section>
-
   )
 }
 

@@ -104,9 +104,14 @@
 }
 
 #playImg {
-  width: 100%;
-  height: 100%;
+  width: 30%;
   object-fit: cover;
+  border-radius: 100%;
+}
+
+#playImg:hover {
+  background: #f24b6a;
+  cursor: pointer;
 }
 
 .play:hover {
