@@ -11,7 +11,6 @@ import { RiShareForwardBoxFill } from "react-icons/ri";
 import playButton from '../../../../src/assets/Topic/playButton.png';
 
 const Banner = ({ topics }) => {
-  console.log('Q', topics)
 
   const [banners, setBanners] = useState([]);
   const [currentData, setCurrentData] = useState([]);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import './members.css';
 import { FiPlus } from "react-icons/fi";
 import { Link } from "react-router-dom";
@@ -6,7 +6,6 @@ import styles from "./Members.module.css";
 import BlogHeader from "../SectionHeader/BlogHeader";
 import { MemberCard } from "./MemberCard";
 import { GetWindowDimension } from "../../utils/GetWindowDimension";
-import { Fragment } from "react";
 
 const Members = ({ city }) => {
   const { topMembers } = city;

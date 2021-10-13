@@ -83,6 +83,14 @@
   font-size: 12px;
 }
 
+.check button {
+  background-color: #f24b6a;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
 .hotelflex {
   display: flex;
   justify-content: space-between;
@@ -291,3 +299,12 @@ button {
     transform: scale(1);
   }
 }
+
+
+/* input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  border-radius: 4px;
+  margin-right: 2px;
+  background-color: #878686;
+  padding: 10px;
+} */

@@ -20,7 +20,6 @@ const CityTopic = ({ props }) => {
 
   useEffect(() => {
     getData()
-
   }, [topicId])
 
   const getData = async () => {
@@ -55,7 +54,8 @@ const CityTopic = ({ props }) => {
 
             <LandingTopic
               topicName={topicName}
-              topics={topics}
+              topic={topics}
+              topicId={topicId}
             />
 
             <OtherTopics topic={topics} />

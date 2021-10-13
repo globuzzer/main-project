@@ -10,7 +10,7 @@ import {
   IoIosArrowForward,
 } from "react-icons/io";
 import { SiSkillshare } from "react-icons/si";
-import { sliceData } from "../sliceData";
+import { sliceData } from "../../../utils/sliceData";
 import { articleRefContext } from "../../../contexts/Refs";
 import videos from "./video_articles.module.css";
 import { firestore } from "../../../utils/firebase.utils";

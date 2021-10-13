@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import BlogHeader from "../../SectionHeader/BlogHeader";
 import styles from "./otherTopics.module.css";
 
 function OtherTopics({ topic }) {
@@ -30,11 +31,12 @@ function OtherTopics({ topic }) {
   };
   return (
     <section className={styles.othertopics}>
-      <header className={styles.topicsheader}>
+      {/* <header className={styles.topicsheader}>
         {smallScreen ? "Related topics" : "Other topics"}
 
         <div className={styles.underline}></div>
-      </header>
+      </header> */}
+      <BlogHeader label='Other topics' />
 
       <div className={styles.cardcontainer}>
         {otherTopic && otherTopic.map((d) => (

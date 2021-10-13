@@ -74,9 +74,7 @@
   animation-delay: 0.5s;
   animation-fill-mode: backwards;
   font-size: 16px;
-
   width: 120px;
-  padding-bottom: 29px;
 }
 
 .center button:hover {

@@ -4,10 +4,13 @@ import like from "../../../../src/assets/Topic/like.png";
 import { IconContext } from "react-icons";
 import { TiArrowSortedDown } from "react-icons/ti";
 import { IoIosArrowDown } from "react-icons/io";
-import { sliceData } from "../sliceData";
+import { sliceData } from "../../../utils/sliceData";
 import styles from "./hotels.module.css";
 import { hotelRefContext } from "../../../contexts/Refs";
 import Amadeus from 'amadeus';
+import AmadeusService from "../../../service/amadeus/AmadeusService";
+import moment from "moment";
+import Vimeo from "../../Vimeo/Vimeo";
 
 function Hotels({ topic }) {
   const { hotel, advertise } = topic
@@ -22,25 +25,24 @@ function Hotels({ topic }) {
   const hotelRef = useContext(hotelRefContext);
 
   const [hotelParams, setHotelParams] = useState({
+    cityCode: '',
     checkInDate: '',
     checkOutDate: '',
     numberOfGuest: 0
   })
 
-  //test amadeus
-  const amadeus = new Amadeus({
-    clientId: 'vnHKsfRqRpiM1RrHwg14H3FX6bSXONj7',
-    clientSecret: 'OuHeDtw3TRENMUNZ'
-  })
+  console.log('Q', topic)
 
   useEffect(() => {
-    // Get list of Hotels by city code
-    amadeus.shopping.hotelOffers.get({
-      cityCode: 'PAR'
-    })
+    setHotelParams({ ...hotelParams, cityCode: topic.IATA_code })
+  }, [topic]);
+
+  useEffect(() => {
+    AmadeusService
+      .searchHotels(hotelParams.cityCode)
       .then(res => setHotel2(res.data))
       .catch(err => console.error(err))
-  }, [])
+  }, [hotelParams])
 
   useEffect(() => {
     window.addEventListener("resize", changeHotelSize);
@@ -94,16 +96,14 @@ function Hotels({ topic }) {
 
   const findHotels = () => {
     setHotel2([]);
-
-    amadeus.shopping.hotelOffers.get({
-      cityCode: 'PAR',
-      checkInDate: hotelParams.checkInDate,
-      checkOutDate: hotelParams.checkOutDate,
-      adults: hotelParams.numberOfGuest
-    })
+    AmadeusService
+      .findHotels(hotelParams)
       .then(res => setHotel2(res.data))
       .catch(err => console.error(err))
+
   }
+
+  console.log(hotelParams)
 
   return (
     <section className={styles.hotel} ref={hotelRef}>
@@ -114,11 +114,11 @@ function Hotels({ topic }) {
 
       <div className={styles.check}>
         <div>
-          <input type="date" placeholder="Check-in" name='checkInDate' onChange={handleChange} />
+          <input type="date" placeholder="Check-in" name='checkInDate' min={moment(new Date()).format('yyyy-MM-DD')} onChange={handleChange} />
         </div>
 
         <div>
-          <input type="date" placeholder="515Check-out" name='checkOutDate' onChange={handleChange} />
+          <input type="date" placeholder="515Check-out" name='checkOutDate' min={moment(new Date() + 1).format('yyyy-MM-DD')} onChange={handleChange} />
         </div>
 
         <div>
@@ -137,7 +137,7 @@ function Hotels({ topic }) {
               <ul>
                 <li onClick={handleList}>1</li>
                 <li onClick={handleList}>2</li>
-                <li onClick={handleList}>3+</li>
+                <li onClick={handleList}>3</li>
               </ul>
             </nav>
           </span>
@@ -155,7 +155,7 @@ function Hotels({ topic }) {
         </div>
 
         <div>
-          <button onClick={findHotels}>Search</button>
+          <button onClick={findHotels}>Search Hotel</button>
         </div>
       </div>
 
@@ -202,7 +202,11 @@ function Hotels({ topic }) {
           </div>
         )}
 
-        <div className={styles.vimeo}>
+        <div>
+          <Vimeo city={topic} />
+        </div>
+
+        {/* <div className={styles.vimeo}>
           {advertise &&
             <div
               className={styles.content}
@@ -229,7 +233,7 @@ function Hotels({ topic }) {
               </div>
             </div>
           }
-        </div>
+        </div> */}
       </div>
     </section>
   );

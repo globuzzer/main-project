@@ -1,0 +1,137 @@
+.container {
+  margin: 80px 0;
+  width: 100%;
+}
+
+.cultureHeader {
+  padding: 40px 0;
+  font-weight: 300;
+  font-size: 36px;
+  color: #555555;
+}
+
+.cultureBtn {
+  display: flex;
+  justify-content: center;
+}
+
+.cultureBtn button {
+  color: #737070;
+  margin: 20px;
+  padding: 0.7%;
+  background-color: white;
+  border: 1px solid #aaaaaa;
+  border-radius: 4px;
+}
+
+.cultureFlex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cultureList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 10px;
+  flex-basis: 85%;
+}
+
+.cultureItems {
+  background: #f9f9f9;
+  display: flex;
+  justify-content: space-between;
+  transition: transform 0.3s;
+}
+
+.cultureLeft {
+  flex-basis: 50%;
+  position: relative;
+}
+
+.cultureLeft img {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+
+.cultureLeft div {
+  background-color: #f24b6a;
+  position: absolute;
+  top: 20px;
+  color: white;
+  font-size: 15px;
+  margin-left: 20px;
+  padding: 5px;
+  border-radius: 6px;
+}
+
+.cultureRight {
+  flex-basis: 50%;
+  padding: 5px 25px;
+}
+
+.cultureRight header {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #000000;
+  margin: 5% 0;
+  width: 80%;
+}
+
+.cultureRight p {
+  margin: 3% 0;
+  font-size: 9px;
+  line-height: 175%;
+  color: #909090;
+}
+
+.cultureRight button {
+  color: white;
+  font-size: 9px;
+  font-weight: 600;
+  background-color: #f24b6a;
+  border: 0px;
+  border-radius: 3px;
+  padding: 5px;
+  margin: 5% 0;
+}
+
+.cultureRight div:first-child {
+  display: flex;
+}
+
+.cultureRight div div {
+  display: flex;
+  position: absolute;
+  left: 210px;
+}
+
+.icon {
+  font-size: 10px;
+  padding: 2px;
+  border: 1px solid;
+  border-radius: 50%;
+  background-color: #f24b6a;
+  color: white;
+  margin: 13px 0;
+}
+
+.ads {
+  width: 15%;
+  height: 350px;
+  color: #fff;
+  padding: 20px;
+}
+
+.editBox {
+  position: absolute;
+  top: 3300px;
+  left: 50%;
+}
+
+.pagBtn {
+  background-color: gray;
+  border: none;
+}
+
