@@ -96,7 +96,7 @@ const Banner = ({ topics }) => {
             style={listStyle(item.title.toLocaleLowerCase())}
           >
             <span>
-              <img src={item.icon} alt={item.title} style={{ width: 50 }} />
+              <img src={item.icon} alt={item.title} className={banner.listIcon} />
             </span>
             <span>{item.title}</span>
           </div>

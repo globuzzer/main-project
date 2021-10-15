@@ -31,9 +31,9 @@
 
 .cultureList {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 10px;
-  flex-basis: 85%;
+  flex-basis: 75%;
 }
 
 .cultureItems {
@@ -117,11 +117,9 @@
   margin: 13px 0;
 }
 
-.ads {
-  width: 15%;
-  height: 350px;
-  color: #fff;
-  padding: 20px;
+.vimeo {
+  flex-basis: 19%;
+  margin-left: 15px;
 }
 
 .editBox {
@@ -133,5 +131,35 @@
 .pagBtn {
   background-color: gray;
   border: none;
+  padding: 10px;
+  color: white;
 }
 
+.btnGroup button:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+.btnGroup button:last-child {
+  border-radius: 0 5px 5px 0;
+}
+
+@media screen and (max-width: 1100px) {
+  .cultureFlex {
+    display: block;
+  }
+
+  .cultureList {
+    margin: 0;
+    gap: 5px;
+  }
+
+  .vimeo {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .cultureLeft div {
+    font-size: 12px;
+  }
+}

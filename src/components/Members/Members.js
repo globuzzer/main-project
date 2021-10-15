@@ -14,6 +14,7 @@ const Members = ({ city }) => {
   const MembersMobile = () => (
     <div>
       <BlogHeader label="Top members to meet" />
+      
       <div className="member_meet_grid">
         {(topMembers || []).slice(0, 2).map((data) => (
           <Fragment key={data.id}>
@@ -85,7 +86,7 @@ const Members = ({ city }) => {
     </div>
   );
 
-  return width > 1100 ? MembersDesktop() : MembersMobile();
+  return width > 900 ? MembersDesktop() : MembersMobile();
 };
 
 export default Members;

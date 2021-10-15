@@ -1,17 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Candal&display=swap");
 
-.hotel {
+.container {
   margin: 80px 0;
   width: 100%;
-}
-
-.header {
-  text-align: center;
-
-  font-weight: 300;
-  font-size: 36px;
-  color: #555555;
-  padding: 10px 0;
 }
 
 .check {
@@ -29,8 +20,17 @@
   position: relative;
 }
 
-.check input[type="text"] {
-  padding: 11px 20px;
+.check input,
+.check select,
+.check input::placeholder {
+  width: 220px;
+  background: #ededed;
+  padding: 8px;
+  border: none;
+  color: #969191;
+  font-weight: 600px;
+  font-size: 12px;
+  color: black;
 }
 
 .check nav {
@@ -68,19 +68,13 @@
 .check p {
   position: absolute;
   right: 21px;
-  top: 13px;
-  padding: 8px 12px;
+  top: 15.5px;
+  padding: 5px 8px;
 }
 
-.check input,
-.check select {
-  width: 220px;
-  background: #ededed;
-  padding: 8px;
-  border: none;
-  color: #969191;
-  font-weight: 600px;
-  font-size: 12px;
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background-color: #969191;
+  color: black;
 }
 
 .check button {
@@ -91,9 +85,12 @@
   border: none;
 }
 
-.hotelflex {
-  display: flex;
-  justify-content: space-between;
+.header {
+  text-align: center;
+  font-weight: 300;
+  font-size: 36px;
+  color: #555555;
+  padding: 10px 0;
 }
 
 .vimeo {
@@ -101,7 +98,7 @@
   margin-left: 15px;
 }
 
-.content {
+/* .content {
   background: #5ebfbf;
   color: #fff;
   padding: 20px;
@@ -149,17 +146,22 @@
 
 .vimeo button:hover {
   filter: brightness(120%);
-}
+} */
 
 button {
   cursor: pointer;
+}
+
+.hotelflex {
+  display: flex;
+  justify-content: space-between;
 }
 
 .hotelist {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 10px;
-  flex-basis: 81%;
+  flex-basis: 75%;
   margin-right: 15px;
   cursor: pointer;
 }
@@ -174,7 +176,6 @@ button {
 
 .hotelitems:hover {
   transform: scale(1.03);
-
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -270,23 +271,23 @@ button {
     padding: 7px 0;
   }
 
+  .check input,
+  .check select {
+    width: 85%;
+  }
+
+  .check p {
+    right: 6.2%;
+    top: 7px;
+    padding: 6px 8px;
+  }
+
   .hotelflex {
     display: block;
   }
 
   .hotelist {
     margin: 0;
-  }
-
-  .check input,
-  .check select {
-    width: 90%;
-  }
-
-  .check p {
-    right: 5%;
-    top: 7px;
-    padding: 8px 12px;
   }
 }
 
@@ -300,6 +301,9 @@ button {
   }
 }
 
+/* .check input[type=text] {
+  padding: 11px 20px;
+} */
 
 /* input[type="date"]::-webkit-calendar-picker-indicator {
   cursor: pointer;

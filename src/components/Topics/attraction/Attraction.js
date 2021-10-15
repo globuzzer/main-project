@@ -63,7 +63,7 @@ const Attraction = ({ topic }) => {
           )}
         </div>
 
-        <div>
+        <div className={styles.vimeo}>
           <Vimeo city={topic} />
         </div>
       </div>

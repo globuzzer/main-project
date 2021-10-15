@@ -7,13 +7,13 @@ import { IoIosArrowDown } from "react-icons/io";
 import { sliceData } from "../../../utils/sliceData";
 import styles from "./hotels.module.css";
 import { hotelRefContext } from "../../../contexts/Refs";
-import Amadeus from 'amadeus';
 import AmadeusService from "../../../service/amadeus/AmadeusService";
 import moment from "moment";
 import Vimeo from "../../Vimeo/Vimeo";
+import BlogHeader from "../../SectionHeader/BlogHeader";
 
 function Hotels({ topic }) {
-  const { hotel, advertise } = topic
+  const { hotel } = topic
 
   const [select, setSelect] = useState("");
   const [showList, setShowList] = useState(false);
@@ -106,11 +106,8 @@ function Hotels({ topic }) {
   console.log(hotelParams)
 
   return (
-    <section className={styles.hotel} ref={hotelRef}>
-      <header className={styles.header}>
-        {window.innerWidth <= 515 ? "Hotels & hostels" : "Find suitable hotels"}
-        <div className={styles.underline}></div>
-      </header>
+    <section className={styles.container} ref={hotelRef}>
+      <BlogHeader label='Find suitable hotels' />
 
       <div className={styles.check}>
         <div>
@@ -202,7 +199,7 @@ function Hotels({ topic }) {
           </div>
         )}
 
-        <div>
+        <div className={styles.vimeo}>
           <Vimeo city={topic} />
         </div>
 

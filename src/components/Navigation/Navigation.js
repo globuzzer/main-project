@@ -99,7 +99,7 @@ export const Navigation = () => {
     <div style={{ display: "flex" }}>
       {isOpen && (
         <div
-          onKeyDown={() => {}}
+          onKeyDown={() => { }}
           tabIndex={0}
           role="button"
           style={{

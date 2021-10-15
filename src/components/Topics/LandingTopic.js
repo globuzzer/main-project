@@ -5,6 +5,7 @@ import Culture from './culture/Culture'
 import Education from './education/Education'
 import Health from './health/Health'
 import Hotels from './hotel/Hotels'
+import Transportation from './transport/Transportation'
 
 const LandingTopic = ({ topicName, topic, topicId }) => {
 
@@ -18,14 +19,17 @@ const LandingTopic = ({ topicName, topic, topicId }) => {
     case 'culture':
       return <Culture topic={topic} />
 
-    case 'career':
-      return <Career />
-
     case 'education':
       return <Education topic={topic} />
 
     case 'health':
       return <Health topic={topic} topicName={topicName.toLowerCase()} />
+
+    case 'transportation':
+      return <Transportation topic={topic} />
+
+    case 'career':
+      return <Career />
 
     default:
       return;

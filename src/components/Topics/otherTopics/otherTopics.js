@@ -31,11 +31,6 @@ function OtherTopics({ topic }) {
   };
   return (
     <section className={styles.othertopics}>
-      {/* <header className={styles.topicsheader}>
-        {smallScreen ? "Related topics" : "Other topics"}
-
-        <div className={styles.underline}></div>
-      </header> */}
       <BlogHeader label='Other topics' />
 
       <div className={styles.cardcontainer}>

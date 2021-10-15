@@ -191,6 +191,10 @@
   justify-content: space-around;
 }
 
+.listIcon {
+  width: 50px;
+}
+
 .listitem {
   width: 100%;
   max-width: 1395px;
@@ -525,8 +529,8 @@
 }
 
 @media screen and (max-width: 500px) {
-  .list-icon {
-    font-size: 35px;
+  .listIcon {
+    width: 35px;
   }
 
   .listflex span:last-child {

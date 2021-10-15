@@ -10,11 +10,12 @@ import Vimeo from '../../Vimeo/Vimeo';
 const Culture = ({ topic }) => {
   //states
   const [activities, setActivities] = useState([]);
-  const [slicedActivities, setSlicedActivities] = useState([])
+  const [slicedActivities, setSlicedActivities] = useState([]);
   const [actSize, setActSize] = useState({
     startIndex: 0,
     endIndex: 6
-  })
+  });
+  const [currentPage, setCurrentPage] = useState(0);
 
   //coordinate
   const [coordinate, setCoordinate] = useState({ lat: '', lng: '' })
@@ -44,7 +45,11 @@ const Culture = ({ topic }) => {
       paginationArr.push(
         <Button
           key={index} size='lg' variant='secondary'
-          onClick={() => changeActivities(index)}
+          onClick={() => {
+            changeActivities(index);
+            setCurrentPage(index)
+          }}
+          style={index === currentPage ? { backgroundColor: '#545454' } : {}}
           className={styles.pagBtn}
         >
           {index + 1}
@@ -92,7 +97,7 @@ const Culture = ({ topic }) => {
                   </div>
 
                   <p>
-                    {sliceData(activity.shortDescription, 0, 201)}
+                    {window.innerWidth > 500 ? sliceData(activity.shortDescription, 0, 201) : sliceData(activity.shortDescription, 0, 50)}
                     <span> ...</span>
                   </p>
 
@@ -105,13 +110,13 @@ const Culture = ({ topic }) => {
           )}
 
           <div>
-            <ButtonGroup className='me-2'>
+            <ButtonGroup className={styles.btnGroup}>
               {btnList()}
             </ButtonGroup>
           </div>
         </div>
 
-        <div>
+        <div className={styles.vimeo}>
           <Vimeo city={topic} />
         </div>
       </div>

@@ -1,5 +1,30 @@
 .healthFlex {
   display: flex;
+  justify-content: space-between;
+}
+
+.healthMap {
+  flex-basis: 75%;
+}
+
+.vimeo {
+  flex-basis: 19%;
+  margin-left: 15px;
+}
+
+@media screen and (max-width: 1100px) {
+  .healthFlex {
+    display: block;
+  }
+
+  .healthMap {
+    margin: 0;
+    gap: 5px;
+  }
+
+  .vimeo {
+    display: none;
+  }
 }
 
 /* for the map */
@@ -69,7 +94,6 @@
   font-size: 12px;
   line-height: 175%;
 }
-
 
 .MuiCircularProgress-indeterminate {
   animation: circular-rotate 1.4s linear infinite;

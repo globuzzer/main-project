@@ -10,7 +10,7 @@ import { articleRefContext, hotelRefContext } from '../../contexts/Refs';
 
 const TopicHeader = ({ topics, topicName }) => {
 
-  const { mainImg, title, subtitle, city, bannerImg, selectHeaders } = topics;
+  const { mainImg, title, subtitle, city, bannerImg, options } = topics;
 
   //states
   const [select, setSelect] = useState('');
@@ -42,14 +42,17 @@ const TopicHeader = ({ topics, topicName }) => {
   }, [select]);
 
   useEffect(() => {
-    changeHeight();
-    window.addEventListener('resize', changeHeight);
-  }, []);
+    if (options) {
+      changeHeight();
+      window.addEventListener('resize', changeHeight);
+    }
+  }, [options]);
 
   const changeHeight = () => {
     const width = window.innerWidth;
-    if (width <= 900) setHeight("81px");
-    if (width > 900 && width <= 1101) setHeight("99px");
+    if (width <= 900) setHeight(options.height.smallScreen);
+    if (width > 900 && width <= 1101) setHeight(options.height.mediumScreen);
+    if(width > 1101) setHeight(options.height.bigScreen)
   };
 
   const handleSelect = () => {
@@ -62,7 +65,6 @@ const TopicHeader = ({ topics, topicName }) => {
   };
 
   return (
-
     <section>
       <div
         style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${mainImg || bannerImg})` }}
@@ -75,7 +77,7 @@ const TopicHeader = ({ topics, topicName }) => {
               <IoMdArrowDropright className={header.bannerArrow} />
             </IconContext.Provider>
           </Link>
-          <Link to={city && `/${city.toLocaleLowerCase()}`}>
+          <Link to={city ? `/${city.toLocaleLowerCase()}` : '/'}>
             {city}
             <IconContext.Provider value={{ className: "banner-arrow" }}>
               <IoMdArrowDropright className={header.bannerArrow} />
@@ -101,7 +103,7 @@ const TopicHeader = ({ topics, topicName }) => {
               <span>
                 <input
                   type="text"
-                  placeholder={selectHeaders ? selectHeaders[0] : ''}
+                  placeholder={options ? options.selectedData[0] : ''}
                   value={select}
                   readOnly={true}
                   onClick={handleSelect}
@@ -118,9 +120,9 @@ const TopicHeader = ({ topics, topicName }) => {
 
                 <nav style={{ height: showList && height }}>
                   <ul>
-                    {selectHeaders && selectHeaders.map((s, index) =>
+                    {options && options.selectedData.map((option, index) =>
                       <li key={index} onClick={handleList}>
-                        {s}
+                        {option}
                       </li>
                     )}
                   </ul>

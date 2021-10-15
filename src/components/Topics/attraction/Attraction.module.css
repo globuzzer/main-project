@@ -31,7 +31,7 @@
 
 .attractionList {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 10px;
   flex-basis: 75%;
 }
@@ -45,7 +45,7 @@
 }
 
 .attractionLeft {
-  flex-basis: 50%;
+  flex-basis: 55%;
 }
 
 .attractionLeft img {
@@ -55,7 +55,7 @@
 }
 
 .attractionRight {
-  flex-basis: 50%;
+  flex-basis: 45%;
   padding: 5px 25px;
 }
 
@@ -97,9 +97,15 @@
   background-color: #f24b6a;
   color: white;
   margin: 13px 0;
+  cursor: pointer;
 }
 
-.ads {
+.vimeo {
+  flex-basis: 19%;
+  margin-left: 15px;
+}
+
+/* .ads {
   width: 15%;
   height: 350px;
   color: #fff;
@@ -144,13 +150,42 @@
   font-weight: 600;
   font-size: 14px;
   border: 1px solid #909090;
-  /* background: #f2a413; */
+  /* background: #f2a413; 
   padding: 8px 12px;
   border-radius: 15px;
-}
+} */
 
 .editBox {
   position: absolute;
   top: 3300px;
   left: 50%;
+}
+
+@media screen and (max-width: 1100px) {
+  .attractionBtn {
+    flex-wrap: wrap;
+  }
+
+  .attractionFlex {
+    display: block;
+  }
+
+  .attractionList {
+    margin: 0;
+    gap: 5px;
+  }
+
+  .vimeo {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .attractionRight button {
+   display: none;
+  }
+
+  .attractionItems:first-child {
+    margin-top: 20px;
+  }
 }

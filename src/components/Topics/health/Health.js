@@ -8,7 +8,7 @@ import MapChart from './MapChart';
 
 const Health = ({ topic, topicName }) => {
 
-  const { items, loading } = useFetch(topicName)
+  const { items } = useFetch(topicName)
 
   //states
   const [coordinates, setCoordinates] = useState({ lat: '', lng: '' });
@@ -63,15 +63,17 @@ const Health = ({ topic, topicName }) => {
       </header>
 
       <div className={styles.healthFlex}>
-        {hospitals.length > 0 &&
-          <MapChart
-            hospitals={hospitals}
-            city={cityName}
-            cities={cities}
-          />
-        }
+        <div className={styles.healthMap}>
+          {hospitals.length > 0 &&
+            <MapChart
+              hospitals={hospitals}
+              city={cityName}
+              cities={cities}
+            />
+          }
+        </div>
 
-        <div>
+        <div className={styles.vimeo}>
           <Vimeo city={topic} />
         </div>
       </div>
