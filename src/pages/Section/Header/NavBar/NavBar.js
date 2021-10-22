@@ -29,6 +29,12 @@ const NavBar = ({ pathname }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentCity, setCurrentCity] = useState(null);
 
+  //update for topics
+  const cityPath = pathname.split('/')[0];
+  const topicPath = pathname.split('/')[1];
+
+  const [topicList, setTopicList] = useState({});
+
   const loginPath = pathname === '/'
     ? "https://globuzzer.mn.co/sign_in"
     : `https://globuzzer.mn.co/sign_in?from=https%3A%2F%2Fglobuzzer.mn.co%2FgroupsC5389%3Fautojoin%3D1&space_id=${oldSections[pathname.replace('/', '').toLowerCase()]}`;
@@ -61,7 +67,13 @@ const NavBar = ({ pathname }) => {
           ...doc.data()
         }));
         // setCollection(newCity);
-        setCurrentCity(newCity.filter((c) => c.name.toLowerCase() === pathname.replace('/', '').toLowerCase())[0]);
+        setCurrentCity(newCity.filter((c) => c.name.toLowerCase() === cityPath.toLowerCase())[0]);
+
+        //set topic list with name and id
+        if (topicPath) {
+          const current = newCity.filter((c) => c.name.toLowerCase() === cityPath.toLowerCase())[0];
+          getTopicList(current);
+        }
       });
     return () => unsubscribe();
   }, [pathname]);
@@ -99,6 +111,34 @@ const NavBar = ({ pathname }) => {
     // checkCityHandler();
     window.addEventListener("scroll", handleScroll);
   }, []);
+
+  const getTopicList = city => {
+    const cityObj = {};
+    city.topics.map(topic => {
+      const key = topic.text.toLowerCase();
+      const value = topic.id;
+
+      cityObj[`${key}`] = value
+    })
+
+    setTopicList(cityObj)
+  }
+
+  const linkToTopic = topic => {
+    const topicName = topic.text.toLowerCase();
+
+    return (
+      <Link to={{
+        pathname: `/${cityPath}/${topicName}`,
+        state: {
+          topicId: topicList[`${topicName}`],
+          topicName: topicName
+        }
+      }}>
+        <li>{topic.text}</li>
+      </Link>
+    )
+  }
 
   const navStyle = () => {
     if (scroll) {
@@ -202,42 +242,6 @@ const NavBar = ({ pathname }) => {
           </nav>
         </li>
 
-        {/* <li className={styles.service}>
-          Services
-          <IconContext.Provider value={{ className: "dropdown" }}>
-            <RiArrowDropDownFill />
-          </IconContext.Provider>
-          <nav className={styles.destination}>
-            <ul>
-              <div>
-                <IconContext.Provider value={{ className: "bs-search" }}>
-                  <BsSearch className={styles.search} />
-                </IconContext.Provider>
-                <input type="text" placeholder="Search for services here..." />
-              </div>
-
-              <p className={styles.recently}>Recently:</p>
-              <li>Flight</li>
-              <li>Hotel</li>
-            </ul>
-
-            <ul>
-              <p>All services:</p>
-            </ul>
-
-            <ul>
-              <li>Event</li>
-              <li>Restaurant</li>
-            </ul>
-
-            <ul>
-              <li>Transportation</li>
-              <li>Job</li>
-              <li>Flight</li>
-            </ul>
-          </nav>
-        </li> */}
-
         <li className={styles.topic}>
           Topics
           <IconContext.Provider value={{ className: "dropdown" }}>
@@ -256,43 +260,23 @@ const NavBar = ({ pathname }) => {
             {currentCity && (
               <>
                 <ul>
-                  {currentCity.topics.slice(0, 4).map((topic) => (
-                    <Link to="#">
-                      <li>{topic.text}</li>
-                    </Link>
-                  ))}
+                  {currentCity.topics.slice(0, 4).map((topic) => linkToTopic(topic))}
                 </ul>
 
                 <ul>
-                  {currentCity.topics.slice(5, 9).map((topic) => (
-                    <Link to="#">
-                      <li>{topic.text}</li>
-                    </Link>
-                  ))}
+                  {currentCity.topics.slice(5, 9).map((topic) => linkToTopic(topic))}
                 </ul>
 
                 <ul>
-                  {currentCity.topics.slice(10, 14).map((topic) => (
-                    <Link to="#">
-                      <li>{topic.text}</li>
-                    </Link>
-                  ))}
+                  {currentCity.topics.slice(10, 14).map((topic) => linkToTopic(topic))}
                 </ul>
 
                 <ul>
-                  {currentCity.topics.slice(15, 19).map((topic) => (
-                    <Link to="#">
-                      <li>{topic.text}</li>
-                    </Link>
-                  ))}
+                  {currentCity.topics.slice(15, 19).map((topic) => linkToTopic(topic))}
                 </ul>
 
                 <ul>
-                  {currentCity.topics.slice(20, 24).map((topic) => (
-                    <Link to="#">
-                      <li>{topic.text}</li>
-                    </Link>
-                  ))}
+                  {currentCity.topics.slice(20, 24).map((topic) => linkToTopic(topic))}
                 </ul>
               </>
             )}

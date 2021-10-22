@@ -11,6 +11,8 @@ import AmadeusService from "../../../service/amadeus/AmadeusService";
 import moment from "moment";
 import Vimeo from "../../Vimeo/Vimeo";
 import BlogHeader from "../../SectionHeader/BlogHeader";
+import LazyLoad from "react-lazyload";
+import Spinner from '../../Spinner/Spinner';
 
 function Hotels({ topic }) {
   const { hotel } = topic
@@ -182,7 +184,12 @@ function Hotels({ topic }) {
               </div>
             ))}
           </div>
-          : 'Loading..................'
+          :
+          <div className={styles.spinner}>
+            <LazyLoad>
+              <Spinner />
+            </LazyLoad>
+          </div>
         }
 
         {/* shows only when screen is in tablet and mobile devices */}

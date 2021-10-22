@@ -102,7 +102,7 @@ li {
 }
 
 .topic .destination {
-  left: -482px;
+  /* left: -482px; */
 }
 .dest:hover,
 .topic:hover,
@@ -184,3 +184,5 @@ li {
 .destination p {
   width: 120px;
 }
+
+

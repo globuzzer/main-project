@@ -70,13 +70,13 @@ export const Navigation = () => {
           Career
         </a>
 
-        <a
-          href="https://globuzzer.com/travel-blog.php"
+        <Link
+          to='/travel-blog'
           className="navigation_link"
           id="link_own"
         >
           Create your travel blog
-        </a>
+        </Link>
       </div>
       <div className="navigation_control">
         <a

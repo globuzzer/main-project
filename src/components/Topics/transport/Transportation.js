@@ -11,6 +11,7 @@ import logo from '../../../assets/GLOBUZZER.svg';
 import AmadeusService from '../../../service/amadeus/AmadeusService';
 import Vimeo from '../../Vimeo/Vimeo';
 import { sliceData } from '../../../utils/sliceData';
+import OtherTransport from './OtherTransport';
 
 const Transportation = ({ topic }) => {
   const ref = useRef()
@@ -41,7 +42,7 @@ const Transportation = ({ topic }) => {
     setFlightParams({
       adults: 2,
       departureDate: "2021-11-06",
-      destinationLocationCode: "HAJ",
+      destinationLocationCode: "HAN",
       originLocationCode: "HEL",
     })
   }, []);
@@ -70,7 +71,7 @@ const Transportation = ({ topic }) => {
     setIsSearching(true);
     AmadeusService
       .searchFlights(flightParams)
-      .then(res => setFlights(res.data))
+      .then(res => setFlights(res.data.slice(0, res.data.length / 2))) //limit the data
       .catch(err => console.error(err))
   }
 
@@ -99,7 +100,20 @@ const Transportation = ({ topic }) => {
   //to limit the number of fligh displayed
   const slicedData = sliceData(flights, 0, flightSize)
 
-  console.log(flightParams)
+  //more or less
+  const moreOrLess = () => {
+    let render = 'more';
+    if (flightSize >= flights.length) render = 'less';
+
+    return `Explore ${render}`;
+  }
+
+  const moreFlights = () => {
+    let size = flightSize + 4;
+    if (flightSize >= flights.length) size = 4;
+
+    return setFlightSize(size);
+  }
 
   return (
     <section className={styles.container}>
@@ -212,25 +226,21 @@ const Transportation = ({ topic }) => {
                   </div>
                 </div>
               ))}
+
               <div className={styles.moreFlights}>
                 <div className={styles.flightAds}>
                   <div>
                     Want to find and explore
                     <h3>Different kinds of flights?</h3>
                   </div>
-
                   <div>
                     <img src={logo} alt='globuzzer' className={styles.globuzzerLogo} />
                   </div>
                 </div>
 
-                <div className={styles.moreOrLess} onClick={() => setFlightSize(flightSize + 4)}>
-                  Explore more
+                <div className={styles.moreOrLess} onClick={moreFlights}>
+                  {moreOrLess()}
                 </div>
-                {flightSize > 4 &&
-                  <div className={styles.moreOrLess} onClick={() => setFlightSize(flightSize - 4)}>
-                    Explore less
-                  </div>}
               </div>
             </div>
             : <div style={{ display: 'flex', alignItems: 'center', margin: 'auto' }}>
@@ -243,9 +253,10 @@ const Transportation = ({ topic }) => {
             <Vimeo city={topic} />
           </div>
         </div>
-
       }
 
+      {/* for other transport */}
+      <OtherTransport otherTransports={otherTransports} />
     </section>
   )
 }

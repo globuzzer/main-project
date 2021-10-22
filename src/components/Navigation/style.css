@@ -245,3 +245,9 @@
   border: 1px solid #f24b6a;
   border-radius: 5px;
 }
+
+@media screen and (max-width: 500px) {
+  .section_navigation img {
+    width: 80%;
+  }
+}

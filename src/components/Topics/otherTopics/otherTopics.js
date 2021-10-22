@@ -5,7 +5,7 @@ import styles from "./otherTopics.module.css";
 function OtherTopics({ topic }) {
 
   const { otherTopic } = topic;
-  
+
   const [smallScreen, setSmallScreen] = useState(false);
 
   useEffect(() => {
@@ -31,8 +31,10 @@ function OtherTopics({ topic }) {
   };
   return (
     <section className={styles.othertopics}>
-      <BlogHeader label='Other topics' />
-
+      <header>
+        <BlogHeader label='Other topics' />
+      </header>
+      
       <div className={styles.cardcontainer}>
         {otherTopic && otherTopic.map((d) => (
           <div className={styles.card} key={d.id} style={cardStyle(d)}>

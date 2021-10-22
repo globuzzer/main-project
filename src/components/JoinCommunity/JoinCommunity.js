@@ -131,5 +131,5 @@ export const JoinCommunity = () => {
       </div>
     </div>
   );
-  return <>{width > 1100 ? <Join /> : <JoinMobile />}</>;
+  return <>{width > 1600 ? <Join /> : <JoinMobile />}</>;
 };

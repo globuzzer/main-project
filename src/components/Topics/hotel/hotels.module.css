@@ -301,14 +301,6 @@ button {
   }
 }
 
-/* .check input[type=text] {
-  padding: 11px 20px;
-} */
-
-/* input[type="date"]::-webkit-calendar-picker-indicator {
-  cursor: pointer;
-  border-radius: 4px;
-  margin-right: 2px;
-  background-color: #878686;
-  padding: 10px;
-} */
+.spinner {
+  margin: auto;
+}
