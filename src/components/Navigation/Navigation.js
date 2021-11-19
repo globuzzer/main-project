@@ -138,12 +138,13 @@ export const Navigation = () => {
           </a>
         </div>
         <div className="nav_bottom">
-          <a
-            href="https://globuzzer.com/travel-blog.php"
-            className="nav_mobile_own"
+          <Link
+            to='/travel-blog'
+            className="navigation_link"
+            id="link_own"
           >
             Create your travel blog
-          </a>
+          </Link>
           <div className="nav_bottom_container">
             <a
               type="button"
