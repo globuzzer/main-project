@@ -5,11 +5,11 @@ import { firestore } from '../../utils/firebase.utils';
 import styles from "./index.module.css";
 import Article from '../../components/Topics/video_article/video_articles';
 import Members from '../../components/Members/Members';
-import Hotels from '../../components/Topics/hotel/Hotels';
 import OtherTopics from '../../components/Topics/otherTopics/otherTopics';
 import { OwnSection } from '../../components/OwnSection/OwnSection';
 import { Footer } from '../../components/Footer/Footer';
 import { articleRefContext, hotelRefContext } from '../../contexts/Refs';
+import LandingTopic from '../../components/Topics/LandingTopic';
 
 const CityTopic = ({ props }) => {
   const hotelRef = useRef(null);
@@ -23,7 +23,7 @@ const CityTopic = ({ props }) => {
   }, [topicId])
 
   const getData = async () => {
-    const doc = await firestore.collection('accomodation_live').doc(topicId).get();
+    const doc = await firestore.collection(topicName.toLowerCase()).doc(topicId).get();
 
     if (!doc.exists) {
       console.log('no data')
@@ -48,11 +48,15 @@ const CityTopic = ({ props }) => {
           </div>
 
           <div className={styles.container}>
-            <Article topicId={topicId} />
+            <Article topicName={topicName} topicId={topicId} />
 
             <Members city={topics} />
 
-            <Hotels topic={topics} />
+            <LandingTopic
+              topicName={topicName}
+              topic={topics}
+              topicId={topicId}
+            />
 
             <OtherTopics topic={topics} />
           </div>

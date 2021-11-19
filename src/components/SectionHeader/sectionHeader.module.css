@@ -3,6 +3,7 @@
   font-size: 48px;
   font-weight: 300px;
   color: #555555;
+  margin-top: 100px;
 }
 
 .underline {
@@ -11,7 +12,7 @@
   margin: 25px auto;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 900px) {
   .mainHeader {
     font-size: 24px;
   }

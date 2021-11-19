@@ -483,7 +483,7 @@
 /*Slick style over-write the original*/
 
 .slick-slide > div {
-  margin: 0 16px;
+  /* margin: 0 16px; */
   /* width: 98%; */
 }
 .slick-list {

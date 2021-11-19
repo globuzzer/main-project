@@ -14,7 +14,7 @@ const Banner = ({ topics }) => {
 
   const [banners, setBanners] = useState([]);
   const [currentData, setCurrentData] = useState([]);
-  const [currentTitle, setCurrentTitle] = useState('visa issue');
+  const [currentTitle, setCurrentTitle] = useState('');
 
   const [video, setVideo] = useState({
     playVideo: false,
@@ -36,9 +36,11 @@ const Banner = ({ topics }) => {
   const getData = () => {
     const init = topics.banner && topics.banner.filter(d => d.id === 1);
     const bannerList = topics && topics.banner;
-
+    const current = topics.banner && topics.banner[0].title.toLocaleLowerCase();
+    
     setCurrentData(init);
-    setBanners(bannerList)
+    setBanners(bannerList);
+    setCurrentTitle(current);
   }
 
   const changeList = current => {
@@ -59,7 +61,6 @@ const Banner = ({ topics }) => {
   };
 
   const closeList = () => {
-    // setData([]);
     setCurrentData("");
   };
 
@@ -95,7 +96,7 @@ const Banner = ({ topics }) => {
             style={listStyle(item.title.toLocaleLowerCase())}
           >
             <span>
-              <img src={item.icon} alt={item.title} style={{ width: 50 }} />
+              <img src={item.icon} alt={item.title} className={banner.listIcon} />
             </span>
             <span>{item.title}</span>
           </div>

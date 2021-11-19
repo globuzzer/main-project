@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
+import BlogHeader from "../../SectionHeader/BlogHeader";
 import styles from "./otherTopics.module.css";
 
 function OtherTopics({ topic }) {
 
   const { otherTopic } = topic;
-  
+
   const [smallScreen, setSmallScreen] = useState(false);
 
   useEffect(() => {
@@ -30,12 +31,10 @@ function OtherTopics({ topic }) {
   };
   return (
     <section className={styles.othertopics}>
-      <header className={styles.topicsheader}>
-        {smallScreen ? "Related topics" : "Other topics"}
-
-        <div className={styles.underline}></div>
+      <header>
+        <BlogHeader label='Other topics' />
       </header>
-
+      
       <div className={styles.cardcontainer}>
         {otherTopic && otherTopic.map((d) => (
           <div className={styles.card} key={d.id} style={cardStyle(d)}>

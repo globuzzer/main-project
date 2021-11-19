@@ -43,7 +43,7 @@
   width: 100%;
 }
 
-.header p {
+.center p {
   margin: 15px 0;
 }
 
@@ -52,7 +52,6 @@
   line-height: 64px;
   font-weight: bold;
   animation: accomodation 1s ease-in-out;
-  margin-bottom: 30px;
 }
 
 .bheader p:last-child {
@@ -67,16 +66,12 @@
   color: #ecf0f1;
   background: #f24b6a;
   border-radius: 10px;
-  padding: 12px 32px;
+  padding: 10px 30px;
   font-weight: bold;
   position: relative;
   animation: join 1s ease-in-out;
   animation-delay: 0.5s;
   animation-fill-mode: backwards;
-  font-size: 16px;
-
-  width: 120px;
-  padding-bottom: 29px;
 }
 
 .center button:hover {
@@ -130,6 +125,10 @@
   background: #fff;
   font-size: 21px;
   outline: none;
+}
+
+.selectperson input::placeholder{
+  color: black;
 }
 
 .arrowDown {
@@ -464,7 +463,7 @@
     flex-direction: column;
   }
 
-  .nav li {
+  .nav li, .nav a {
     font-size: 12px;
   }
 
@@ -473,7 +472,7 @@
     max-height: 350px;
   }
 
-  .banner-arrow {
+  .bannerArrow {
     width: 18px;
     height: 18px;
   }
@@ -496,7 +495,7 @@
 
   .selectperson li {
     font-size: 9px;
-    padding: 8px 0 8px 30px;
+    padding: 8px 0 8px 20px;
   }
 
   .listright {
@@ -545,12 +544,12 @@
     display: block;
   }
 
-  .nav li {
+  .nav li, .nav a {
     padding: 5px 10px;
   }
 
   .selectperson input {
-    width: 218px;
+    width: 200px;
   }
 }
 

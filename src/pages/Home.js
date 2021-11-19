@@ -1,4 +1,4 @@
-import React, { useState, useEffect, fragment } from "react";
+import React, { useState, useEffect } from "react";
 import "../css/Home.css";
 import { FiSearch } from "react-icons/fi";
 import { MdKeyboardArrowRight } from "react-icons/md";

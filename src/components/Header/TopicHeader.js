@@ -10,14 +10,20 @@ import { articleRefContext, hotelRefContext } from '../../contexts/Refs';
 
 const TopicHeader = ({ topics, topicName }) => {
 
-  const { mainImg, title, subtitle, city } = topics;
+  const { mainImg, title, subtitle, city, bannerImg, options } = topics;
 
+  //states
   const [select, setSelect] = useState('');
   const [showList, setShowList] = useState(false);
   const [height, setHeight] = useState("125px");
 
   const hotelRef = useContext(hotelRefContext);
   const articleRef = useContext(articleRefContext);
+
+  //booleans
+  const isAccomodation = topicName.toLowerCase() === 'accomodations';
+  const isEducation = topicName.toLowerCase() === 'education';
+  const isCareer = topicName.toLowerCase() === 'career';
 
   useEffect(() => {
     if (select.includes("short"))
@@ -36,14 +42,17 @@ const TopicHeader = ({ topics, topicName }) => {
   }, [select]);
 
   useEffect(() => {
-    changeHeight();
-    window.addEventListener('resize', changeHeight);
-  }, []);
+    if (options) {
+      changeHeight();
+      window.addEventListener('resize', changeHeight);
+    }
+  }, [options]);
 
   const changeHeight = () => {
     const width = window.innerWidth;
-    if (width <= 900) setHeight("81px");
-    if (width > 900 && width <= 1101) setHeight("99px");
+    if (width <= 900) setHeight(options.height.smallScreen);
+    if (width > 900 && width <= 1101) setHeight(options.height.mediumScreen);
+    if(width > 1101) setHeight(options.height.bigScreen)
   };
 
   const handleSelect = () => {
@@ -56,10 +65,9 @@ const TopicHeader = ({ topics, topicName }) => {
   };
 
   return (
-
     <section>
       <div
-        style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${mainImg})` }}
+        style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${mainImg || bannerImg})` }}
         className={header.banner}
       >
         <div className={header.nav}>
@@ -69,7 +77,7 @@ const TopicHeader = ({ topics, topicName }) => {
               <IoMdArrowDropright className={header.bannerArrow} />
             </IconContext.Provider>
           </Link>
-          <Link to={city && `/${city.toLocaleLowerCase()}`}>
+          <Link to={city ? `/${city.toLocaleLowerCase()}` : '/'}>
             {city}
             <IconContext.Provider value={{ className: "banner-arrow" }}>
               <IoMdArrowDropright className={header.bannerArrow} />
@@ -88,46 +96,44 @@ const TopicHeader = ({ topics, topicName }) => {
             <button>Join us</button>
           </Link>
 
-          <div className={header.selectperson}>
-            <span>I am a</span>
-            <span>
-              <input
-                type="text"
-                placeholder="Person who will stay for a long term"
-                value={select}
-                readOnly={true}
-                onClick={handleSelect}
-              />
+          {(isAccomodation || isEducation || isCareer) &&
+            <div className={header.selectperson}>
+              {isAccomodation && <span>I am a</span>}
+              {((isEducation) || (isCareer)) && <span>I want to </span>}
+              <span>
+                <input
+                  type="text"
+                  placeholder={options ? options.selectedData[0] : ''}
+                  value={select}
+                  readOnly={true}
+                  onClick={handleSelect}
+                />
 
-              <IconContext.Provider
-                value={{
-                  className: "arrowDown",
-                  style: { transform: showList && "rotate(180deg)" },
-                }}
-              >
-                <IoIosArrowDown className={header.arrowDown} />
-              </IconContext.Provider>
+                <IconContext.Provider
+                  value={{
+                    className: "arrowDown",
+                    style: { transform: showList && "rotate(180deg)" },
+                  }}
+                >
+                  <IoIosArrowDown className={header.arrowDown} />
+                </IconContext.Provider>
 
-              <nav style={{ height: showList && height }}>
-                <ul>
-                  <li onClick={handleList}>
-                    Person who will stay for a long term
-                  </li>
-                  <li onClick={handleList}>
-                    Person who will stay for a short term
-                  </li>
-                  <li onClick={handleList}>
-                    Person who is a student
-                  </li>
-                </ul>
-              </nav>
-            </span>
+                <nav style={{ height: showList && height }}>
+                  <ul>
+                    {options && options.selectedData.map((option, index) =>
+                      <li key={index} onClick={handleList}>
+                        {option}
+                      </li>
+                    )}
+                  </ul>
+                </nav>
+              </span>
 
-          </div>
+            </div>
+          }
         </div>
       </div>
     </section>
-
   )
 }
 

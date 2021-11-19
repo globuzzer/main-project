@@ -10,7 +10,7 @@ import {
   IoIosArrowForward,
 } from "react-icons/io";
 import { SiSkillshare } from "react-icons/si";
-import { sliceData } from "../sliceData";
+import { sliceData } from "../../../utils/sliceData";
 import { articleRefContext } from "../../../contexts/Refs";
 import videos from "./video_articles.module.css";
 import { firestore } from "../../../utils/firebase.utils";
@@ -21,7 +21,7 @@ import SearchMore from "./SearchMore";
 import GroupButtons from "./GroupButtons";
 
 
-function Article({ topicId }) {
+function Article({ topicId, topicName }) {
   const [videoData, setVideoData] = useState([]);
   const [articleData, setArticleData] = useState([]);
 
@@ -79,11 +79,10 @@ function Article({ topicId }) {
   }, [topicId]);
 
   const getData = async () => {
-
-    const doc = await firestore.collection('accomodation_live').doc(topicId).get();
+    const doc = await firestore.collection(topicName.toLocaleLowerCase()).doc(topicId).get();
 
     if (!doc.exists) {
-      console.log('no');
+      console.log('no data');
     } else {
       setData(doc.data().videoData)
       setVideoData(doc.data().videoData)
@@ -91,7 +90,6 @@ function Article({ topicId }) {
       setSlideShow(doc.data().news)
     }
   }
-
 
   const handleSize = () => {
     //setting rowSize while resized

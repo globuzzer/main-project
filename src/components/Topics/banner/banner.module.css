@@ -156,7 +156,7 @@
 .selectperson ul {
   padding-left: 0px;
   margin-top: 0px;
-} 
+}
 
 .selectperson li {
   font-size: 18px;
@@ -191,6 +191,10 @@
   justify-content: space-around;
 }
 
+.listIcon {
+  width: 50px;
+}
+
 .listitem {
   width: 100%;
   max-width: 1395px;
@@ -212,6 +216,12 @@
 
 .listflex span {
   margin: 5px 0;
+}
+
+.listflex span:first-child {
+  height: 60px;
+  display: flex;
+  align-items: center;
 }
 
 .listIcon {
@@ -519,8 +529,8 @@
 }
 
 @media screen and (max-width: 500px) {
-  .list-icon {
-    font-size: 35px;
+  .listIcon {
+    width: 35px;
   }
 
   .listflex span:last-child {

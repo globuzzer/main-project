@@ -14,6 +14,7 @@ import City from "./pages/City/index";
 import ScrollToTop from "./utils/ScrollToTop";
 import CityTopic from "./pages/Topic/CityTopic";
 import Landing from "./Landing";
+import TravelBlog from './pages/TravelBlog/index';
 const Home = lazy(() => import("./pages/Home"));
 
 const App = () => {
@@ -22,8 +23,8 @@ const App = () => {
 
   return (
     <>
-      {pathname !== "/" && pathname !== "/signup" && pathname !== "/own-city-section" && (
-        <NavBar pathname={pathname} />
+      {pathname !== "/" && pathname !== "/signup" && pathname !== "/own-city-section" && pathname !== "/travel-blog" && (
+        <NavBar pathname={pathname.replace('/', '')} />
       )}
       {pathname === "/" && (
         <Navigation />
@@ -55,6 +56,10 @@ const App = () => {
         </Route>
         <Route path="/signup">
           <SignUp />
+        </Route>
+
+        <Route path='/travel-blog'>
+          <TravelBlog />
         </Route>
 
         <Route path='/index.html'>

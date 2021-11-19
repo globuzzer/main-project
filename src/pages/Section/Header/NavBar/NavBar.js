@@ -29,11 +29,17 @@ const NavBar = ({ pathname }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentCity, setCurrentCity] = useState(null);
 
-  const loginPath = pathname === '/' 
-    ? "https://globuzzer.mn.co/sign_in" 
+  //update for topics
+  const cityPath = pathname.split('/')[0];
+  const topicPath = pathname.split('/')[1];
+
+  const [topicList, setTopicList] = useState({});
+
+  const loginPath = pathname === '/'
+    ? "https://globuzzer.mn.co/sign_in"
     : `https://globuzzer.mn.co/sign_in?from=https%3A%2F%2Fglobuzzer.mn.co%2FgroupsC5389%3Fautojoin%3D1&space_id=${oldSections[pathname.replace('/', '').toLowerCase()]}`;
 
-    const signupPath = `https://globuzzer.mn.co/sign_up?from=https%3A%2F%2Fglobuzzer.mn.co%2FgroupsC5389%3Fautojoin%3D1&space_id=${oldSections[pathname.replace('/', '')]}`;
+  const signupPath = `https://globuzzer.mn.co/sign_up?from=https%3A%2F%2Fglobuzzer.mn.co%2FgroupsC5389%3Fautojoin%3D1&space_id=${oldSections[pathname.replace('/', '')]}`;
 
   const handleScroll = () => {
     if (window.pageYOffset > 60) return setScroll(true);
@@ -41,15 +47,15 @@ const NavBar = ({ pathname }) => {
   };
 
   const recentVisited = (array, item, length) => {
-      // let unique = [...new Set(array)];
-      let transform = []
-      if (item !== '/' && Object.keys(oldSections).includes(item.replace('/','').toLowerCase())) {
-          transform = array.unshift(item) > length ? array.pop() : null;
-      }
-      let unique = [...new Set(transform)];
-      return unique;
-    };
-    
+    // let unique = [...new Set(array)];
+    let transform = []
+    if (item !== '/' && Object.keys(oldSections).includes(item.replace('/', '').toLowerCase())) {
+      transform = array.unshift(item) > length ? array.pop() : null;
+    }
+    let unique = [...new Set(transform)];
+    return unique;
+  };
+
   useEffect(() => {
     const unsubscribe = firestore
       .collection("section_live")
@@ -61,15 +67,21 @@ const NavBar = ({ pathname }) => {
           ...doc.data()
         }));
         // setCollection(newCity);
-        setCurrentCity(newCity.filter((c) => c.name.toLowerCase() === pathname.replace('/', '').toLowerCase())[0]);
+        setCurrentCity(newCity.filter((c) => c.name.toLowerCase() === cityPath.toLowerCase())[0]);
+
+        //set topic list with name and id
+        if (topicPath) {
+          const current = newCity.filter((c) => c.name.toLowerCase() === cityPath.toLowerCase())[0];
+          getTopicList(current);
+        }
       });
-      return () => unsubscribe();
+    return () => unsubscribe();
   }, [pathname]);
 
   useEffect(() => {
     recentVisited(visited, pathname, 3);
-    localStorage.setItem("visited",JSON.stringify([...new Set(visited)]))
-  },[pathname]);
+    localStorage.setItem("visited", JSON.stringify([...new Set(visited)]))
+  }, [pathname]);
 
   const currentTemp = () => {
     let key = apiKey;
@@ -79,10 +91,10 @@ const NavBar = ({ pathname }) => {
       axios
         .get(
           "https://api.openweathermap.org/data/2.5/weather?id=" +
-            id +
-            "&appid=" +
-            key +
-            "&units=metric"
+          id +
+          "&appid=" +
+          key +
+          "&units=metric"
         )
         .then((data) => {
           const temp = Math.ceil(data.data.main.temp);
@@ -100,11 +112,39 @@ const NavBar = ({ pathname }) => {
     window.addEventListener("scroll", handleScroll);
   }, []);
 
+  const getTopicList = city => {
+    const cityObj = {};
+    city.topics.map(topic => {
+      const key = topic.text.toLowerCase();
+      const value = topic.id;
+
+      cityObj[`${key}`] = value
+    })
+
+    setTopicList(cityObj)
+  }
+
+  const linkToTopic = topic => {
+    const topicName = topic.text.toLowerCase();
+
+    return (
+      <Link to={{
+        pathname: `/${cityPath}/${topicName}`,
+        state: {
+          topicId: topicList[`${topicName}`],
+          topicName: topicName
+        }
+      }}>
+        <li>{topic.text}</li>
+      </Link>
+    )
+  }
+
   const navStyle = () => {
     if (scroll) {
       return {
         backgroundColor: "rgba(128, 128, 128, 0.6)",
-        scrollBehavior:"smooth"
+        scrollBehavior: "smooth"
       };
     }
   };
@@ -142,12 +182,12 @@ const NavBar = ({ pathname }) => {
           <nav className={styles.destination}>
             <ul>
               <p className={styles.recently}>Recently:</p>
-              {[...new Set(visited)].map((city) => {
+              {[...new Set(visited)].map((city, index) => {
                 const recent = city.replace('/', '');
                 if (recent !== '') {
                   return (
-                    <Link to={city}>
-                      <li>{recent}</li>
+                    <Link key={index} to={city}>
+                      <li key={index}>{recent}</li>
                     </Link>
                   )
                 }
@@ -158,22 +198,22 @@ const NavBar = ({ pathname }) => {
               <p>All destinations:</p>
             </ul>
             <ul>
-              {Object.keys(oldSections).slice(0, 4).map((section) => (
-                <Link to={`/${section}`}>
+              {Object.keys(oldSections).slice(0, 4).map((section, index) => (
+                <Link key={index} to={`/${section}`}>
                   <li>{section}</li>
                 </Link>
               ))}
             </ul>
             <ul>
-              {Object.keys(oldSections).slice(5, 9).map((section) => (
-                <Link to={`/${section}`}>
+              {Object.keys(oldSections).slice(5, 9).map((section, index) => (
+                <Link key={index} to={`/${section}`}>
                   <li>{section}</li>
                 </Link>
               ))}
             </ul>
             <ul>
-              {Object.keys(oldSections).slice(10, 14).map((section) => (
-                <Link to={`/${section}`}>
+              {Object.keys(oldSections).slice(10, 14).map((section, index) => (
+                <Link key={index} to={`/${section}`}>
                   <li>{section}</li>
                 </Link>
               ))}
@@ -202,42 +242,6 @@ const NavBar = ({ pathname }) => {
           </nav>
         </li>
 
-        {/* <li className={styles.service}>
-          Services
-          <IconContext.Provider value={{ className: "dropdown" }}>
-            <RiArrowDropDownFill />
-          </IconContext.Provider>
-          <nav className={styles.destination}>
-            <ul>
-              <div>
-                <IconContext.Provider value={{ className: "bs-search" }}>
-                  <BsSearch className={styles.search} />
-                </IconContext.Provider>
-                <input type="text" placeholder="Search for services here..." />
-              </div>
-
-              <p className={styles.recently}>Recently:</p>
-              <li>Flight</li>
-              <li>Hotel</li>
-            </ul>
-
-            <ul>
-              <p>All services:</p>
-            </ul>
-
-            <ul>
-              <li>Event</li>
-              <li>Restaurant</li>
-            </ul>
-
-            <ul>
-              <li>Transportation</li>
-              <li>Job</li>
-              <li>Flight</li>
-            </ul>
-          </nav>
-        </li> */}
-
         <li className={styles.topic}>
           Topics
           <IconContext.Provider value={{ className: "dropdown" }}>
@@ -253,49 +257,29 @@ const NavBar = ({ pathname }) => {
             <ul>
               <p>All topics:</p>
             </ul>
-              {currentCity && (
+            {currentCity && (
               <>
                 <ul>
-                  {currentCity.topics.slice(0, 4).map((topic) => (
-                    <Link to="#">
-                      <li>{topic.text}</li>
-                    </Link>
-                  ))}
+                  {currentCity.topics.slice(0, 4).map((topic) => linkToTopic(topic))}
                 </ul>
-    
+
                 <ul>
-                  {currentCity.topics.slice(5, 9).map((topic) => (
-                    <Link to="#">
-                      <li>{topic.text}</li>
-                    </Link>
-                  ))}
+                  {currentCity.topics.slice(5, 9).map((topic) => linkToTopic(topic))}
                 </ul>
-    
+
                 <ul>
-                  {currentCity.topics.slice(10, 14).map((topic) => (
-                    <Link to="#">
-                      <li>{topic.text}</li>
-                    </Link>
-                  ))}
+                  {currentCity.topics.slice(10, 14).map((topic) => linkToTopic(topic))}
                 </ul>
-    
+
                 <ul>
-                  {currentCity.topics.slice(15, 19).map((topic) => (
-                    <Link to="#">
-                      <li>{topic.text}</li>
-                    </Link>
-                  ))}
+                  {currentCity.topics.slice(15, 19).map((topic) => linkToTopic(topic))}
                 </ul>
-    
+
                 <ul>
-                  {currentCity.topics.slice(20, 24).map((topic) => (
-                    <Link to="#">
-                      <li>{topic.text}</li>
-                    </Link>
-                  ))}
+                  {currentCity.topics.slice(20, 24).map((topic) => linkToTopic(topic))}
                 </ul>
               </>
-              )} 
+            )}
           </nav>
         </li>
 
@@ -318,21 +302,21 @@ const NavBar = ({ pathname }) => {
           </span>
 
           <div className={styles.loginBtn}>
-          <a
-          type="button"
-          className="navigation_button"
-          id="button_login"
-          href={loginPath}
-        >
-          Login
-        </a>
+            <a
+              type="button"
+              className="navigation_button"
+              id="button_login"
+              href={loginPath}
+            >
+              Login
+            </a>
           </div>
           {pathname === '/' ? (
             <Link to='/signup'>
               <button className={styles.signUpBtn}>Sign Up</button>
             </Link>
           ) : (
-            <a 
+            <a
               href={signupPath}
             >
               <button className={styles.signUpBtn}>Sign Up</button>
@@ -343,12 +327,12 @@ const NavBar = ({ pathname }) => {
     </div>
   );
 
-// -------------------------------
+  // -------------------------------
   const NavMobileMenu = () => (
     <div style={{ display: "flex" }}>
       {isOpen && (
         <div
-          onKeyDown={() => {}}
+          onKeyDown={() => { }}
           tabIndex={0}
           role="button"
           style={{
@@ -429,7 +413,7 @@ const NavBar = ({ pathname }) => {
       <NavMobileMenu />
     </section>
   );
-// ----------------------------
+  // ----------------------------
 
   return <>{width > 1100 ? <DesktopNav /> : <NavMobile />}</>;
 };

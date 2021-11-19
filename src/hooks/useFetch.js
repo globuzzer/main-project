@@ -2,30 +2,37 @@ import { useEffect, useState } from 'react';
 import { firestore } from "../utils/firebase.utils";
 
 const useFetch = (collection) => {
-  // const [data, setData] = useState({
-  //   error: null,
-  //   loading: true,
-  //   items: {},
-  // });
-  const [loading, setLoading] = useState(true);
-  const [items, setItems] = useState({});
+  const [data, setData] = useState({
+    error: null,
+    loading: true,
+    items: [],
+  });
 
   useEffect(() => {
     const unsubscribe = firestore
       .collection(collection)
       .onSnapshot(
         (snapshot) => {
-          setLoading(false);
-            snapshot.docs.map((doc) => (
-              setItems({ ...items,
-              [doc.id]: doc.data()}
-            )),
-          );
+          setData({
+            error: null,
+            loading: false,
+            items: snapshot.docs.map((doc) => ({
+              id: doc.id,
+              ...doc.data()
+            })),
+          });
+        },
+        (error) => {
+          setData({
+            error: error,
+            loading: false,
+            items: [],
+          });
         },
       );
-      return () => unsubscribe();
+    return () => unsubscribe();
   }, [collection]);
-  return {loading, items};
+  return data;
 };
 
 export default useFetch;

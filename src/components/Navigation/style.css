@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90px;
+  height: 80px;
   width: 100%;
   position: fixed;
   top: 0;
@@ -43,10 +43,10 @@
   color: #ffffff;
 }
 
-button {
+/* button {
   width: 97px;
   height: 25.94px;
-}
+} */
 
 .navigation_center {
   display: flex;
@@ -183,7 +183,7 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  flex: 1;
+  flex: 1 1;
   border-bottom: 1px solid #5f5d73;
 }
 
@@ -244,4 +244,10 @@ button {
 #mob_sign {
   border: 1px solid #f24b6a;
   border-radius: 5px;
+}
+
+@media screen and (max-width: 500px) {
+  .section_navigation img {
+    width: 80%;
+  }
 }

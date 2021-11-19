@@ -7,7 +7,7 @@ const Spinner = () => {
     <div className={styles.box}>
       <div></div>
       <div>
-      <img src={spinner} alt="loading"/>
+        <img src={spinner} alt="loading" />
       </div>
       <div></div>
     </div>
